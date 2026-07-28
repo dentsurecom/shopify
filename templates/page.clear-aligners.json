@@ -272,9 +272,7 @@
         "heading": "Add aligners to your practice.",
         "text": "Get a walkthrough of the mentorship program and send your first case.",
         "button_label": "Book a demo",
-        "button_link": "/pages/book-a-demo",
-        "show_form": true,
-        "form_button": "Book a demo"
+        "button_link": "/pages/book-a-demo"
       }
     }
   },
