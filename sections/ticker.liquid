@@ -3,7 +3,7 @@
 -%}
 
 <div
-  class="ds-ticker{% if section.settings.color_scheme == 'light' %} ds-ticker--light{% endif %}"
+  class="ds-ticker{% if section.settings.color_scheme == 'light' %} ds-ticker--light{% elsif section.settings.color_scheme == 'green' %} ds-ticker--green{% endif %}"
   style="--ds-ticker-speed: {{ speed }}s"
   aria-label="{{ section.settings.aria_label | default: 'Highlights' | escape }}"
 >
@@ -34,7 +34,8 @@
       "label": "Colour scheme",
       "options": [
         { "value": "ink", "label": "Ink" },
-        { "value": "light", "label": "Light" }
+        { "value": "light", "label": "Light" },
+        { "value": "green", "label": "Green" }
       ],
       "default": "ink"
     },

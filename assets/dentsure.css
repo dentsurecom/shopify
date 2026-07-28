@@ -870,6 +870,7 @@ button {
   background: var(--ds-white);
   border-bottom: 1px solid #f0eef3;
 }
+.ds-ticker--green { background: var(--ds-teal); }
 
 .ds-ticker__track {
   display: inline-flex;
@@ -891,11 +892,14 @@ button {
   color: var(--ds-white);
 }
 .ds-ticker--light .ds-ticker__group { color: #3c3550; }
+.ds-ticker--green .ds-ticker__group { color: var(--ds-ink); }
 
 .ds-ticker__dot { font-size: 15px; line-height: 1; }
 .ds-ticker__dot:nth-of-type(odd) { color: var(--ds-teal); }
 .ds-ticker__dot:nth-of-type(even) { color: var(--ds-lilac-mid); }
 .ds-ticker--light .ds-ticker__dot:nth-of-type(even) { color: var(--ds-purple); }
+.ds-ticker--green .ds-ticker__dot:nth-of-type(odd) { color: var(--ds-purple); }
+.ds-ticker--green .ds-ticker__dot:nth-of-type(even) { color: var(--ds-white); }
 
 @keyframes ds-ticker-scroll {
   from { transform: translateX(0); }
