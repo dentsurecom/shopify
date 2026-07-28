@@ -15,7 +15,7 @@
         "eyebrow": "Lab Services · Removables",
         "heading": "Guards with less chairtime, fewer adjustments.",
         "heading_size": "default",
-        "text": "Night guards and splints your patients won’t mind wearing every night — milled to spec, added to any restorative case in one click.",
+        "text": "A clear night guard your patients won’t mind wearing every night — thermoformed to their scan, added to any restorative case in one click.",
         "partner_label": "Retainer aftercare via <b>OrthoClear Bite Club</b>",
         "partner_link": "https://www.ortho-clear.com/pages/bite-club",
         "button_label": "Book a demo",
@@ -35,7 +35,7 @@
           "settings": {
             "label": "Comfort",
             "title": "Durability patients love",
-            "text": "Our hard/soft 3D-printed guard uses thermodynamic technology for a cloud-like fit — which means higher case acceptance and nightly wear.",
+            "text": "Our clear, thermoformed guard fits like a retainer — comfort that means higher case acceptance and nightly wear.",
             "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-0446.jpg"
           }
         },
@@ -72,103 +72,56 @@
       }
     },
     "appliances": {
-      "type": "material-list",
+      "type": "media-text",
       "blocks": {
-        "a1": {
-          "type": "material",
+        "b1": {
+          "type": "item",
           "settings": {
-            "title": "Hard/Soft 3D-Printed Night Guard",
-            "text": "Strength against bruxism with thermodynamic flexibility for cloud-like comfort. Adjustable in hot water.",
-            "spec": "Adjustable fit",
-            "image_url": ""
+            "text": "Clear and thermoformed — comfortable enough for nightly wear"
           }
         },
-        "a2": {
-          "type": "material",
+        "b2": {
+          "type": "item",
           "settings": {
-            "title": "Hard Night Guard",
-            "text": "Thermoformed, fully hard material — maximum protection for severe clenching and bruxism.",
-            "spec": "Severe bruxism",
-            "image_url": ""
+            "text": "Protects against grinding and doubles as a retainer"
           }
         },
-        "a3": {
-          "type": "material",
+        "b3": {
+          "type": "item",
           "settings": {
-            "title": "Soft Night Guard",
-            "text": "Comfortable and effective against jaw pain, soreness, and headaches — best for mild cases.",
-            "spec": "Mild cases",
-            "image_url": ""
+            "text": "Case and models included with every guard"
           }
         },
-        "a4": {
-          "type": "material",
+        "b4": {
+          "type": "item",
           "settings": {
-            "title": "Hard/Soft Dual-Laminate",
-            "text": "Hard outer layer fused to a soft lining — durability with everyday comfort.",
-            "spec": "Everyday comfort",
-            "image_url": ""
-          }
-        },
-        "a5": {
-          "type": "material",
-          "settings": {
-            "title": "Astron CLEARsplint",
-            "text": "Hard-guard strength that can be heat-adjusted for a more comfortable fit. Casted or milled.",
-            "spec": "Heat-adjustable",
-            "image_url": ""
-          }
-        },
-        "a6": {
-          "type": "material",
-          "settings": {
-            "title": "NTI Splint",
-            "text": "Small anterior device (teeth #6–9) that inhibits bruxism and relieves TMJ and temporal headaches.",
-            "spec": "TMJ relief",
-            "image_url": ""
-          }
-        },
-        "a7": {
-          "type": "material",
-          "settings": {
-            "title": "Anterior Deprogrammer",
-            "text": "Full-arch coverage with an anterior ramp that retrains jaw muscles and prevents bruxism.",
-            "spec": "Full-arch",
-            "image_url": ""
-          }
-        },
-        "a8": {
-          "type": "material",
-          "settings": {
-            "title": "Dawson B-Splint & Gelb Appliance",
-            "text": "Specialty appliances for jaw repositioning, stress relief, and controlled vertical opening.",
-            "spec": "Specialty",
-            "image_url": ""
+            "text": "Add it to any restorative case in one click"
           }
         }
       },
       "block_order": [
-        "a1",
-        "a2",
-        "a3",
-        "a4",
-        "a5",
-        "a6",
-        "a7",
-        "a8"
+        "b1",
+        "b2",
+        "b3",
+        "b4"
       ],
       "settings": {
-        "eyebrow": "",
-        "heading": "Every splint and guard we make",
-        "text": "From mild clenching to complex TMJ cases.",
-        "background": "soft"
+        "eyebrow": "The product",
+        "heading": "One night guard. Done right.",
+        "text": "A single clear, retainer-style night guard — thermoformed to your scan, so there’s no catalogue to decode and nothing to configure.",
+        "fallback_asset": "night-guards.jpg",
+        "image_alt": "Clear night guard",
+        "media_position": "right",
+        "media_width": "half",
+        "background": "soft",
+        "reveal": true
       }
     },
     "craft": {
       "type": "video-band",
       "settings": {
-        "heading": "Milled to spec.<br>Checked twice.",
-        "text": "Every guard is designed, milled, and quality-checked in our own facility — never outsourced.",
+        "heading": "Made to spec.<br>Checked twice.",
+        "text": "Every guard is made and quality-checked in our own facility — never outsourced.",
         "height": 560,
         "overlay_opacity": 22,
         "video_url": "https://www.ortho-clear.com/cdn/shop/videos/c/vp/5307b2493fca4d0c948f704187d38c9d/5307b2493fca4d0c948f704187d38c9d.HD-1080p-7.2Mbps-26212345.mp4?v=0",
@@ -188,15 +141,15 @@
         "q2": {
           "type": "question",
           "settings": {
-            "question": "Can guards be adjusted after delivery?",
-            "answer": "<p>Yes — our hard/soft 3D-printed guards are adjustable after being placed in hot water.</p>"
+            "question": "Can I add a guard to a restorative case I'm already sending?",
+            "answer": "<p>Yes — add it to the same scan in one click. We save your scans, so reordering takes seconds.</p>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "What do you recommend for a serious grinder with TMJ issues?",
-            "answer": "<p>For the most serious bruxism cases, we recommend hard material at 4 mm thickness.</p>"
+            "question": "What about retainer aftercare for patients?",
+            "answer": "<p>Ongoing retainer aftercare is available for your patients through OrthoClear Bite Club.</p>"
           }
         }
       },

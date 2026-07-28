@@ -27,14 +27,63 @@
     "crowns": {
       "type": "price-list",
       "blocks": {
-        "r1": { "type": "row", "settings": { "label": "Monolithic Zirconia (3Y)", "price": "$89", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg" } },
-        "r2": { "type": "row", "settings": { "label": "Aesthetic Zirconia", "price": "$109", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg" } },
-        "r3": { "type": "row", "settings": { "label": "eMax", "price": "$119", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png" } },
-        "r4": { "type": "row", "settings": { "label": "PFM", "price": "$129", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png" } },
-        "r5": { "type": "row", "settings": { "label": "PFZ", "price": "$149", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png" } },
-        "r6": { "type": "row", "settings": { "label": "Full Metal (high-noble)", "price": "$159 + alloy", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png" } }
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Monolithic Zirconia (3Y)",
+            "price": "$89",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "label": "Aesthetic Zirconia",
+            "price": "$109",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "label": "eMax",
+            "price": "$119",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "label": "PFM",
+            "price": "$129",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "label": "PFZ",
+            "price": "$149",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png"
+          }
+        },
+        "r6": {
+          "type": "row",
+          "settings": {
+            "label": "Full Metal (high-noble)",
+            "price": "$159 + alloy",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6"
+      ],
       "settings": {
         "heading": "Crowns & Bridges",
         "link_label": "Explore crowns",
@@ -78,7 +127,11 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
         "style": "price",
         "heading": "Clear Aligners",
@@ -92,19 +145,22 @@
     "guards": {
       "type": "price-list",
       "blocks": {
-        "r1": { "type": "row", "settings": { "label": "Soft Night Guard", "price": "$45" } },
-        "r2": { "type": "row", "settings": { "label": "Hard Night Guard", "price": "$59" } },
-        "r3": { "type": "row", "settings": { "label": "Hard/Soft Dual-Laminate", "price": "$79" } },
-        "r4": { "type": "row", "settings": { "label": "NTI Splint", "price": "$85" } },
-        "r5": { "type": "row", "settings": { "label": "Hard/Soft 3D-Printed", "price": "$99" } },
-        "r6": { "type": "row", "settings": { "label": "Specialty splints (Dawson, Gelb, deprogrammer)", "price": "from $115" } }
+        "r1": {
+          "type": "row",
+          "settings": {
+            "label": "Clear Night Guard (Retainer)",
+            "price": "$45"
+          }
+        }
       },
-      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
+      "block_order": [
+        "r1"
+      ],
       "settings": {
-        "heading": "Night Guards & Splints",
-        "link_label": "Explore guards",
+        "heading": "Night Guards",
+        "link_label": "Explore night guards",
         "link": "/pages/night-guards-splints",
-        "note": "",
+        "note": "Per guard · case and models included · free shipping both ways",
         "padding_bottom": true
       }
     },
@@ -144,7 +200,12 @@
           }
         }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
       "settings": {
         "heading": "Always included, at every price",
         "heading_align": "center",
@@ -164,5 +225,12 @@
       }
     }
   },
-  "order": ["hero", "crowns", "aligners", "guards", "included", "cta"]
+  "order": [
+    "hero",
+    "crowns",
+    "aligners",
+    "guards",
+    "included",
+    "cta"
+  ]
 }

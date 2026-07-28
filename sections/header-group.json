@@ -38,9 +38,9 @@
           "type": "service",
           "settings": {
             "fallback_asset": "night-guards.jpg",
-            "title": "Night Guards & Splints",
-            "description": "Hard, soft, and dual-laminate, milled to spec.",
-            "price": "from $45",
+            "title": "Night Guards",
+            "description": "A clear, retainer-style guard, thermoformed to spec.",
+            "price": "$45",
             "link": "/pages/night-guards-splints"
           }
         }
