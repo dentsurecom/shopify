@@ -153,7 +153,7 @@
           "type": "service",
           "settings": {
             "title": "Crowns & Bridges",
-            "text": "Zirconia, eMax, and PFM — back in 5 days.",
+            "text": "Crowns, veneers, inlays/onlays & bridges — back in 5 days.",
             "fallback_asset": "crowns-bridges.jpg",
             "image_fit": "cover",
             "price": "From $89",
