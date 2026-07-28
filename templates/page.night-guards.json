@@ -47,6 +47,7 @@
         "c2": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/trays.png",
             "fallback_asset": "",
             "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg",
             "label": "One click",
