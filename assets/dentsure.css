@@ -1799,6 +1799,33 @@ button {
   .ds-steps { gap: 20px; }
   .ds-step.is-active { transform: none; }
 }
+@media (max-width: 749px) {
+  /* On phones the steps become an edge-bleeding swipe row under the media;
+     the snapped card drives the image crossfade. */
+  .ds-steps {
+    flex-direction: row;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding: 10px var(--ds-pad);
+    margin-block: -10px;
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-steps::-webkit-scrollbar { display: none; }
+  .ds-step {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+    background: var(--ds-white);
+    border: 1px solid var(--ds-line);
+    border-left: 3px solid transparent;
+    border-radius: 16px;
+    padding: 18px;
+  }
+}
 
 /* --------------------------------------------------------------------------
    24. Timeline

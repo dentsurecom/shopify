@@ -413,11 +413,31 @@
         el.addEventListener('click', focus);
       });
 
+      // On phones the steps become a swipe row: the snapped card drives the
+      // selection (and the media crossfade), so the timer stays out of it —
+      // auto-cycling would highlight an off-screen card.
+      if (window.matchMedia('(max-width: 749px)').matches) {
+        this.auto = false;
+        if ('IntersectionObserver' in window) {
+          this._io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var idx = self.steps.indexOf(entry.target);
+              if (idx > -1) self.select(idx);
+            });
+          }, { root: this, threshold: 0.65 });
+          this.steps.forEach(function (el) { self._io.observe(el); });
+        }
+      }
+
       this.select(0);
       if (this.auto) this.start(this.interval);
     }
 
-    disconnectedCallback() { this.stop(); }
+    disconnectedCallback() {
+      this.stop();
+      if (this._io) this._io.disconnect();
+    }
 
     select(i) {
       this.index = i;
