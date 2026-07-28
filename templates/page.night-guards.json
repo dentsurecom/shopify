@@ -16,15 +16,18 @@
         "heading": "Guards with less chairtime, fewer adjustments.",
         "heading_size": "default",
         "text": "A clear night guard your patients won’t mind wearing every night — thermoformed to their scan, added to any restorative case in one click.",
-        "partner_label": "Retainer aftercare via <b>OrthoClear Bite Club</b>",
-        "partner_link": "https://www.ortho-clear.com/pages/bite-club",
         "button_label": "Book a demo",
         "button_link": "/pages/book-a-demo",
         "button_2_label": "Get pricing",
         "button_2_link": "/pages/pricing",
+        "partner_label": "Retainer aftercare via <b>OrthoClear Bite Club</b>",
+        "partner_link": "https://www.ortho-clear.com/pages/bite-club",
         "media_style": "image",
         "fallback_asset": "night-guards.jpg",
-        "image_alt": "Night guard demonstration"
+        "image_url": "",
+        "image_alt": "Night guard demonstration",
+        "chip_title": "Helios 700",
+        "chip_text": "Wireless · 16µm accuracy · $0 upfront"
       }
     },
     "benefits": {
@@ -33,28 +36,32 @@
         "c1": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/guard.png",
+            "fallback_asset": "",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-0446.jpg",
             "label": "Comfort",
             "title": "Durability patients love",
-            "text": "Our clear, thermoformed guard fits like a retainer — comfort that means higher case acceptance and nightly wear.",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-0446.jpg"
+            "text": "Our clear, thermoformed guard fits like a retainer — comfort that means higher case acceptance and nightly wear."
           }
         },
         "c2": {
           "type": "column",
           "settings": {
+            "fallback_asset": "",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg",
             "label": "One click",
             "title": "Add to any restorative case",
-            "text": "Protect that new crown or implant by adding a guard to the same scan. We save scans, so reordering takes seconds.",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg"
+            "text": "Protect that new crown or implant by adding a guard to the same scan. We save scans, so reordering takes seconds."
           }
         },
         "c3": {
           "type": "column",
           "settings": {
+            "fallback_asset": "",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-9231.jpeg",
             "label": "Profitability",
             "title": "An easy add, no extra visits",
-            "text": "Bruxism and TMJ cases are rising. Offer guards without adding work or appointments — insurance on the dentistry you just delivered.",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-9231.jpeg"
+            "text": "Bruxism and TMJ cases are rising. Offer guards without adding work or appointments — insurance on the dentistry you just delivered."
           }
         }
       },
@@ -65,10 +72,12 @@
       ],
       "settings": {
         "heading": "",
+        "heading_align": "left",
         "columns": 3,
         "show_images": true,
+        "border_top": true,
         "background": "white",
-        "border_top": true
+        "reveal": true
       }
     },
     "appliances": {
@@ -109,10 +118,14 @@
         "eyebrow": "The product",
         "heading": "One night guard. Done right.",
         "text": "A single clear, retainer-style night guard — thermoformed to your scan, so there’s no catalogue to decode and nothing to configure.",
+        "button_label": "",
+        "button_link": "",
         "fallback_asset": "night-guards.jpg",
+        "image_url": "",
         "image_alt": "Clear night guard",
         "media_position": "right",
         "media_width": "half",
+        "media_height": "default",
         "background": "soft",
         "reveal": true
       }
@@ -160,8 +173,11 @@
       ],
       "settings": {
         "heading": "Frequently asked questions",
+        "note": "Have more questions? Get in touch with our team directly.",
+        "button_label": "Get in touch",
         "button_link": "/pages/book-a-demo",
-        "background": "white"
+        "background": "white",
+        "reveal": true
       }
     },
     "cta": {
@@ -171,7 +187,8 @@
         "heading": "Protect every case you seat.",
         "text": "Add a guard to your next restorative case in one click.",
         "button_label": "Book a demo",
-        "button_link": "/pages/book-a-demo"
+        "button_link": "/pages/book-a-demo",
+        "reveal": true
       }
     }
   },
