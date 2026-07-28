@@ -115,28 +115,32 @@
           "type": "column",
           "settings": {
             "title": "Helios 700 scanner",
-            "text": "$0 upfront with your first case — installed and trained by us."
+            "text": "$0 upfront with your first case — installed and trained by us.",
+            "image_url": "https://www.ortho-clear.com/cdn/shop/files/M9405105-Edit.jpg?v=1782979578&width=1200"
           }
         },
         "c2": {
           "type": "column",
           "settings": {
             "title": "Dedicated technician",
-            "text": "Chat, video, and chairside scan review on every case."
+            "text": "Chat, video, and chairside scan review on every case.",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg"
           }
         },
         "c3": {
           "type": "column",
           "settings": {
             "title": "Free shipping",
-            "text": "Both ways, on every case — no volume requirements."
+            "text": "Both ways, on every case — no volume requirements.",
+            "image": "shopify://shop_images/DS-Pack-1.png"
           }
         },
         "c4": {
           "type": "column",
           "settings": {
             "title": "Lifetime warranty",
-            "text": "On all fixed restorations. No questions asked."
+            "text": "On all fixed restorations. No questions asked.",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg"
           }
         }
       },
@@ -145,7 +149,7 @@
         "heading": "Always included, at every price",
         "heading_align": "center",
         "columns": 4,
-        "show_images": false,
+        "show_images": true,
         "background": "soft"
       }
     },
