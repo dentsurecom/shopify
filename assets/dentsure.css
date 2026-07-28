@@ -20,6 +20,7 @@
   --ds-lilac-line: #e0cbec;
   --ds-purple-line: #a85cc4;
   --ds-teal: #45d6bc;
+  --ds-teal-soft: #e9faf6;
   --ds-green: #0e9e85;
 
   /* Neutrals */
@@ -566,7 +567,7 @@ button {
   transition: background 0.25s;
 }
 .ds-mega__card > :first-child { margin-top: 0; }
-.ds-mega__card:hover { background: var(--ds-purple-soft); color: var(--ds-ink); }
+.ds-mega__card:hover { background: var(--ds-teal-soft); color: var(--ds-ink); }
 
 .ds-mega__media {
   height: 120px;
