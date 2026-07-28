@@ -1213,7 +1213,10 @@ button {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     margin-inline: calc(-1 * var(--ds-pad));
-    padding-inline: var(--ds-pad);
+    /* The block padding gives the enlarged active card room to grow without
+       the scroll container clipping it. */
+    padding: 10px var(--ds-pad);
+    margin-block: -10px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1236,6 +1239,8 @@ button {
   }
   .ds-service:last-child { border-bottom: 0; }
   .ds-service::before { border-radius: 16px; }
+  /* No hover on touch — the card snapped into view enlarges instead. */
+  .ds-service.is-active { transform: scale(1.02); box-shadow: var(--ds-glow); }
   .ds-service__num { grid-area: num; }
   .ds-service__body { grid-area: title; }
   .ds-service__media { grid-area: media; height: 200px; }
