@@ -19,18 +19,20 @@
         "button_label": "Get a full price list",
         "button_link": "/pages/book-a-demo",
         "button_2_label": "",
-        "media_style": "none"
+        "media_style": "image",
+        "image": "shopify://shop_images/DS-Pack-1.png",
+        "image_alt": "DentSure case packaging"
       }
     },
     "crowns": {
       "type": "price-list",
       "blocks": {
-        "r1": { "type": "row", "settings": { "label": "Monolithic Zirconia (3Y)", "price": "$89" } },
-        "r2": { "type": "row", "settings": { "label": "Aesthetic Zirconia", "price": "$109" } },
-        "r3": { "type": "row", "settings": { "label": "eMax", "price": "$119" } },
-        "r4": { "type": "row", "settings": { "label": "PFM", "price": "$129" } },
-        "r5": { "type": "row", "settings": { "label": "PFZ", "price": "$149" } },
-        "r6": { "type": "row", "settings": { "label": "Full Metal (high-noble)", "price": "$159 + alloy" } }
+        "r1": { "type": "row", "settings": { "label": "Monolithic Zirconia (3Y)", "price": "$89", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg" } },
+        "r2": { "type": "row", "settings": { "label": "Aesthetic Zirconia", "price": "$109", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg" } },
+        "r3": { "type": "row", "settings": { "label": "eMax", "price": "$119", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png" } },
+        "r4": { "type": "row", "settings": { "label": "PFM", "price": "$129", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png" } },
+        "r5": { "type": "row", "settings": { "label": "PFZ", "price": "$149", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png" } },
+        "r6": { "type": "row", "settings": { "label": "Full Metal (high-noble)", "price": "$159 + alloy", "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png" } }
       },
       "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
       "settings": {

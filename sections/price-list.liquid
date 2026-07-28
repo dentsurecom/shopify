@@ -12,7 +12,20 @@
     <div class="ds-pricelist">
       {%- for block in section.blocks -%}
         <div class="ds-pricelist__row" {{ block.shopify_attributes }}>
-          <span>{{ block.settings.label }}</span>
+          {%- if block.settings.image != blank or block.settings.image_url != blank -%}
+            {% render 'media-image',
+              image: block.settings.image,
+              fallback_url: block.settings.image_url,
+              alt: block.settings.label,
+              class: 'ds-pricelist__thumb',
+              sizes: '48px'
+            %}
+          {%- else -%}
+            <span class="ds-pricelist__thumb ds-pricelist__thumb--mono" aria-hidden="true">
+              {{- forloop.index | prepend: '0' | slice: -2, 2 -}}
+            </span>
+          {%- endif -%}
+          <span class="ds-pricelist__label">{{ block.settings.label }}</span>
           <b>{{ block.settings.price }}</b>
         </div>
       {%- endfor -%}
@@ -70,6 +83,17 @@
       "type": "row",
       "name": "Row",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Thumbnail"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Thumbnail URL",
+          "info": "Used when no image is uploaded. Leave both empty for a numbered tile."
+        },
         {
           "type": "text",
           "id": "label",

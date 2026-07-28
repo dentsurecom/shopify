@@ -1932,13 +1932,35 @@ button {
 }
 .ds-pricelist__row {
   border-top: 1px solid var(--ds-line);
-  padding: 20px 0;
+  padding: 14px 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
   font-size: 17px;
 }
 .ds-pricelist__row b { font-family: var(--ds-font-heading), Poppins, sans-serif; }
+.ds-pricelist__label { flex: 1; }
+.ds-pricelist__thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: none;
+  background: var(--ds-purple-soft);
+  transition: transform 0.35s var(--ds-ease);
+}
+.ds-pricelist__thumb--mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ds-purple-soft), var(--ds-teal-soft));
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ds-purple);
+}
+.ds-pricelist__row:hover .ds-pricelist__thumb { transform: scale(1.1); }
 /* Close the list off with a rule under the final row of each column. */
 .ds-pricelist__row:nth-last-child(-n + 2) { border-bottom: 1px solid var(--ds-line); }
 @media (max-width: 989px) {
@@ -2026,7 +2048,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono, .ds-pricelist__thumb { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
