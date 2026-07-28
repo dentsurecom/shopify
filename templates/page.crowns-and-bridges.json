@@ -217,7 +217,7 @@
         "st3": {
           "type": "step",
           "settings": {
-            "image": "shopify://shop_images/M9402945.webp",
+            "image": "shopify://shop_images/model-bridge.png",
             "image_url": "",
             "label": "Computer-vision QC",
             "title": "No surprises at the chair",
