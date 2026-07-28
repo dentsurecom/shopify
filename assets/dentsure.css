@@ -450,8 +450,9 @@ button {
   border: 1px solid rgba(69, 214, 188, 0.35);
 }
 /* The hero continues the same ring the header clipped, so the arc reads as one
-   circle across the seam. */
-.ds-hero .ds-decor--ring { top: calc(-160px - var(--ds-header-h)); }
+   circle across the seam — subpage heroes line up the same way. */
+.ds-hero .ds-decor--ring,
+.ds-pagehero .ds-decor--ring { top: calc(-160px - var(--ds-header-h)); }
 .ds-decor--disc {
   right: 180px;
   bottom: -200px;
