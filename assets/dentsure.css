@@ -46,6 +46,12 @@
 
   /* Motion */
   --ds-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Shared hover glow — a tight contact shadow plus a wide teal halo,
+     used by every card and row that lifts on hover. */
+  --ds-glow:
+    0 6px 16px rgba(69, 214, 188, 0.2),
+    0 30px 64px rgba(69, 214, 188, 0.38);
 }
 
 @media (max-width: 1100px) {
@@ -1142,7 +1148,7 @@ button {
 }
 .ds-service:hover::before {
   background: var(--ds-purple-tint);
-  box-shadow: 0 18px 40px rgba(23, 18, 35, 0.12);
+  box-shadow: var(--ds-glow);
 }
 
 .ds-service__num {
@@ -1388,7 +1394,7 @@ button {
 }
 .ds-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 30px 60px rgba(23, 18, 35, 0.3);
+  box-shadow: var(--ds-glow);
   z-index: 2;
 }
 .ds-card img {
@@ -1574,7 +1580,7 @@ button {
 .ds-material:hover {
   transform: scale(1.03);
   background: var(--ds-white);
-  box-shadow: 0 18px 44px rgba(23, 18, 35, 0.12);
+  box-shadow: var(--ds-glow);
 }
 .ds-material__thumb {
   width: 76px;
@@ -1630,7 +1636,7 @@ button {
   border-left-color: var(--ds-teal);
   transform: scale(1.03);
   background: #f7fcfa;
-  box-shadow: 0 18px 44px rgba(23, 18, 35, 0.1);
+  box-shadow: var(--ds-glow);
 }
 .ds-step__num {
   font-family: var(--ds-font-heading), Poppins, sans-serif;
@@ -1867,14 +1873,10 @@ button {
   position: relative;
   transition: transform 0.35s var(--ds-ease), box-shadow 0.35s, border-color 0.35s;
 }
-/* The hovered plan floats up on a purple glow — a tight shadow for contact
-   and a wide tinted one for the brand colour — and its border joins in. */
 .ds-plan:hover {
   transform: translateY(-6px) scale(1.03);
-  border-color: var(--ds-purple);
-  box-shadow:
-    0 6px 16px rgba(122, 30, 158, 0.14),
-    0 30px 64px rgba(122, 30, 158, 0.28);
+  border-color: var(--ds-teal);
+  box-shadow: var(--ds-glow);
   z-index: 2;
 }
 .ds-plan--featured { border: 2px solid var(--ds-purple); }
