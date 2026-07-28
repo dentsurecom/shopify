@@ -1,0 +1,407 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-editorial",
+      "settings": {
+        "heading": "Sure scans.<br><em>Sure fits.</em><br>DentSure.",
+        "text": "The digital lab with a technician beside you on every case — from first scan to final seat.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo",
+        "button_2_label": "Get pricing",
+        "button_2_link": "/pages/pricing",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/662d9b7c3b8c4b40b7cc96249f5e721c.mp4",
+        "poster_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/meet-dandy-homepage-Background-Section@2x.webp"
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "text": "Trusted by 2,400+ practices"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "text": "5-day crown turnaround"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "text": "98.4% first-fit rate"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "text": "Free Helios 700 scanner"
+          }
+        },
+        "t5": {
+          "type": "item",
+          "settings": {
+            "text": "One dedicated technician per practice"
+          }
+        },
+        "t6": {
+          "type": "item",
+          "settings": {
+            "text": "No lab minimums"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6"
+      ],
+      "settings": {
+        "color_scheme": "ink",
+        "speed": 30,
+        "aria_label": "Why practices choose DentSure"
+      }
+    },
+    "statement": {
+      "type": "statement",
+      "settings": {
+        "heading": "One lab for the whole workflow — <span class=\"ds-accent\">scan</span>, <span class=\"ds-accent\">design</span>, <span class=\"ds-accent\">deliver</span>.",
+        "alignment": "left",
+        "background": "white",
+        "reveal": true
+      }
+    },
+    "scanner": {
+      "type": "scanner-showcase",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "title": "Cord-free scanning",
+            "text": "Streams over zero-latency WiFi so you can scan from any angle. USB fallback included.",
+            "hotspot_x": 34,
+            "hotspot_y": 9
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "title": "AI-assisted capture",
+            "text": "Onboard AI filters soft tissue, saliva, and motion in real time — clean models first pass.",
+            "hotspot_x": 60,
+            "hotspot_y": 37
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "title": "True-colour optics",
+            "text": "24-bit colour with a 20 mm depth of field — read margins and shade with confidence.",
+            "hotspot_x": 78,
+            "hotspot_y": 82
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "title": "All-day battery",
+            "text": "~100 minutes of scanning — about 60 cases — recharged on the wireless dock.",
+            "hotspot_x": 16,
+            "hotspot_y": 62
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "layout": "split",
+        "heading": "The scanner is on us.",
+        "link_label": "Meet the Helios 700",
+        "link": "/pages/scanner",
+        "image_alt": "Helios 700 intraoral scanner",
+        "autoplay": true,
+        "interval": 3.5,
+        "reveal": true,
+        "padding_top": false,
+        "padding_bottom": true
+      }
+    },
+    "video_band": {
+      "type": "video-band",
+      "settings": {
+        "heading": "Crafted in-house.<br>Checked twice.",
+        "text": "Every restoration is designed, milled, and quality-checked in our own facility — never outsourced.",
+        "height": 640,
+        "overlay_opacity": 22,
+        "video_url": "https://www.ortho-clear.com/cdn/shop/videos/c/vp/5307b2493fca4d0c948f704187d38c9d/5307b2493fca4d0c948f704187d38c9d.HD-1080p-7.2Mbps-26212345.mp4?v=0",
+        "poster_url": "https://www.meetdandy.com/wp-content/uploads/2026/06/meet-Dandy-website-Header-Image-scaled@2x.webp"
+      }
+    },
+    "services": {
+      "type": "service-list",
+      "blocks": {
+        "s1": {
+          "type": "service",
+          "settings": {
+            "title": "Crowns & Bridges",
+            "text": "Zirconia, eMax, and PFM — back in 5 days.",
+            "fallback_asset": "crowns-bridges.jpg",
+            "image_fit": "cover",
+            "price": "From $89",
+            "price_style": "purple",
+            "link": "/pages/crowns-and-bridges"
+          }
+        },
+        "s2": {
+          "type": "service",
+          "settings": {
+            "title": "Clear Aligners",
+            "text": "Treatment plans reviewed with you — in partnership with OrthoClear.",
+            "fallback_asset": "clear-aligners.jpg",
+            "image_fit": "cover",
+            "price": "From $675/arch",
+            "price_style": "purple",
+            "link": "/pages/clear-aligners"
+          }
+        },
+        "s3": {
+          "type": "service",
+          "settings": {
+            "title": "Night Guards & Splints",
+            "text": "Hard, soft, and dual-laminate, milled to spec.",
+            "fallback_asset": "night-guards.jpg",
+            "image_fit": "cover",
+            "price": "From $45",
+            "price_style": "purple",
+            "link": "/pages/night-guards"
+          }
+        },
+        "s4": {
+          "type": "service",
+          "settings": {
+            "title": "Helios 700 Scan Kit",
+            "text": "Scanner, cart, and software — installed and trained by us.",
+            "fallback_asset": "helios-scanner.png",
+            "image_fit": "contain",
+            "price": "Free",
+            "price_style": "free",
+            "link": "/pages/scanner"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "heading": "What we make",
+        "reveal": true
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "blocks": {
+        "st1": {
+          "type": "stat",
+          "settings": {
+            "value": "5-day",
+            "label": "standard crown turnaround",
+            "count_to": "5",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
+          }
+        },
+        "st2": {
+          "type": "stat",
+          "settings": {
+            "value": "98.4%",
+            "label": "first-fit acceptance rate",
+            "count_to": "98.4",
+            "suffix": "%",
+            "decimals": 1,
+            "direction": "up"
+          }
+        },
+        "st3": {
+          "type": "stat",
+          "settings": {
+            "value": "<2 min",
+            "label": "to reach your technician",
+            "count_to": "2",
+            "prefix": "<",
+            "suffix": " min",
+            "decimals": 0,
+            "direction": "up"
+          }
+        },
+        "st4": {
+          "type": "stat",
+          "settings": {
+            "value": "$0",
+            "label": "upfront hardware cost",
+            "count_to": "120",
+            "prefix": "$",
+            "suffix": "",
+            "decimals": 0,
+            "direction": "down"
+          }
+        }
+      },
+      "block_order": [
+        "st1",
+        "st2",
+        "st3",
+        "st4"
+      ],
+      "settings": {
+        "style": "ruled",
+        "animate": true,
+        "padding_top": false,
+        "padding_bottom": true,
+        "reveal": false
+      }
+    },
+    "support": {
+      "type": "split-feature",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "text": "Chairside scan review, live"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "text": "Video & chat — a person, not a ticket"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "text": "Design approvals in the portal"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "eyebrow": "The DentSure difference",
+        "heading": "Never scan alone.",
+        "text": "One dedicated technician per practice — on chat, on video, reviewing scans while the patient is still in the chair.",
+        "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/meet-dandy-homepage-Video-Section-image-3@2x.webp",
+        "image_alt": "A technician reviewing a scan with a dentist chairside",
+        "reveal": true
+      }
+    },
+    "testimonials": {
+      "type": "testimonial-rail",
+      "blocks": {
+        "c1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Dr. Michael Cabral, DMD",
+            "org": "Northeast Dental Partners",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-michael-cabral-doctor-02-1.jpg",
+            "show_play": true
+          }
+        },
+        "c2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Dr. Raj Patel",
+            "org": "Raj Patel DDS",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-raj-doctor-03-1.jpg",
+            "show_play": true
+          }
+        },
+        "c3": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Brooke Sears, RDA",
+            "org": "Mars Hill Dental",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-Brooke-Sears-doctor-04-1.jpg",
+            "show_play": true
+          }
+        },
+        "c4": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Dr. Daniel Bures",
+            "org": "Daniel Bures DDS",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-daniel-bures-doctor-05-1.jpg",
+            "show_play": true
+          }
+        },
+        "c5": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Dr. Jessica Krausz",
+            "org": "Jessica Krausz DDS",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-jessica-krausz-doctor-06-1.jpg",
+            "show_play": true
+          }
+        },
+        "c6": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Dr. Tiffanie Garrison-Jeter",
+            "org": "Definition Dental Studio",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-tiffanie-garrison-doctor-07-1.jpg",
+            "show_play": true
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ],
+      "settings": {
+        "heading": "Real doctors,<br>real results",
+        "interval": 6,
+        "reveal": true
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "split",
+        "heading": "Make DentSure your last lab switch.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo",
+        "reveal": true
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "ticker",
+    "statement",
+    "scanner",
+    "video_band",
+    "services",
+    "stats",
+    "support",
+    "testimonials",
+    "cta"
+  ]
+}

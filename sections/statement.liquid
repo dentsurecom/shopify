@@ -1,0 +1,80 @@
+{%- liquid
+  assign classes = 'ds-section ds-pt-xl ds-pb-xl ds-statement'
+  if section.settings.alignment == 'center'
+    assign classes = classes | append: ' ds-statement--center'
+  endif
+  case section.settings.background
+    when 'soft'
+      assign classes = classes | append: ' ds-bg-soft'
+    when 'ink'
+      assign classes = classes | append: ' ds-bg-ink'
+    when 'purple'
+      assign classes = classes | append: ' ds-bg-purple'
+  endcase
+-%}
+
+<div class="{{ classes }}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    <h2 class="ds-h2 ds-h2--xl ds-statement__title">{{ section.settings.heading }}</h2>
+
+    {%- if section.settings.text != blank -%}
+      <p class="ds-lede ds-statement__text" style="max-width: 720px; margin-top: 24px">
+        {{ section.settings.text }}
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Statement",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Wrap words in <span class=\"ds-accent\"> to colour them purple.",
+      "default": "One lab for the whole workflow — <span class=\"ds-accent\">scan</span>, <span class=\"ds-accent\">design</span>, <span class=\"ds-accent\">deliver</span>."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centred" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "soft", "label": "Soft lilac" },
+        { "value": "ink", "label": "Ink" },
+        { "value": "purple", "label": "Purple" }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Statement"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{
+  "current": {
+    "logo_width": 150,
+    "logo_width_small": 120,
+    "logo_letter": "D",
+    "logo_word_one": "Dent",
+    "logo_word_two": "Sure",
+    "color_purple": "#7a1e9e",
+    "color_teal": "#45d6bc",
+    "color_green": "#0e9e85",
+    "color_ink": "#171223",
+    "color_purple_soft": "#f3ebf8",
+    "color_lilac": "#e4c8f2",
+    "color_muted": "#5c5570",
+    "type_heading_font": "poppins_n6",
+    "type_body_font": "dm_sans_n4",
+    "page_width": 1440
+  }
+}

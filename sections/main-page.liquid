@@ -1,0 +1,19 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <div class="ds-page__header">
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink)">{{ page.title }}</h1>
+    </div>
+
+    <div class="ds-page__body ds-rte">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

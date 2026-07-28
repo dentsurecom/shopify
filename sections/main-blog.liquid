@@ -1,0 +1,34 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <div class="ds-page__header">
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink)">{{ blog.title }}</h1>
+    </div>
+
+    {%- paginate blog.articles by 12 -%}
+      <div class="ds-articles">
+        {%- for article in blog.articles -%}
+          <a href="{{ article.url }}" style="color: var(--ds-ink)">
+            {%- if article.image -%}
+              <div class="ds-article__media">
+                {{ article.image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 33vw, 100vw', widths: '300, 500, 800', alt: article.title }}
+              </div>
+            {%- endif -%}
+            <div class="ds-article__meta">{{ article.published_at | date: format: 'date' }}</div>
+            <div class="ds-pcard__title">{{ article.title }}</div>
+            <p class="ds-col__text" style="margin-top: 8px">{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</p>
+          </a>
+        {%- endfor -%}
+      </div>
+
+      {% render 'pagination', paginate: paginate %}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

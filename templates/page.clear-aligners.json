@@ -1,0 +1,270 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Lab Services · Orthodontics",
+        "heading": "Clear aligners, built for<br>the general dentist.",
+        "heading_size": "default",
+        "text": "One aligner case per week can mean an additional $200K in annual revenue — with orthodontic support behind every treatment plan.",
+        "partner_label": "In partnership with <b>OrthoClear</b>",
+        "partner_link": "https://www.ortho-clear.com",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo",
+        "button_2_label": "Get pricing",
+        "button_2_link": "/pages/pricing",
+        "media_style": "image",
+        "fallback_asset": "clear-aligners.jpg",
+        "image_alt": "Clear aligner held in hand"
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "12 days",
+            "label": "from submission to aligners in office",
+            "count_to": ""
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "#1",
+            "label": "Zendura FLX — the material orthodontists trust",
+            "count_to": ""
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "$0",
+            "label": "to submit a case — pay only on approval",
+            "count_to": ""
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "+$200K",
+            "label": "potential annual revenue",
+            "count_to": ""
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "style": "row",
+        "border": "top",
+        "animate": false,
+        "padding_top": false,
+        "padding_bottom": true
+      }
+    },
+    "timeline": {
+      "type": "timeline",
+      "blocks": {
+        "t1": {
+          "type": "step",
+          "settings": {
+            "label": "Step 1",
+            "title": "Scan and order",
+            "text": "Capture a full arch with the Helios 700 and submit the case in the portal."
+          }
+        },
+        "t2": {
+          "type": "step",
+          "settings": {
+            "label": "Step 2",
+            "title": "Ortho team designs",
+            "text": "Experienced ortho designers build the treatment plan, with orthodontist review."
+          }
+        },
+        "t3": {
+          "type": "step",
+          "settings": {
+            "label": "Step 3",
+            "title": "You approve in 3D",
+            "text": "Review the step-by-step 3D simulation and request revisions before anything is made."
+          }
+        },
+        "t4": {
+          "type": "step",
+          "settings": {
+            "label": "Step 4",
+            "title": "Manufactured & delivered",
+            "text": "Aligners arrive in premium patient packaging, ready to hand over."
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "heading": "From scan to smile in four steps",
+        "text": "Every treatment plan is designed by our ortho team and reviewed by orthodontists before it reaches you.",
+        "background": "soft"
+      }
+    },
+    "included": {
+      "type": "feature-columns",
+      "blocks": {
+        "c1": {
+          "type": "column",
+          "settings": {
+            "label": "Mentorship program",
+            "title": "Ortho support on every case",
+            "text": "Case review videos for each submitted plan, progress reviews for troubleshooting, and ongoing education from our ortho experts.",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/04/Accordian-Image-1_Clear-aligners-made-for-the-general-dentists@2x-1.png"
+          }
+        },
+        "c2": {
+          "type": "column",
+          "settings": {
+            "label": "Patient kit",
+            "title": "Premium unboxing, included",
+            "text": "Custom tote, travel pouch, welcome kit, chewies, 3-in-1 aligner cleaner, and a premium case with every treatment.",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/04/Accordian-Image-2_Everything-your-patient-needs@2x-1.png"
+          }
+        },
+        "c3": {
+          "type": "column",
+          "settings": {
+            "label": "Fewer revisions",
+            "title": "Plans proposed, not guessed",
+            "text": "Orthodontist-reviewed treatment plans mean fewer refinements and higher-quality outcomes from the first proposal.",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/01/Accordian-Image-3_Design-preview@2x-1.png"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "settings": {
+        "heading": "Everything you — and your patient — need",
+        "heading_align": "left",
+        "columns": 3,
+        "show_images": true,
+        "background": "white"
+      }
+    },
+    "plans": {
+      "type": "plan-cards",
+      "blocks": {
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "title": "On Demand",
+            "text": "Flexible — fits the exact needs of your patient.",
+            "featured": false,
+            "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on"
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "title": "DentSure 20",
+            "text": "The perfect option for under-a-year treatment.",
+            "featured": true,
+            "badge": "Most popular",
+            "specs": "Steps | Up to 20\nRefinements | 1 included\nRetainers | 1 set included"
+          }
+        },
+        "p3": {
+          "type": "plan",
+          "settings": {
+            "title": "DentSure Max",
+            "text": "All-inclusive, for every treatment type.",
+            "featured": false,
+            "specs": "Steps | Unlimited\nRefinements | Unlimited\nRetainers | 2 sets included"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "style": "specs",
+        "heading": "Three ways to offer aligners",
+        "padding_top": false,
+        "padding_bottom": true
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "How long should aligners be worn each day?",
+            "answer": "<p>20–22 hours per day — out only for brushing, cleaning, eating, and drinking anything other than cool water.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Do treatment plans cost anything?",
+            "answer": "<p>No — case submission is free on all plans. You're invoiced only when you approve a plan for manufacturing.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do plans include attachments and IPR?",
+            "answer": "<p>Most plans include attachments for movement predictability; IPR is used sparingly. You can give specific instructions for both at case submission.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Can a general dentist bill insurance for aligners?",
+            "answer": "<p>Yes — all dentists can bill under the ortho benefit. Note that ortho benefits usually carry a separate lifetime max and deductible.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "background": "soft"
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "center",
+        "heading": "Add aligners to your practice.",
+        "text": "Get a walkthrough of the mentorship program and send your first case.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stats",
+    "timeline",
+    "included",
+    "plans",
+    "faq",
+    "cta"
+  ]
+}

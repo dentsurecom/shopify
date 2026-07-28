@@ -1,0 +1,50 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "crowns": {
+          "type": "service",
+          "settings": {
+            "fallback_asset": "crowns-bridges.jpg",
+            "title": "Crowns & Bridges",
+            "description": "Zirconia, eMax, and PFM in 5 days.",
+            "price": "from $89",
+            "link": "/pages/crowns-and-bridges"
+          }
+        },
+        "aligners": {
+          "type": "service",
+          "settings": {
+            "fallback_asset": "clear-aligners.jpg",
+            "title": "Clear Aligners",
+            "description": "Plans reviewed with you before fabrication.",
+            "price": "from $675/arch",
+            "link": "/pages/clear-aligners"
+          }
+        },
+        "guards": {
+          "type": "service",
+          "settings": {
+            "fallback_asset": "night-guards.jpg",
+            "title": "Night Guards & Splints",
+            "description": "Hard, soft, and dual-laminate, milled to spec.",
+            "price": "from $45",
+            "link": "/pages/night-guards"
+          }
+        }
+      },
+      "block_order": ["crowns", "aligners", "guards"],
+      "settings": {
+        "menu": "main-menu",
+        "mega_menu_title": "Lab Services",
+        "sticky": false,
+        "cta_label": "Book a demo",
+        "cta_link": "/pages/book-a-demo"
+      }
+    }
+  },
+  "order": ["header"]
+}

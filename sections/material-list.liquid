@@ -1,0 +1,123 @@
+<div class="ds-section ds-pt-lg ds-pb-lg{% if section.settings.background == 'soft' %} ds-bg-soft{% endif %}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    <div style="max-width: 640px; margin-bottom: 56px">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ds-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h2 class="ds-h2 ds-h2--md">{{ section.settings.heading }}</h2>
+
+      {%- if section.settings.text != blank -%}
+        <p class="ds-body" style="margin-top: 14px">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ds-matlist">
+      {%- for block in section.blocks -%}
+        <div class="ds-material" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank or block.settings.image_url != blank -%}
+            {% render 'media-image',
+              image: block.settings.image,
+              fallback_url: block.settings.image_url,
+              alt: block.settings.title,
+              class: 'ds-material__thumb',
+              sizes: '76px'
+            %}
+          {%- endif -%}
+
+          <div class="ds-material__body">
+            <div class="ds-material__title">{{ block.settings.title }}</div>
+            <div class="ds-material__text">{{ block.settings.text }}</div>
+          </div>
+
+          {%- if block.settings.spec != blank -%}
+            <span class="ds-material__spec">{{ block.settings.spec }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Material list",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Materials"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A material for every case"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "soft", "label": "Soft lilac" }
+      ],
+      "default": "soft"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "material",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Thumbnail"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Thumbnail URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Monolithic Zirconia (3Y)"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Bulletproof strength for bruxers, posteriors, and bridges."
+        },
+        {
+          "type": "text",
+          "id": "spec",
+          "label": "Spec",
+          "default": "~1350 MPa"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Material list"
+    }
+  ]
+}
+{% endschema %}

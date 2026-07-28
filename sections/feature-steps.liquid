@@ -1,0 +1,117 @@
+<div class="ds-section ds-pt-lg ds-pb-lg{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ds-h2 ds-h2--md" style="max-width: 720px; margin-bottom: 56px">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="ds-mediatext ds-mediatext--wide-media">
+      <div class="ds-mediatext__media ds-mediatext__media--tall">
+        {% render 'media-image',
+          image: section.settings.image,
+          fallback_url: section.settings.image_url,
+          alt: section.settings.image_alt,
+          sizes: '(min-width: 990px) 55vw, 100vw'
+        %}
+      </div>
+
+      <ds-steps
+        class="ds-steps"
+        data-autoplay="{{ section.settings.autoplay }}"
+        data-interval="{{ section.settings.interval | times: 1000 }}"
+      >
+        {%- for block in section.blocks -%}
+          {%- assign number = forloop.index | prepend: '0' | slice: -2, 2 -%}
+          <div class="ds-step" data-step tabindex="0" {{ block.shopify_attributes }}>
+            <div class="ds-step__num">{{ number }} · {{ block.settings.label }}</div>
+            <div class="ds-step__title">{{ block.settings.title }}</div>
+            <p class="ds-step__text">{{ block.settings.text }}</p>
+          </div>
+        {%- endfor -%}
+      </ds-steps>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feature steps",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every crown seats faster, with software you get for free"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Image URL"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "AI scan review"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Cycle through steps automatically",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Seconds per step",
+      "min": 2,
+      "max": 10,
+      "step": 0.5,
+      "unit": "s",
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "AI scan review"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Stop remakes before they happen"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Spot critical margin issues, verify occlusal clearance, and get visual guidance on what to fix — while the patient is still in the chair."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature steps"
+    }
+  ]
+}
+{% endschema %}

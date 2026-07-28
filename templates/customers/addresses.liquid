@@ -1,0 +1,17 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 32px">
+      {{ 'customer.addresses.title' | t }}
+    </h1>
+
+    {%- for address in customer.addresses -%}
+      <div style="border-top: 1px solid var(--ds-line); padding: 24px 0">
+        {{ address | format_address }}
+      </div>
+    {%- else -%}
+      <p class="ds-body">{{ 'customer.addresses.none' | t }}</p>
+    {%- endfor -%}
+
+    <p class="ds-note"><a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a></p>
+  </div>
+</div>

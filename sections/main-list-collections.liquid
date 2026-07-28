@@ -1,0 +1,28 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <div class="ds-page__header">
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink)">{{ 'general.collections.title' | t }}</h1>
+    </div>
+
+    <div class="ds-grid-products">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" class="ds-pcard">
+          <div class="ds-pcard__media">
+            {%- if collection.featured_image -%}
+              {{ collection.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 25vw, 50vw', widths: '300, 500, 800', alt: collection.title }}
+            {%- endif -%}
+          </div>
+          <div class="ds-pcard__title">{{ collection.title }}</div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

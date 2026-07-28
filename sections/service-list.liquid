@@ -1,0 +1,122 @@
+<div class="ds-section ds-pt-xl ds-pb-xl{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ds-h2 ds-h2--lg ds-services__title">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="ds-services">
+      {%- for block in section.blocks -%}
+        {%- assign number = forloop.index | prepend: '0' | slice: -2, 2 -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="ds-service" {{ block.shopify_attributes }}>
+          <span class="ds-service__num">{{ number }}</span>
+
+          <span class="ds-service__body">
+            <span class="ds-service__title">{{ block.settings.title }}</span>
+            <span class="ds-service__text">{{ block.settings.text }}</span>
+          </span>
+
+          <span class="ds-service__media{% if block.settings.image_fit == 'contain' %} ds-service__media--contain{% endif %}">
+            {% render 'media-image',
+              image: block.settings.image,
+              fallback_asset: block.settings.fallback_asset,
+              alt: block.settings.title,
+              sizes: '380px'
+            %}
+          </span>
+
+          <span class="ds-service__price{% if block.settings.price_style == 'free' %} ds-service__price--free{% endif %}">
+            {{- block.settings.price }} &rarr;
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Service list",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What we make"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Crowns & Bridges"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Zirconia, eMax, and PFM — back in 5 days."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "fallback_asset",
+          "label": "Fallback image file",
+          "default": "crowns-bridges.jpg"
+        },
+        {
+          "type": "select",
+          "id": "image_fit",
+          "label": "Image fit",
+          "options": [
+            { "value": "cover", "label": "Fill the frame" },
+            { "value": "contain", "label": "Show whole image on a tint" }
+          ],
+          "default": "cover"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "From $89"
+        },
+        {
+          "type": "select",
+          "id": "price_style",
+          "label": "Price colour",
+          "options": [
+            { "value": "purple", "label": "Purple" },
+            { "value": "free", "label": "Green (free)" }
+          ],
+          "default": "purple"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service list"
+    }
+  ]
+}
+{% endschema %}

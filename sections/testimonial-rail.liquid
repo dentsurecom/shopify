@@ -1,0 +1,129 @@
+<div class="ds-section ds-pt-xl ds-pb-xl{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <ds-rail class="ds-rail" data-interval="{{ section.settings.interval | times: 1000 }}">
+    <div class="ds-rail__intro">
+      <h2 class="ds-h2">{{ section.settings.heading }}</h2>
+
+      <div class="ds-rail__arrows">
+        <button type="button" class="ds-rail__arrow" data-rail-prev aria-label="{{ 'general.slider.previous' | t }}">
+          &larr;
+        </button>
+        <button type="button" class="ds-rail__arrow ds-rail__arrow--next" data-rail-next aria-label="{{ 'general.slider.next' | t }}">
+          &rarr;
+        </button>
+      </div>
+    </div>
+
+    <div class="ds-rail__viewport" data-rail-viewport>
+      <div class="ds-rail__track" data-rail-track>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign tag = 'div'
+            if block.settings.link != blank
+              assign tag = 'a'
+            endif
+          -%}
+          <{{ tag }}
+            class="ds-card"
+            data-rail-card
+            {% if tag == 'a' %}href="{{ block.settings.link }}"{% endif %}
+            {{ block.shopify_attributes }}
+          >
+            {% render 'media-image',
+              image: block.settings.image,
+              fallback_url: block.settings.image_url,
+              alt: block.settings.name,
+              sizes: '400px'
+            %}
+
+            {%- if block.settings.show_play -%}
+              <span class="ds-card__play" aria-hidden="true">&#9654;</span>
+            {%- endif -%}
+
+            <span class="ds-card__plate">
+              <span class="ds-card__name">{{ block.settings.name }}</span>
+              <span class="ds-card__org">{{ block.settings.org }}</span>
+            </span>
+          </{{ tag }}>
+        {%- endfor -%}
+      </div>
+    </div>
+  </ds-rail>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonial rail",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real doctors,<br>real results"
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Seconds per slide",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Portrait"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Portrait URL",
+          "info": "Used when no image is uploaded."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Dr. Michael Cabral, DMD"
+        },
+        {
+          "type": "text",
+          "id": "org",
+          "label": "Practice",
+          "default": "Northeast Dental Partners"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Video link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_play",
+          "label": "Show play button",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial rail"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <div class="ds-page__header">
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink)">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <div class="ds-rte" style="margin-top: 20px">{{ collection.description }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- paginate collection.products by 24 -%}
+      {%- if collection.products.size > 0 -%}
+        <div class="ds-grid-products">
+          {%- for product in collection.products -%}
+            {% render 'product-card', card_product: product %}
+          {%- endfor -%}
+        </div>
+
+        {% render 'pagination', paginate: paginate %}
+      {%- else -%}
+        <p class="ds-body">{{ 'sections.collection_template.empty' | t }}</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

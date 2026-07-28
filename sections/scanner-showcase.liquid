@@ -1,0 +1,278 @@
+{%- liquid
+  assign features = section.blocks | where: 'type', 'feature'
+  assign specs = section.blocks | where: 'type', 'spec'
+  assign half = features.size | plus: 1 | divided_by: 2
+
+  assign padding_class = ''
+  if section.settings.padding_top
+    assign padding_class = padding_class | append: ' ds-pt-xl'
+  endif
+  if section.settings.padding_bottom
+    assign padding_class = padding_class | append: ' ds-pb-xl'
+  endif
+-%}
+
+<div class="ds-section{{ padding_class }}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    {%- if section.settings.layout == 'center' -%}
+      <div class="ds-scanner__head ds-scanner__head--center">
+        <div style="max-width: 720px">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="ds-eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          <h2 class="ds-h2">{{ section.settings.heading }}</h2>
+          {%- if section.settings.text != blank -%}
+            <p class="ds-body" style="margin-top: 18px">{{ section.settings.text }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="ds-scanner__head">
+        <h2 class="ds-h2">{{ section.settings.heading }}</h2>
+        {%- if section.settings.link_label != blank -%}
+          <a href="{{ section.settings.link | default: '#' }}" class="ds-link-arrow">
+            {{ section.settings.link_label }} &rarr;
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ds-scanner
+      class="ds-scanner__grid"
+      data-autoplay="{{ section.settings.autoplay }}"
+      data-interval="{{ section.settings.interval | times: 1000 }}"
+    >
+      <div class="ds-scanner__col ds-scanner__col--left">
+        {%- for block in features -%}
+          {%- if forloop.index0 < half -%}
+            {% render 'scanner-feature', block: block, index: forloop.index0, align: 'right' %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="ds-scanner__stage">
+        <span class="ds-scanner__disc"></span>
+        {% render 'media-image',
+          image: section.settings.image,
+          fallback_asset: 'helios-scanner.png',
+          alt: section.settings.image_alt,
+          class: 'ds-scanner__img',
+          sizes: '(min-width: 1100px) 440px, 90vw',
+          width: 1063,
+          height: 1160,
+          loading: 'lazy'
+        %}
+
+        {%- for block in features -%}
+          <button
+            type="button"
+            class="ds-hotspot"
+            data-hotspot
+            data-index="{{ forloop.index0 }}"
+            aria-pressed="false"
+            style="left: {{ block.settings.hotspot_x }}%; top: {{ block.settings.hotspot_y }}%"
+            aria-label="{{ block.settings.title | escape }}"
+          >
+            {{ forloop.index }}
+          </button>
+        {%- endfor -%}
+      </div>
+
+      <div class="ds-scanner__col ds-scanner__col--right">
+        {%- for block in features -%}
+          {%- if forloop.index0 >= half -%}
+            {% render 'scanner-feature', block: block, index: forloop.index0, align: 'left' %}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </ds-scanner>
+
+    {%- if specs.size > 0 -%}
+      <div class="ds-scanner__specs">
+        {%- for block in specs -%}
+          <div class="ds-scanner__spec" {{ block.shopify_attributes }}>
+            <strong {% if block.settings.highlight %}style="color: var(--ds-green)"{% endif %}>
+              {{- block.settings.value -}}
+            </strong>
+            <span>{{ block.settings.label }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scanner showcase",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Heading layout",
+      "options": [
+        { "value": "split", "label": "Heading left, link right" },
+        { "value": "center", "label": "Centred with intro" }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Helios 700 · Scan Kit Program"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The scanner is on us."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Intro text",
+      "default": "Fully wireless intraoral scanning, installed and trained by our team — at no upfront cost. Every detail, considered:"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "Meet the Helios 700"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Scanner image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "A background-free PNG works best — it floats on the coloured disc."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Helios 700 intraoral scanner"
+    },
+    {
+      "type": "header",
+      "content": "Auto tour"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Cycle through features automatically",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Seconds per feature",
+      "min": 2,
+      "max": 10,
+      "step": 0.5,
+      "unit": "s",
+      "default": 3.5
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "padding_top",
+      "label": "Top padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cord-free scanning"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Streams over zero-latency WiFi so you can scan from any angle. USB fallback included."
+        },
+        {
+          "type": "range",
+          "id": "hotspot_x",
+          "label": "Hotspot — horizontal",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 34
+        },
+        {
+          "type": "range",
+          "id": "hotspot_y",
+          "label": "Hotspot — vertical",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 9
+        }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Spec",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "16 µm"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "full-arch accuracy"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight in green",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scanner showcase"
+    }
+  ]
+}
+{% endschema %}

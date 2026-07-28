@@ -1,0 +1,21 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 32px">
+      {{ 'customer.activate_account.title' | t }}
+    </h1>
+
+    {%- form 'activate_customer_password', class: 'ds-form' -%}
+      {{ form.errors | default_errors }}
+      <label class="ds-field">
+        <span class="ds-field__label">{{ 'customer.activate_account.password' | t }}</span>
+        <input class="ds-input" type="password" name="customer[password]" autocomplete="new-password">
+      </label>
+      <label class="ds-field">
+        <span class="ds-field__label">{{ 'customer.activate_account.password_confirm' | t }}</span>
+        <input class="ds-input" type="password" name="customer[password_confirmation]" autocomplete="new-password">
+      </label>
+      <button type="submit" class="ds-btn ds-btn--purple">{{ 'customer.activate_account.submit' | t }}</button>
+      <button type="submit" name="decline" class="ds-btn ds-btn--outline">{{ 'customer.activate_account.decline' | t }}</button>
+    {%- endform -%}
+  </div>
+</div>

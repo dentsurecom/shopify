@@ -1,0 +1,58 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <div class="ds-page__header">
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink)">{{ 'general.search.title' | t }}</h1>
+    </div>
+
+    <form action="{{ routes.search_url }}" method="get" role="search" class="ds-form" style="margin-bottom: 48px">
+      <label class="ds-visually-hidden" for="Search">{{ 'general.search.placeholder' | t }}</label>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap">
+        <input
+          id="Search"
+          class="ds-input"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.placeholder' | t }}"
+          style="flex: 1; min-width: 240px"
+        >
+        <button type="submit" class="ds-btn ds-btn--purple">{{ 'general.search.submit' | t }}</button>
+      </div>
+    </form>
+
+    {%- if search.performed -%}
+      {%- paginate search.results by 24 -%}
+        {%- if search.results.size > 0 -%}
+          <p class="ds-body" style="margin-bottom: 32px">
+            {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+          </p>
+
+          <div class="ds-grid-products">
+            {%- for item in search.results -%}
+              {%- if item.object_type == 'product' -%}
+                {% render 'product-card', card_product: item %}
+              {%- else -%}
+                <a href="{{ item.url }}" class="ds-pcard">
+                  <div class="ds-pcard__title">{{ item.title }}</div>
+                  <div class="ds-pcard__price">{{ item.content | strip_html | truncatewords: 20 }}</div>
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {% render 'pagination', paginate: paginate %}
+        {%- else -%}
+          <p class="ds-body">{{ 'general.search.no_results' | t: terms: search.terms }}</p>
+        {%- endif -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

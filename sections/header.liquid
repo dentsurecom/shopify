@@ -1,0 +1,244 @@
+{%- comment -%}
+  A menu item opens the mega menu when either
+  - it has child items in the Shopify menu, or
+  - its title matches the "Mega menu link title" setting and the section has
+    service blocks.
+  Child items win, and blocks whose title matches a child supply that child's
+  photo, description, and price.
+{%- endcomment -%}
+
+{%- liquid
+  assign mega_title = section.settings.mega_menu_title | downcase | strip
+-%}
+
+<ds-header class="ds-header{% if section.settings.sticky %} ds-header--sticky{% endif %}">
+  <span class="ds-header__decor">
+    <span class="ds-decor ds-decor--ring"></span>
+  </span>
+
+  <div class="ds-container ds-header__inner">
+    {% render 'logo' %}
+
+    <nav class="ds-nav ds-header__nav" aria-label="{{ 'sections.header.menu' | t }}">
+      {%- for link in section.settings.menu.links -%}
+        {%- liquid
+          assign link_title = link.title | downcase | strip
+          assign child_count = link.links.size | default: 0
+          assign use_children = false
+          assign is_mega = false
+
+          if child_count > 0
+            assign use_children = true
+            assign is_mega = true
+          elsif section.blocks.size > 0 and mega_title != blank and link_title == mega_title
+            assign is_mega = true
+          endif
+        -%}
+
+        {%- if is_mega -%}
+          <div class="ds-nav__item" data-mega-item>
+            <button
+              type="button"
+              class="ds-nav__link"
+              data-mega-trigger
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              {{ link.title }}
+              <span class="ds-nav__caret" aria-hidden="true">&#9662;</span>
+            </button>
+
+            <div class="ds-mega">
+              {%- if use_children -%}
+                {%- for child in link.links -%}
+                  {% render 'mega-card', link: child, blocks: section.blocks %}
+                {%- endfor -%}
+              {%- else -%}
+                {%- for block in section.blocks -%}
+                  {% render 'mega-card', block: block %}
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- else -%}
+          <a href="{{ link.url }}" class="ds-nav__link">{{ link.title }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+
+    {%- if section.settings.cta_label != blank -%}
+      <a
+        href="{{ section.settings.cta_link | default: '#' }}"
+        class="ds-btn ds-btn--primary ds-btn--sm ds-header__cta ds-header__cta--desktop"
+      >
+        {{ section.settings.cta_label }}
+      </a>
+    {%- endif -%}
+
+    <button
+      type="button"
+      class="ds-header__toggle"
+      data-drawer-open
+      aria-expanded="false"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="ds-drawer__overlay" data-drawer-overlay></div>
+
+  <div class="ds-drawer" data-drawer>
+    <div class="ds-drawer__head">
+      {% render 'logo' %}
+      <button type="button" class="ds-drawer__close" data-drawer-close aria-label="{{ 'accessibility.close' | t }}">
+        &times;
+      </button>
+    </div>
+
+    {%- for link in section.settings.menu.links -%}
+      {%- liquid
+        assign link_title = link.title | downcase | strip
+        assign child_count = link.links.size | default: 0
+        assign use_children = false
+        assign is_mega = false
+
+        if child_count > 0
+          assign use_children = true
+          assign is_mega = true
+        elsif section.blocks.size > 0 and mega_title != blank and link_title == mega_title
+          assign is_mega = true
+        endif
+      -%}
+
+      {%- if is_mega -%}
+        <span class="ds-drawer__link">{{ link.title }}</span>
+        <div class="ds-drawer__sub">
+          {%- if use_children -%}
+            {%- for child in link.links -%}
+              {%- liquid
+                assign price = ''
+                assign needle = child.title | downcase | strip
+                for candidate in section.blocks
+                  assign hay = candidate.settings.title | downcase | strip
+                  if hay == needle
+                    assign price = candidate.settings.price
+                    break
+                  endif
+                endfor
+              -%}
+              <a href="{{ child.url }}" class="ds-drawer__sublink">
+                <span>{{ child.title }}</span>
+                {%- if price != blank -%}<span>{{ price }}</span>{%- endif -%}
+              </a>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for block in section.blocks -%}
+              <a href="{{ block.settings.link | default: '#' }}" class="ds-drawer__sublink">
+                <span>{{ block.settings.title }}</span>
+                {%- if block.settings.price != blank -%}
+                  <span>{{ block.settings.price }}</span>
+                {%- endif -%}
+              </a>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        <a href="{{ link.url }}" class="ds-drawer__link">{{ link.title }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if section.settings.cta_label != blank -%}
+      <a href="{{ section.settings.cta_link | default: '#' }}" class="ds-btn ds-btn--primary ds-drawer__cta">
+        {{ section.settings.cta_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</ds-header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "mega_menu_title",
+      "label": "Mega menu link title",
+      "info": "Any menu item with sub-items opens a mega menu automatically. This is the fallback: a menu item with this title (case-insensitive) opens a mega menu built from the blocks below.",
+      "default": "Lab Services"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky header",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "Book a demo"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Mega menu service",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "fallback_asset",
+          "label": "Fallback image file",
+          "info": "Filename of a theme asset used when no image is chosen.",
+          "default": "crowns-bridges.jpg"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Crowns & Bridges"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Zirconia, eMax, and PFM in 5 days."
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price line",
+          "default": "from $89"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

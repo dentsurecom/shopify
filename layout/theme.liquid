@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_purple }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    {%- liquid
+      assign body_font = settings.type_body_font
+      assign heading_font = settings.type_heading_font
+      assign body_font_bold = body_font | font_modify: 'weight', 'bold'
+      assign body_font_medium = body_font | font_modify: 'weight', '500'
+      assign heading_font_semibold = heading_font | font_modify: 'weight', '600'
+      assign heading_font_bold = heading_font | font_modify: 'weight', '700'
+    -%}
+
+    <style>
+      {{ body_font | font_face: font_display: 'swap' }}
+      {{ body_font_medium | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ heading_font | font_face: font_display: 'swap' }}
+      {{ heading_font_semibold | font_face: font_display: 'swap' }}
+      {{ heading_font_bold | font_face: font_display: 'swap' }}
+
+      :root {
+        --ds-font-body: {{ body_font.family }}, {{ body_font.fallback_families }};
+        --ds-font-heading: {{ heading_font.family }}, {{ heading_font.fallback_families }};
+
+        --ds-purple: {{ settings.color_purple }};
+        --ds-purple-deep: {{ settings.color_purple | color_darken: 6 }};
+        --ds-purple-dark: {{ settings.color_purple | color_darken: 10 }};
+        --ds-purple-soft: {{ settings.color_purple_soft }};
+        --ds-purple-tint: {{ settings.color_purple_soft | color_lighten: 4 }};
+        --ds-lilac: {{ settings.color_lilac }};
+        --ds-lilac-mid: {{ settings.color_purple | color_lighten: 24 }};
+        --ds-lilac-line: {{ settings.color_purple_soft | color_darken: 8 }};
+        --ds-purple-line: {{ settings.color_purple | color_lighten: 18 }};
+        --ds-teal: {{ settings.color_teal }};
+        --ds-green: {{ settings.color_green }};
+
+        --ds-ink: {{ settings.color_ink }};
+        --ds-ink-deep: {{ settings.color_ink | color_darken: 4 }};
+        --ds-ink-soft: {{ settings.color_ink | color_lighten: 6 }};
+        --ds-ink-line: {{ settings.color_ink | color_lighten: 10 }};
+        --ds-muted: {{ settings.color_muted }};
+
+        --ds-page-width: {{ settings.page_width }}px;
+      }
+    </style>
+
+    {{ 'dentsure.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'dentsure.js' | asset_url }}" defer="defer"></script>
+  </head>
+
+  <body class="template-{{ template.name | handle }}">
+    <a class="skip-to-content-link ds-visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+  </body>
+</html>

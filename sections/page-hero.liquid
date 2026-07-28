@@ -1,0 +1,211 @@
+{%- liquid
+  assign media_style = section.settings.media_style
+  assign hero_class = 'ds-pagehero ds-section'
+  if media_style == 'none'
+    assign hero_class = hero_class | append: ' ds-pagehero--center'
+  endif
+-%}
+
+<div class="{{ hero_class }}">
+  <span class="ds-decor ds-decor--ring"></span>
+  <span class="ds-decor ds-decor--disc"></span>
+
+  <div class="ds-container ds-pagehero__inner">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ds-eyebrow ds-eyebrow--teal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h1 class="ds-h1 ds-h1--page ds-pagehero__title{% if section.settings.heading_size == 'wide' %} ds-h1--wide{% endif %}">
+        {{ section.settings.heading }}
+      </h1>
+
+      {%- if section.settings.text != blank -%}
+        <p class="ds-pagehero__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.partner_label != blank -%}
+        <div class="ds-on-dark ds-pagehero__partner">
+          <a href="{{ section.settings.partner_link | default: '#' }}" class="ds-partner-link" target="_blank" rel="noopener">
+            {{ section.settings.partner_label }} &#8599;
+          </a>
+        </div>
+      {%- endif -%}
+
+      <div class="ds-btn-row">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="ds-btn ds-btn--primary">
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.button_2_label != blank -%}
+          <a href="{{ section.settings.button_2_link | default: '#' }}" class="ds-btn ds-btn--ghost">
+            {{ section.settings.button_2_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- case media_style -%}
+      {%- when 'image' -%}
+        <div class="ds-pagehero__media">
+          {% render 'media-image',
+            image: section.settings.image,
+            fallback_asset: section.settings.fallback_asset,
+            fallback_url: section.settings.image_url,
+            alt: section.settings.image_alt,
+            loading: 'eager',
+            sizes: '(min-width: 990px) 50vw, 100vw'
+          %}
+        </div>
+
+      {%- when 'cutout' -%}
+        <div class="ds-pagehero__cutout">
+          {% render 'media-image',
+            image: section.settings.image,
+            fallback_asset: 'helios-scanner.png',
+            alt: section.settings.image_alt,
+            loading: 'eager',
+            sizes: '(min-width: 990px) 40vw, 80vw',
+            width: 1063,
+            height: 1160
+          %}
+
+          {%- if section.settings.chip_title != blank -%}
+            <div class="ds-pagehero__chip">
+              <strong>{{ section.settings.chip_title }}</strong>
+              <span>{{ section.settings.chip_text }}</span>
+            </div>
+          {%- endif -%}
+        </div>
+    {%- endcase -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Lab Services · Fixed restorations"
+    },
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crowns &amp; bridges,<br>delivered in 5 days."
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "wide", "label": "Large" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Primary button",
+      "default": "Book a demo"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_label",
+      "label": "Secondary button",
+      "default": "Get pricing"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Partner link"
+    },
+    {
+      "type": "text",
+      "id": "partner_label",
+      "label": "Label",
+      "info": "Example: In partnership with <b>OrthoClear</b>"
+    },
+    {
+      "type": "url",
+      "id": "partner_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "select",
+      "id": "media_style",
+      "label": "Media",
+      "options": [
+        { "value": "image", "label": "Framed photo" },
+        { "value": "cutout", "label": "Cut-out on a disc" },
+        { "value": "none", "label": "None (centred hero)" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "fallback_asset",
+      "label": "Fallback image file",
+      "default": "crowns-bridges.jpg"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Fallback image URL"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Zirconia crown on model"
+    },
+    {
+      "type": "text",
+      "id": "chip_title",
+      "label": "Spec chip title",
+      "info": "Cut-out layout only.",
+      "default": "Helios 700"
+    },
+    {
+      "type": "text",
+      "id": "chip_text",
+      "label": "Spec chip text",
+      "default": "Wireless · 16µm accuracy · $0 upfront"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page hero"
+    }
+  ]
+}
+{% endschema %}

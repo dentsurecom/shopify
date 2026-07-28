@@ -1,0 +1,53 @@
+{%- comment -%}
+  One card in the mega menu.
+
+  Accepts either
+  - block: a header "service" block, used directly, or
+  - link + blocks: a child menu item, enriched by the block whose title matches.
+{%- endcomment -%}
+
+{%- liquid
+  assign card = block
+
+  unless card
+    assign needle = link.title | downcase | strip
+    for candidate in blocks
+      assign hay = candidate.settings.title | downcase | strip
+      if hay == needle
+        assign card = candidate
+        break
+      endif
+    endfor
+  endunless
+
+  if link
+    assign card_url = link.url
+    assign card_title = link.title
+  else
+    assign card_url = card.settings.link | default: '#'
+    assign card_title = card.settings.title
+  endif
+-%}
+
+<a href="{{ card_url }}" class="ds-mega__card" {{ card.shopify_attributes }}>
+  {%- if card.settings.image != blank or card.settings.fallback_asset != blank -%}
+    <div class="ds-mega__media">
+      {% render 'media-image',
+        image: card.settings.image,
+        fallback_asset: card.settings.fallback_asset,
+        alt: card_title,
+        sizes: '240px'
+      %}
+    </div>
+  {%- endif -%}
+
+  <div class="ds-mega__title">{{ card_title }}</div>
+
+  {%- if card.settings.description != blank -%}
+    <div class="ds-mega__text">{{ card.settings.description }}</div>
+  {%- endif -%}
+
+  {%- if card.settings.price != blank -%}
+    <div class="ds-mega__price">{{ card.settings.price }} &rarr;</div>
+  {%- endif -%}
+</a>

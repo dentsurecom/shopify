@@ -1,0 +1,26 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 32px">{{ 'customer.register.title' | t }}</h1>
+
+    {%- form 'create_customer', class: 'ds-form' -%}
+      {{ form.errors | default_errors }}
+      <label class="ds-field">
+        <span class="ds-field__label">{{ 'customer.register.first_name' | t }}</span>
+        <input class="ds-input" type="text" name="customer[first_name]" autocomplete="given-name">
+      </label>
+      <label class="ds-field">
+        <span class="ds-field__label">{{ 'customer.register.last_name' | t }}</span>
+        <input class="ds-input" type="text" name="customer[last_name]" autocomplete="family-name">
+      </label>
+      <label class="ds-field">
+        <span class="ds-field__label">{{ 'customer.register.email' | t }}</span>
+        <input class="ds-input" type="email" name="customer[email]" autocomplete="email" required>
+      </label>
+      <label class="ds-field">
+        <span class="ds-field__label">{{ 'customer.register.password' | t }}</span>
+        <input class="ds-input" type="password" name="customer[password]" autocomplete="new-password">
+      </label>
+      <button type="submit" class="ds-btn ds-btn--purple">{{ 'customer.register.submit' | t }}</button>
+    {%- endform -%}
+  </div>
+</div>

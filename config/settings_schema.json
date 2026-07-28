@@ -1,0 +1,157 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "DentSure",
+    "theme_version": "1.0.0",
+    "theme_author": "DentSure",
+    "theme_documentation_url": "https://shopify.dev/themes",
+    "theme_support_url": "https://shopify.dev/themes"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image",
+        "info": "Leave empty to use the built-in DentSure badge, which reveals the wordmark on hover."
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Logo width",
+        "min": 60,
+        "max": 260,
+        "step": 10,
+        "unit": "px",
+        "default": 150
+      },
+      {
+        "type": "range",
+        "id": "logo_width_small",
+        "label": "Footer logo width",
+        "min": 50,
+        "max": 220,
+        "step": 10,
+        "unit": "px",
+        "default": 120
+      },
+      {
+        "type": "header",
+        "content": "Built-in mark"
+      },
+      {
+        "type": "text",
+        "id": "logo_letter",
+        "label": "Badge letter",
+        "default": "D"
+      },
+      {
+        "type": "text",
+        "id": "logo_word_one",
+        "label": "Wordmark — first part",
+        "default": "Dent"
+      },
+      {
+        "type": "text",
+        "id": "logo_word_two",
+        "label": "Wordmark — second part",
+        "info": "Shown in teal.",
+        "default": "Sure"
+      },
+      {
+        "type": "header",
+        "content": "Metadata"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Social sharing image"
+      }
+    ]
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_purple",
+        "label": "Purple",
+        "default": "#7a1e9e"
+      },
+      {
+        "type": "color",
+        "id": "color_teal",
+        "label": "Teal",
+        "default": "#45d6bc"
+      },
+      {
+        "type": "color",
+        "id": "color_green",
+        "label": "Green (links)",
+        "default": "#0e9e85"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink",
+        "default": "#171223"
+      },
+      {
+        "type": "color",
+        "id": "color_purple_soft",
+        "label": "Soft lilac (section backgrounds)",
+        "default": "#f3ebf8"
+      },
+      {
+        "type": "color",
+        "id": "color_lilac",
+        "label": "Lilac (text on purple)",
+        "default": "#e4c8f2"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted body text",
+        "default": "#5c5570"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "label": "Headings",
+        "default": "poppins_n6"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body",
+        "default": "dm_sans_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Page width",
+        "min": 1200,
+        "max": 1800,
+        "step": 20,
+        "unit": "px",
+        "default": 1440
+      }
+    ]
+  }
+]

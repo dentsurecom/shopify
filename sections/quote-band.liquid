@@ -1,0 +1,41 @@
+<div class="ds-quote{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    <blockquote class="ds-quote__text">{{ section.settings.quote }}</blockquote>
+    {%- if section.settings.attribution != blank -%}
+      <div class="ds-quote__attr">{{ section.settings.attribution }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Quote band",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "quote",
+      "label": "Quote",
+      "info": "Wrap a phrase in <span class=\"ds-accent-teal\"> to highlight it.",
+      "default": "“98 crowns — <span class=\"ds-accent-teal\">zero remakes, zero adjustments</span>.”"
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution",
+      "default": "Dr. Barry Bartusiak · Washington, PA"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quote band"
+    }
+  ]
+}
+{% endschema %}

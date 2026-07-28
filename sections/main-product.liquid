@@ -1,0 +1,81 @@
+{%- comment -%}
+  The design has no commerce UI, so this is a plain, on-brand product page that
+  keeps the storefront functional.
+{%- endcomment -%}
+
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <div class="ds-product">
+      <div class="ds-product__gallery">
+        {%- if product.media.size > 0 -%}
+          {%- for media in product.media -%}
+            {{
+              media
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(min-width: 990px) 55vw, 100vw',
+                widths: '400, 600, 800, 1000, 1200, 1400',
+                alt: media.alt
+            }}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      <div>
+        <h1 class="ds-h2 ds-h2--sm">{{ product.title }}</h1>
+
+        <div class="ds-product__price">
+          {{ product.price | money }}
+          {%- if product.compare_at_price > product.price -%}
+            <s style="color: var(--ds-muted); font-size: 20px">{{ product.compare_at_price | money }}</s>
+          {%- endif -%}
+        </div>
+
+        {%- form 'product', product, class: 'ds-form' -%}
+          {%- unless product.has_only_default_variant -%}
+            {%- for option in product.options_with_values -%}
+              <label class="ds-field">
+                <span class="ds-field__label">{{ option.name }}</span>
+                <select class="ds-select" name="options[{{ option.name | escape }}]">
+                  {%- for value in option.values -%}
+                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                      {{ value }}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              </label>
+            {%- endfor -%}
+          {%- endunless -%}
+
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <button
+            type="submit"
+            name="add"
+            class="ds-btn ds-btn--purple"
+            {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+          >
+            {%- if product.selected_or_first_available_variant.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        <div class="ds-rte" style="margin-top: 40px">
+          {{ product.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

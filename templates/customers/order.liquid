@@ -1,0 +1,31 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 12px">
+      {{ 'customer.order.title' | t: name: order.name }}
+    </h1>
+    <p class="ds-body" style="margin-bottom: 40px">{{ order.created_at | date: format: 'date' }}</p>
+
+    <table class="ds-cart__table">
+      <thead>
+        <tr>
+          <th>{{ 'customer.order.product' | t }}</th>
+          <th>{{ 'customer.order.quantity' | t }}</th>
+          <th>{{ 'customer.order.total' | t }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for line_item in order.line_items -%}
+          <tr>
+            <td>{{ line_item.title }}</td>
+            <td>{{ line_item.quantity }}</td>
+            <td>{{ line_item.final_line_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+
+    <div class="ds-cart__foot">
+      <span class="ds-cart__total">{{ order.total_price | money }}</span>
+    </div>
+  </div>
+</div>

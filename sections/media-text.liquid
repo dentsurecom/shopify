@@ -1,0 +1,196 @@
+{%- liquid
+  assign grid_class = 'ds-mediatext'
+  if section.settings.media_width == 'wide'
+    assign grid_class = grid_class | append: ' ds-mediatext--wide-media'
+  endif
+  if section.settings.media_position == 'right'
+    assign grid_class = grid_class | append: ' ds-mediatext--reverse'
+  endif
+
+  assign media_class = 'ds-mediatext__media'
+  case section.settings.media_height
+    when 'tall'
+      assign media_class = media_class | append: ' ds-mediatext__media--tall'
+    when 'short'
+      assign media_class = media_class | append: ' ds-mediatext__media--short'
+  endcase
+
+  assign section_class = 'ds-section ds-pt-lg ds-pb-lg'
+  if section.settings.background == 'soft'
+    assign section_class = section_class | append: ' ds-bg-soft'
+  endif
+-%}
+
+<div class="{{ section_class }}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    <div class="{{ grid_class }}">
+      <div class="{{ media_class }}">
+        {% render 'media-image',
+          image: section.settings.image,
+          fallback_asset: section.settings.fallback_asset,
+          fallback_url: section.settings.image_url,
+          alt: section.settings.image_alt,
+          sizes: '(min-width: 990px) 50vw, 100vw'
+        %}
+      </div>
+
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ds-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        <h2 class="ds-h2 ds-h2--md">{{ section.settings.heading }}</h2>
+
+        {%- if section.settings.text != blank -%}
+          <p class="ds-body">{{ section.settings.text }}</p>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="ds-checklist">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="ds-btn-row" style="margin-top: 32px">
+            <a href="{{ section.settings.button_link | default: '#' }}" class="ds-btn ds-btn--purple">
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Turnaround"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Back in your office in 5 days"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "fallback_asset",
+      "label": "Fallback image file"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Fallback image URL"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Image position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "media_width",
+      "label": "Image width",
+      "options": [
+        { "value": "half", "label": "Half" },
+        { "value": "wide", "label": "Wider than the text" }
+      ],
+      "default": "half"
+    },
+    {
+      "type": "select",
+      "id": "media_height",
+      "label": "Image height",
+      "options": [
+        { "value": "default", "label": "440px" },
+        { "value": "short", "label": "460px" },
+        { "value": "tall", "label": "520px" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "soft", "label": "Soft lilac" }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Checklist item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "$0 upfront — free with your first case"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text"
+    }
+  ]
+}
+{% endschema %}

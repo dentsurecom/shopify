@@ -1,0 +1,121 @@
+<div class="ds-split{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-split__panel">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="ds-eyebrow ds-eyebrow--teal">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+
+    <h2 class="ds-h2">{{ section.settings.heading }}</h2>
+
+    {%- if section.settings.text != blank -%}
+      <p>{{ section.settings.text }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="ds-split__list">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="ds-btn-row" style="margin-top: 32px">
+        <a href="{{ section.settings.button_link | default: '#' }}" class="ds-btn ds-btn--primary">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="ds-split__media">
+    {% render 'media-image',
+      image: section.settings.image,
+      fallback_url: section.settings.image_url,
+      alt: section.settings.image_alt,
+      sizes: '(min-width: 990px) 66vw, 100vw'
+    %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Split feature",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The DentSure difference"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Never scan alone."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "One dedicated technician per practice — on chat, on video, reviewing scans while the patient is still in the chair."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_url",
+      "label": "Image URL",
+      "info": "Used when no image is uploaded."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Chairside scan support"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Chairside scan review, live"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split feature"
+    }
+  ]
+}
+{% endschema %}

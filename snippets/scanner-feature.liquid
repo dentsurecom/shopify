@@ -1,0 +1,19 @@
+{%- comment -%}
+  One numbered callout beside the scanner. `align: right` puts the number after
+  the title (left-hand column), matching the mirrored layout in the design.
+{%- endcomment -%}
+
+{%- assign number = index | plus: 1 | prepend: '0' | slice: -2, 2 -%}
+
+<button type="button" class="ds-feature" data-feature data-index="{{ index }}" {{ block.shopify_attributes }}>
+  <span class="ds-feature__head">
+    {%- if align == 'right' -%}
+      <span class="ds-feature__title">{{ block.settings.title }}</span>
+      <span class="ds-feature__num">{{ number }}</span>
+    {%- else -%}
+      <span class="ds-feature__num">{{ number }}</span>
+      <span class="ds-feature__title">{{ block.settings.title }}</span>
+    {%- endif -%}
+  </span>
+  <span class="ds-feature__text">{{ block.settings.text }}</span>
+</button>

@@ -1,0 +1,38 @@
+<footer class="ds-footer">
+  <div class="ds-container ds-footer__inner">
+    {% render 'logo', size: 'sm' %}
+
+    {%- if section.settings.menu != blank -%}
+      <div class="ds-footer__links">
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <span>
+      {{- section.settings.copyright | default: '&copy;' }}
+      {{ 'now' | date: '%Y' }} {{ shop.name -}}
+    </span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright prefix",
+      "default": "©"
+    }
+  ]
+}
+{% endschema %}

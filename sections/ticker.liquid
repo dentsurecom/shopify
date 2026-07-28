@@ -1,0 +1,83 @@
+{%- liquid
+  assign speed = section.settings.speed | default: 30
+-%}
+
+<div
+  class="ds-ticker{% if section.settings.color_scheme == 'light' %} ds-ticker--light{% endif %}"
+  style="--ds-ticker-speed: {{ speed }}s"
+  aria-label="{{ section.settings.aria_label | default: 'Highlights' | escape }}"
+>
+  <div class="ds-ticker__track">
+    {%- comment -%}
+      Two identical groups: the track scrolls exactly -50%, so the loop is seamless.
+      The duplicate is hidden from assistive tech.
+    {%- endcomment -%}
+    {%- for i in (1..2) -%}
+      <div class="ds-ticker__group" {% if forloop.last %}aria-hidden="true"{% endif %}>
+        {%- for block in section.blocks -%}
+          <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+          <span class="ds-ticker__dot" aria-hidden="true">&#9679;</span>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ticker",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "ink", "label": "Ink" },
+        { "value": "light", "label": "Light" }
+      ],
+      "default": "ink"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll duration",
+      "min": 10,
+      "max": 90,
+      "step": 5,
+      "unit": "s",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Accessible label",
+      "default": "Highlights"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "5-day crown turnaround"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ticker",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Trusted by 2,400+ practices" } },
+        { "type": "item", "settings": { "text": "5-day crown turnaround" } },
+        { "type": "item", "settings": { "text": "98.4% first-fit rate" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

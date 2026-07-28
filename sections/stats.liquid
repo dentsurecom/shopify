@@ -1,0 +1,165 @@
+{%- liquid
+  assign wrapper_class = 'ds-stats'
+  if section.settings.style == 'row'
+    assign wrapper_class = 'ds-stats ds-stats--row'
+    if section.settings.border == 'bottom'
+      assign wrapper_class = wrapper_class | append: ' ds-stats--bordered-bottom'
+    endif
+  endif
+
+  assign padding_class = ''
+  if section.settings.padding_top
+    assign padding_class = padding_class | append: ' ds-pt-lg'
+  endif
+  if section.settings.padding_bottom
+    assign padding_class = padding_class | append: ' ds-pb-lg'
+  endif
+-%}
+
+<div class="ds-section{{ padding_class }}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    {%- if section.settings.animate -%}<ds-counter>{%- endif -%}
+      <div class="{{ wrapper_class }}">
+        {%- for block in section.blocks -%}
+          <div class="ds-stat{% if section.settings.style == 'ruled' %} ds-stat--ruled{% endif %}" {{ block.shopify_attributes }}>
+            <div
+              class="ds-stat__value"
+              {%- if section.settings.animate and block.settings.count_to != blank %}
+                data-count-to="{{ block.settings.count_to }}"
+                data-count-decimals="{{ block.settings.decimals }}"
+                data-count-prefix="{{ block.settings.prefix }}"
+                data-count-suffix="{{ block.settings.suffix }}"
+                data-count-direction="{{ block.settings.direction }}"
+              {%- endif -%}
+            >
+              {{- block.settings.value -}}
+            </div>
+            <div class="ds-stat__label">{{ block.settings.label }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- if section.settings.animate -%}</ds-counter>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "ruled", "label": "Thick rules (homepage)" },
+        { "value": "row", "label": "Centred row (subpages)" }
+      ],
+      "default": "ruled"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Row border",
+      "info": "Centred row style only.",
+      "options": [
+        { "value": "top", "label": "Above" },
+        { "value": "bottom", "label": "Below" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "Count up on scroll",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "padding_top",
+      "label": "Top padding",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "5-day"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "standard crown turnaround"
+        },
+        {
+          "type": "header",
+          "content": "Count up"
+        },
+        {
+          "type": "text",
+          "id": "count_to",
+          "label": "Number to count to",
+          "info": "Leave blank to keep the value static. Example: 98.4",
+          "default": "5"
+        },
+        {
+          "type": "text",
+          "id": "prefix",
+          "label": "Prefix",
+          "info": "Example: $ or <"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix",
+          "info": "Example: % or -day",
+          "default": "-day"
+        },
+        {
+          "type": "range",
+          "id": "decimals",
+          "label": "Decimal places",
+          "min": 0,
+          "max": 2,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "direction",
+          "label": "Direction",
+          "options": [
+            { "value": "up", "label": "Count up to the number" },
+            { "value": "down", "label": "Count down to zero" }
+          ],
+          "default": "up"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats"
+    }
+  ]
+}
+{% endschema %}

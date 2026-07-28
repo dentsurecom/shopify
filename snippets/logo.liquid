@@ -1,0 +1,43 @@
+{%- comment -%}
+  The DentSure mark: a teal badge holding the two-dot + "D" motif. The wordmark
+  is hidden until hover, per the final design iteration.
+
+  Accepts:
+  - size: 'sm' for the footer variant
+  - href: link target (defaults to the home page)
+{%- endcomment -%}
+
+{%- liquid
+  assign logo_class = 'ds-logo'
+  if size == 'sm'
+    assign logo_class = 'ds-logo ds-logo--sm'
+  endif
+  assign logo_href = href | default: routes.root_url
+-%}
+
+<a href="{{ logo_href }}" class="{{ logo_class }}" aria-label="{{ shop.name | escape }}">
+  {%- if settings.logo != blank -%}
+    {%- if size == 'sm' -%}
+      {%- assign logo_width = settings.logo_width_small | default: 120 -%}
+    {%- else -%}
+      {%- assign logo_width = settings.logo_width | default: 150 -%}
+    {%- endif -%}
+    {{
+      settings.logo
+      | image_url: width: 600
+      | image_tag:
+        loading: 'eager',
+        class: 'ds-logo__image',
+        width: logo_width,
+        alt: shop.name
+    }}
+  {%- else -%}
+    {%- assign word_one = settings.logo_word_one | default: 'Dent' -%}
+    {%- assign word_two = settings.logo_word_two | default: 'Sure' -%}
+    <span class="ds-logo__badge" aria-hidden="true">
+      <span class="ds-logo__dots"><span></span><span></span></span>
+      <span class="ds-logo__d">{{ settings.logo_letter | default: 'D' }}</span>
+    </span>
+    <span class="ds-logo__text" aria-hidden="true">{{ word_one }}<em>{{ word_two }}</em></span>
+  {%- endif -%}
+</a>

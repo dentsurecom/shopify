@@ -1,0 +1,236 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Technology · Intraoral scanning",
+        "heading": "Helios 700.<br>The scanner is on us.",
+        "heading_size": "wide",
+        "text": "A fully wireless intraoral scanner that captures a full arch in under 30 seconds — installed, trained, and supported by DentSure at no upfront cost.",
+        "button_label": "Get the Scan Kit",
+        "button_link": "/pages/book-a-demo",
+        "button_2_label": "Book a demo",
+        "button_2_link": "/pages/book-a-demo",
+        "media_style": "cutout",
+        "image_alt": "Helios 700 intraoral scanner",
+        "chip_title": "Helios 700",
+        "chip_text": "Wireless · 16µm accuracy · $0 upfront"
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "<30 s",
+            "label": "full-arch scan at 30 fps",
+            "count_to": ""
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "16 µm",
+            "label": "full-arch accuracy",
+            "count_to": ""
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "225 g",
+            "label": "lightweight, cord-free",
+            "count_to": ""
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "~100 min",
+            "label": "battery per charge",
+            "count_to": ""
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "style": "row",
+        "border": "bottom",
+        "animate": false,
+        "padding_top": false,
+        "padding_bottom": false
+      }
+    },
+    "detail": {
+      "type": "scanner-showcase",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "title": "Cord-free scanning",
+            "text": "Streams over zero-latency WiFi so you can scan from any angle, in any operatory. USB fallback included.",
+            "hotspot_x": 34,
+            "hotspot_y": 9
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "title": "AI-assisted capture",
+            "text": "Onboard AI filters soft tissue, saliva, and motion in real time — clean 3D models on the first pass.",
+            "hotspot_x": 60,
+            "hotspot_y": 37
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "title": "True-colour optics",
+            "text": "24-bit colour with a 20 mm depth of field — read margins, cracks, and shade with confidence.",
+            "hotspot_x": 78,
+            "hotspot_y": 82
+          }
+        },
+        "f4": {
+          "type": "feature",
+          "settings": {
+            "title": "All-day battery",
+            "text": "Dual batteries cover ~100 minutes of scanning — about 60 cases — and recharge on the wireless dock.",
+            "hotspot_x": 16,
+            "hotspot_y": 62
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "layout": "center",
+        "eyebrow": "A closer look",
+        "heading": "Every detail, considered.",
+        "text": "",
+        "image_alt": "Helios 700 detail",
+        "autoplay": true,
+        "interval": 3.5,
+        "padding_top": true,
+        "padding_bottom": true
+      }
+    },
+    "scan_kit": {
+      "type": "media-text",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "text": "$0 upfront — free with your first case"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "text": "Open STL export — no lock-in, fits any workflow"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "text": "Cloud storage & instant case sharing"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "text": "Onboarding, training, and chairside support included"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "eyebrow": "The Scan Kit Program",
+        "heading": "Yours, on partner terms.",
+        "text": "No big upfront investment. We install the scanner and cart, train your whole team, and support every scan chairside.",
+        "image_url": "https://www.ortho-clear.com/cdn/shop/files/M9405105-Edit.jpg?v=1782979578&width=1200",
+        "image_alt": "Helios 700 scanner in use",
+        "media_position": "left",
+        "media_width": "half",
+        "media_height": "short",
+        "background": "soft"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Is it really fully wireless?",
+            "answer": "<p>Yes — it scans over high-speed, zero-latency WiFi with no cord. A USB 3.0 cable is included as a fallback if you prefer a wired connection.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How accurate is it?",
+            "answer": "<p>16 µm full-arch accuracy and 8 µm on a single tooth, with 24-bit true-colour capture and a 20 mm depth of field.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Will it lock me into DentSure?",
+            "answer": "<p>No. The Helios 700 exports open STL files, so it fits your existing lab workflow as well as DentSure.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does the battery last?",
+            "answer": "<p>Around 100 minutes of continuous scanning — roughly 60 typical cases — and it recharges on the wireless dock.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "background": "white"
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "center",
+        "heading": "Start scanning this month.",
+        "text": "We install the Helios 700, train your team, and stay on the line for every case.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stats",
+    "detail",
+    "scan_kit",
+    "faq",
+    "cta"
+  ]
+}

@@ -1,0 +1,33 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 12px">{{ 'customer.account.title' | t }}</h1>
+    <p class="ds-body" style="margin-bottom: 40px">
+      {{ customer.name }} · <a href="{{ routes.account_logout_url }}">{{ 'customer.log_out' | t }}</a>
+    </p>
+
+    {%- if customer.orders.size > 0 -%}
+      <table class="ds-cart__table">
+        <thead>
+          <tr>
+            <th>{{ 'customer.orders.order_number' | t }}</th>
+            <th>{{ 'customer.orders.date' | t }}</th>
+            <th>{{ 'customer.orders.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for order in customer.orders -%}
+            <tr>
+              <td><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
+              <td>{{ order.created_at | date: format: 'date' }}</td>
+              <td>{{ order.total_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    {%- else -%}
+      <p class="ds-body">{{ 'customer.orders.none' | t }}</p>
+    {%- endif -%}
+
+    <p class="ds-note"><a href="{{ routes.account_addresses_url }}">{{ 'customer.account.view_addresses' | t }}</a></p>
+  </div>
+</div>

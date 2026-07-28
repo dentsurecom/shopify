@@ -1,0 +1,23 @@
+<a href="{{ card_product.url }}" class="ds-pcard">
+  <div class="ds-pcard__media">
+    {%- if card_product.featured_media -%}
+      {{
+        card_product.featured_media
+        | image_url: width: 800
+        | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 25vw, 50vw',
+          widths: '300, 400, 600, 800',
+          alt: card_product.featured_media.alt
+      }}
+    {%- endif -%}
+  </div>
+  <div class="ds-pcard__title">{{ card_product.title }}</div>
+  <div class="ds-pcard__price">
+    {%- if card_product.price_varies -%}
+      {{ 'products.product.from_price' | t: price: card_product.price_min | money }}
+    {%- else -%}
+      {{ card_product.price | money }}
+    {%- endif -%}
+  </div>
+</a>

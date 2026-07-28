@@ -1,0 +1,24 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    <article class="ds-page__body">
+      <div class="ds-article__meta">{{ article.published_at | date: format: 'date' }}</div>
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 32px">{{ article.title }}</h1>
+
+      {%- if article.image -%}
+        <div class="ds-article__media" style="aspect-ratio: 16 / 9; margin-bottom: 40px">
+          {{ article.image | image_url: width: 1600 | image_tag: loading: 'eager', sizes: '(min-width: 990px) 820px, 100vw', widths: '600, 900, 1200, 1600', alt: article.title }}
+        </div>
+      {%- endif -%}
+
+      <div class="ds-rte">{{ article.content }}</div>
+    </article>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

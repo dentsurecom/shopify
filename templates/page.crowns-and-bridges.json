@@ -1,0 +1,268 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Lab Services · Fixed restorations",
+        "heading": "Crowns &amp; bridges,<br>delivered in 5 days.",
+        "heading_size": "default",
+        "text": "Reduce remakes and chairside adjustments with high-strength zirconia — designed with you, milled in-house, and backed by a lifetime warranty.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo",
+        "button_2_label": "Get pricing",
+        "button_2_link": "/pages/pricing",
+        "media_style": "image",
+        "fallback_asset": "crowns-bridges.jpg",
+        "image_alt": "Zirconia crown on model"
+      }
+    },
+    "stats": {
+      "type": "stats",
+      "blocks": {
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "52%",
+            "label": "reduction in remakes",
+            "count_to": ""
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "3.2 min",
+            "label": "average adjustment time",
+            "count_to": ""
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "$89",
+            "label": "per unit, free shipping",
+            "count_to": ""
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "Lifetime",
+            "label": "warranty, no questions asked",
+            "count_to": ""
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "style": "row",
+        "border": "top",
+        "animate": false,
+        "padding_top": false,
+        "padding_bottom": false
+      }
+    },
+    "turnaround": {
+      "type": "media-text",
+      "settings": {
+        "eyebrow": "Turnaround",
+        "heading": "Back in your office in 5 days",
+        "text": "Traditional labs slow you down. Every DentSure crown is designed, milled, and quality-checked in-house — then shipped free, in packaging your front desk will actually enjoy opening.",
+        "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-packaging.gif",
+        "image_alt": "Crown packaging",
+        "media_position": "left",
+        "media_width": "half",
+        "media_height": "default",
+        "background": "white"
+      }
+    },
+    "materials": {
+      "type": "material-list",
+      "blocks": {
+        "m1": {
+          "type": "material",
+          "settings": {
+            "title": "Monolithic Zirconia (3Y)",
+            "text": "Bulletproof strength for bruxers, posteriors, and bridges.",
+            "spec": "~1350 MPa",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg"
+          }
+        },
+        "m2": {
+          "type": "material",
+          "settings": {
+            "title": "Aesthetic Zirconia",
+            "text": "Full-contour anterior and posterior with natural translucency.",
+            "spec": "900 MPa",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg"
+          }
+        },
+        "m3": {
+          "type": "material",
+          "settings": {
+            "title": "PFZ",
+            "text": "Hand-layered porcelain on a zirconia core for aesthetic anteriors.",
+            "spec": "1350 MPa core",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png"
+          }
+        },
+        "m4": {
+          "type": "material",
+          "settings": {
+            "title": "PFM",
+            "text": "Minimal prep or retraction — the go-to for limited occlusal space.",
+            "spec": "Classic",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png"
+          }
+        },
+        "m5": {
+          "type": "material",
+          "settings": {
+            "title": "Full Metal",
+            "text": "Monolithic high-noble alloys for maximum durability.",
+            "spec": "1100 MPa",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png"
+          }
+        },
+        "m6": {
+          "type": "material",
+          "settings": {
+            "title": "eMax",
+            "text": "Lithium disilicate — great for veneers and anterior crowns.",
+            "spec": "360–400 MPa",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5",
+        "m6"
+      ],
+      "settings": {
+        "eyebrow": "Materials",
+        "heading": "A material for every case",
+        "text": "Strength, fit, and aesthetics you can count on — from bruxers to anterior aesthetics.",
+        "background": "soft"
+      }
+    },
+    "software": {
+      "type": "feature-steps",
+      "blocks": {
+        "st1": {
+          "type": "step",
+          "settings": {
+            "label": "AI scan review",
+            "title": "Stop remakes before they happen",
+            "text": "Spot critical margin issues, verify occlusal clearance, and get visual guidance on what to fix — while the patient is still in the chair."
+          }
+        },
+        "st2": {
+          "type": "step",
+          "settings": {
+            "label": "Design preview",
+            "title": "See, spin, and approve in 3D",
+            "text": "Review interproximal contacts, occlusion, and margin lines on a rotatable 3D preview before we mill anything."
+          }
+        },
+        "st3": {
+          "type": "step",
+          "settings": {
+            "label": "Computer-vision QC",
+            "title": "No surprises at the chair",
+            "text": "Every crown passes computer-vision quality control and a final technician check before it ships to your practice."
+          }
+        }
+      },
+      "block_order": [
+        "st1",
+        "st2",
+        "st3"
+      ],
+      "settings": {
+        "heading": "Every crown seats faster, with software you get for free",
+        "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/12/ai-scan-review-1.jpg",
+        "image_alt": "AI scan review",
+        "autoplay": true,
+        "interval": 3
+      }
+    },
+    "quote": {
+      "type": "quote-band",
+      "settings": {
+        "quote": "“98 crowns — <span class=\"ds-accent-teal\">zero remakes, zero adjustments</span>.”",
+        "attribution": "Dr. Barry Bartusiak · Washington, PA"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is a design preview?",
+            "answer": "<p>A 3D rendering of the restoration design layered on your intraoral scan — contours, shape, length, and margins. Rotate it on screen and approve or adjust before fabrication.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Do you need a full-arch scan for a bridge?",
+            "answer": "<p>We always recommend full-arch scans to capture as much occlusion data as possible — and they make it easy to order a night guard on the same scan.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you do cosmetic wax-ups?",
+            "answer": "<p>Yes, we do — submit them like any other case in the portal.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Why does retraction still matter with digital impressions?",
+            "answer": "<p>The scan relies on a clear line of sight to the margin. Neither the scanner nor the design team can see through tissue or blood — start with one cord and add a second as needed for the cleanest margins.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "background": "white"
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "center",
+        "heading": "Send your first crown case.",
+        "text": "Get a personalized walkthrough of how DentSure reduces remakes and gets crowns back in 5 days.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stats",
+    "turnaround",
+    "materials",
+    "software",
+    "quote",
+    "faq",
+    "cta"
+  ]
+}

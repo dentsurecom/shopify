@@ -1,0 +1,53 @@
+{%- comment -%}
+  Renders a merchant-uploaded image, falling back to the design's default art
+  (a bundled theme asset or the remote placeholder it was mocked with).
+
+  Accepts:
+  - image:          image_picker object (wins when set)
+  - fallback_asset: filename in assets/
+  - fallback_url:   absolute URL
+  - alt, class, sizes, widths, loading
+  - width, height: intrinsic size of the fallback art, so the browser knows the
+    ratio before the CSS lands
+{%- endcomment -%}
+
+{%- liquid
+  assign img_alt = alt | default: '' | escape
+  assign img_class = class | default: ''
+  assign img_loading = loading | default: 'lazy'
+  assign img_sizes = sizes | default: '100vw'
+  assign img_widths = widths | default: '400, 600, 800, 1000, 1200, 1600, 2000'
+  assign img_width = width | default: 1200
+  assign img_height = height | default: 800
+-%}
+
+{%- if image != blank -%}
+  {{
+    image
+    | image_url: width: 2000
+    | image_tag:
+      loading: img_loading,
+      sizes: img_sizes,
+      widths: img_widths,
+      class: img_class,
+      alt: img_alt
+  }}
+{%- elsif fallback_url != blank -%}
+  <img
+    src="{{ fallback_url }}"
+    alt="{{ img_alt }}"
+    class="{{ img_class }}"
+    loading="{{ img_loading }}"
+    width="{{ img_width }}"
+    height="{{ img_height }}"
+  >
+{%- elsif fallback_asset != blank -%}
+  <img
+    src="{{ fallback_asset | asset_url }}"
+    alt="{{ img_alt }}"
+    class="{{ img_class }}"
+    loading="{{ img_loading }}"
+    width="{{ img_width }}"
+    height="{{ img_height }}"
+  >
+{%- endif -%}

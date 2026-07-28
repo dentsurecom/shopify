@@ -1,0 +1,78 @@
+<div class="ds-section ds-pt-lg ds-pb-lg">
+  <div class="ds-container">
+    {%- if cart.item_count == 0 -%}
+      <div class="ds-empty">
+        <h1 class="ds-h2 ds-h2--sm">{{ 'sections.cart.empty' | t }}</h1>
+        <p class="ds-body">{{ 'sections.cart.empty_text' | t }}</p>
+        <a href="{{ routes.root_url }}" class="ds-btn ds-btn--purple">{{ 'general.continue_shopping' | t }}</a>
+      </div>
+    {%- else -%}
+      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 48px">
+        {{ 'sections.cart.title' | t }}
+      </h1>
+
+      <form action="{{ routes.cart_url }}" method="post" novalidate>
+        <table class="ds-cart__table">
+          <thead>
+            <tr>
+              <th>{{ 'sections.cart.headings.product' | t }}</th>
+              <th>{{ 'sections.cart.headings.quantity' | t }}</th>
+              <th>{{ 'sections.cart.headings.total' | t }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr>
+                <td>
+                  <div class="ds-cart__item">
+                    {%- if item.image -%}
+                      <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" loading="lazy" width="88" height="88">
+                    {%- endif -%}
+                    <div>
+                      <a href="{{ item.url }}" style="color: var(--ds-ink); font-weight: 500">{{ item.product.title }}</a>
+                      {%- unless item.product.has_only_default_variant -%}
+                        <div style="font-size: 14px; color: var(--ds-muted)">{{ item.variant.title }}</div>
+                      {%- endunless -%}
+                      <div style="font-size: 14px; color: var(--ds-muted)">{{ item.final_price | money }}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <label class="ds-visually-hidden" for="quantity-{{ item.index | plus: 1 }}">
+                    {{ 'sections.cart.headings.quantity' | t }}
+                  </label>
+                  <input
+                    id="quantity-{{ item.index | plus: 1 }}"
+                    class="ds-input"
+                    style="width: 90px"
+                    type="number"
+                    name="updates[]"
+                    value="{{ item.quantity }}"
+                    min="0"
+                  >
+                </td>
+                <td>{{ item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+
+        <div class="ds-cart__foot">
+          <span class="ds-cart__total">
+            {{ 'sections.cart.subtotal' | t }}: {{ cart.total_price | money }}
+          </span>
+          <button type="submit" name="update" class="ds-btn ds-btn--outline">{{ 'sections.cart.update' | t }}</button>
+          <button type="submit" name="checkout" class="ds-btn ds-btn--purple">{{ 'sections.cart.checkout' | t }}</button>
+        </div>
+      </form>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

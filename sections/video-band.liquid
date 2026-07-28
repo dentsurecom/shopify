@@ -1,0 +1,88 @@
+<div class="ds-videoband" style="height: {{ section.settings.height }}px">
+  {% render 'media-video',
+    video: section.settings.video,
+    video_url: section.settings.video_url,
+    poster: section.settings.poster,
+    poster_url: section.settings.poster_url,
+    alt: section.settings.heading
+  %}
+
+  <div class="ds-videoband__scrim" style="background: rgba(12,10,18,{{ section.settings.overlay_opacity | divided_by: 100.0 }})"></div>
+
+  <div class="ds-videoband__content">
+    <h2 class="ds-h2">{{ section.settings.heading }}</h2>
+    {%- if section.settings.text != blank -%}
+      <p>{{ section.settings.text }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video band",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crafted in-house.<br>Checked twice."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Every restoration is designed, milled, and quality-checked in our own facility — never outsourced."
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Height",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 640
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "%",
+      "default": 22
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "External MP4 URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster image"
+    },
+    {
+      "type": "text",
+      "id": "poster_url",
+      "label": "Poster image URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video band"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+{%- comment -%}
+  Background video for the hero and the manufacturing band. Prefers a
+  Shopify-hosted video, then an external MP4 URL, then a still image.
+
+  Accepts:
+  - video:      video setting object
+  - video_url:  absolute .mp4 URL
+  - poster:     image_picker object used as the poster / still
+  - poster_url: absolute URL used as the poster / still
+  - alt
+{%- endcomment -%}
+
+{%- liquid
+  assign media_alt = alt | default: '' | escape
+  if poster != blank
+    assign poster_src = poster | image_url: width: 1400
+  elsif poster_url != blank
+    assign poster_src = poster_url
+  endif
+-%}
+
+{%- if video != blank -%}
+  {{ video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1400x' }}
+{%- elsif video_url != blank -%}
+  <video
+    data-autoplay
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="metadata"
+    {% if poster_src %}poster="{{ poster_src }}"{% endif %}
+    {% if media_alt != blank %}aria-label="{{ media_alt }}"{% endif %}
+  >
+    <source src="{{ video_url }}" type="video/mp4">
+  </video>
+{%- else -%}
+  {% render 'media-image',
+    image: poster,
+    fallback_url: poster_url,
+    alt: alt,
+    loading: 'eager',
+    sizes: '(min-width: 990px) 50vw, 100vw'
+  %}
+{%- endif -%}

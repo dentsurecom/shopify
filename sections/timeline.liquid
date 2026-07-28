@@ -1,0 +1,88 @@
+<div class="ds-section ds-pt-lg ds-pb-lg{% if section.settings.background == 'soft' %} ds-bg-soft{% endif %}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ds-h2 ds-h2--md" style="margin-bottom: 14px">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <p class="ds-body" style="margin-bottom: 56px">{{ section.settings.text }}</p>
+    {%- endif -%}
+
+    <div class="ds-timeline">
+      {%- for block in section.blocks -%}
+        <div class="ds-timeline__step" {{ block.shopify_attributes }}>
+          <div class="ds-timeline__label">{{ block.settings.label }}</div>
+          <div class="ds-timeline__title">{{ block.settings.title }}</div>
+          <p class="ds-timeline__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Timeline",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From scan to smile in four steps"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "soft", "label": "Soft lilac" }
+      ],
+      "default": "soft"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Step 1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Scan and order"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Capture a full arch with the Helios 700 and submit the case in the portal."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline"
+    }
+  ]
+}
+{% endschema %}

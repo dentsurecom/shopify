@@ -1,0 +1,153 @@
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Pricing",
+        "heading": "Simple pricing.<br>No minimums.",
+        "heading_size": "wide",
+        "text": "Flat per-unit pricing with free shipping, no monthly commitments, and no hidden fees. Pay only for what you send.",
+        "button_label": "Get a full price list",
+        "button_link": "/pages/book-a-demo",
+        "button_2_label": "",
+        "media_style": "none"
+      }
+    },
+    "crowns": {
+      "type": "price-list",
+      "blocks": {
+        "r1": { "type": "row", "settings": { "label": "Monolithic Zirconia (3Y)", "price": "$89" } },
+        "r2": { "type": "row", "settings": { "label": "Aesthetic Zirconia", "price": "$109" } },
+        "r3": { "type": "row", "settings": { "label": "eMax", "price": "$119" } },
+        "r4": { "type": "row", "settings": { "label": "PFM", "price": "$129" } },
+        "r5": { "type": "row", "settings": { "label": "PFZ", "price": "$149" } },
+        "r6": { "type": "row", "settings": { "label": "Full Metal (high-noble)", "price": "$159 + alloy" } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
+      "settings": {
+        "heading": "Crowns & Bridges",
+        "link_label": "Explore crowns",
+        "link": "/pages/crowns-and-bridges",
+        "note": "Per unit · 5-day turnaround · lifetime warranty · free shipping both ways",
+        "padding_bottom": false
+      }
+    },
+    "aligners": {
+      "type": "plan-cards",
+      "blocks": {
+        "p1": {
+          "type": "plan",
+          "settings": {
+            "title": "On Demand",
+            "text": "Any number of steps",
+            "featured": false,
+            "price": "$675",
+            "price_suffix": "/arch"
+          }
+        },
+        "p2": {
+          "type": "plan",
+          "settings": {
+            "title": "DentSure 20",
+            "text": "Up to 20 steps · 1 refinement · retainers",
+            "featured": true,
+            "badge": "Most popular",
+            "price": "$1,150",
+            "price_suffix": ""
+          }
+        },
+        "p3": {
+          "type": "plan",
+          "settings": {
+            "title": "DentSure Max",
+            "text": "Unlimited steps & refinements · 2 retainer sets",
+            "featured": false,
+            "price": "$1,650",
+            "price_suffix": ""
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "style": "price",
+        "heading": "Clear Aligners",
+        "link_label": "Explore aligners",
+        "link": "/pages/clear-aligners",
+        "note": "Treatment plans are free — you're invoiced only on approval for manufacturing",
+        "padding_top": true,
+        "padding_bottom": false
+      }
+    },
+    "guards": {
+      "type": "price-list",
+      "blocks": {
+        "r1": { "type": "row", "settings": { "label": "Soft Night Guard", "price": "$45" } },
+        "r2": { "type": "row", "settings": { "label": "Hard Night Guard", "price": "$59" } },
+        "r3": { "type": "row", "settings": { "label": "Hard/Soft Dual-Laminate", "price": "$79" } },
+        "r4": { "type": "row", "settings": { "label": "NTI Splint", "price": "$85" } },
+        "r5": { "type": "row", "settings": { "label": "Hard/Soft 3D-Printed", "price": "$99" } },
+        "r6": { "type": "row", "settings": { "label": "Specialty splints (Dawson, Gelb, deprogrammer)", "price": "from $115" } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"],
+      "settings": {
+        "heading": "Night Guards & Splints",
+        "link_label": "Explore guards",
+        "link": "/pages/night-guards",
+        "note": "",
+        "padding_bottom": true
+      }
+    },
+    "included": {
+      "type": "feature-columns",
+      "blocks": {
+        "c1": {
+          "type": "column",
+          "settings": {
+            "title": "Helios 700 scanner",
+            "text": "$0 upfront with your first case — installed and trained by us."
+          }
+        },
+        "c2": {
+          "type": "column",
+          "settings": {
+            "title": "Dedicated technician",
+            "text": "Chat, video, and chairside scan review on every case."
+          }
+        },
+        "c3": {
+          "type": "column",
+          "settings": {
+            "title": "Free shipping",
+            "text": "Both ways, on every case — no volume requirements."
+          }
+        },
+        "c4": {
+          "type": "column",
+          "settings": {
+            "title": "Lifetime warranty",
+            "text": "On all fixed restorations. No questions asked."
+          }
+        }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "heading": "Always included, at every price",
+        "heading_align": "center",
+        "columns": 4,
+        "show_images": false,
+        "background": "soft"
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "center",
+        "heading": "Get your full price list.",
+        "text": "Every product, material, and turnaround time — in one PDF.",
+        "button_label": "Get pricing",
+        "button_link": "/pages/book-a-demo"
+      }
+    }
+  },
+  "order": ["hero", "crowns", "aligners", "guards", "included", "cta"]
+}

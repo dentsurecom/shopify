@@ -1,0 +1,169 @@
+<div class="ds-section{% if section.settings.padding_top %} ds-pt-lg{% endif %}{% if section.settings.padding_bottom %} ds-pb-lg{% endif %}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="ds-pricehead">
+        <h2 class="ds-h2 ds-h2--sm">{{ section.settings.heading }}</h2>
+        {%- if section.settings.link_label != blank -%}
+          <a href="{{ section.settings.link | default: '#' }}" class="ds-link-arrow" style="font-size: 15px">
+            {{ section.settings.link_label }} &rarr;
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="ds-plans">
+      {%- for block in section.blocks -%}
+        <div
+          class="ds-plan{% if block.settings.featured %} ds-plan--featured{% endif %}{% if section.settings.style == 'price' %} ds-plan--price{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.featured and block.settings.badge != blank -%}
+            <span class="ds-plan__badge">{{ block.settings.badge }}</span>
+          {%- endif -%}
+
+          <div class="ds-plan__title">{{ block.settings.title }}</div>
+          <div class="ds-plan__text">{{ block.settings.text }}</div>
+
+          {%- if section.settings.style == 'price' -%}
+            <div class="ds-plan__price">
+              {{- block.settings.price -}}
+              {%- if block.settings.price_suffix != blank -%}
+                <small>{{ block.settings.price_suffix }}</small>
+              {%- endif -%}
+            </div>
+          {%- else -%}
+            {%- comment -%} One "Label | Value" pair per line. {%- endcomment -%}
+            {%- assign rows = block.settings.specs | newline_to_br | split: '<br />' -%}
+            {%- for row in rows -%}
+              {%- assign parts = row | strip | split: '|' -%}
+              {%- if parts.size > 0 and row != blank -%}
+                <div class="ds-plan__row">
+                  <span>{{ parts[0] | strip }}</span>
+                  <b>{{ parts[1] | strip }}</b>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.note != blank -%}
+      <div class="ds-note">{{ section.settings.note }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Plan cards",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "specs", "label": "Spec rows" },
+        { "value": "price", "label": "Large price" }
+      ],
+      "default": "specs"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three ways to offer aligners"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note"
+    },
+    {
+      "type": "checkbox",
+      "id": "padding_top",
+      "label": "Top padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Plan",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "On Demand"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "Flexible — fits the exact needs of your patient."
+        },
+        {
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Highlight this plan",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Most popular"
+        },
+        {
+          "type": "textarea",
+          "id": "specs",
+          "label": "Spec rows",
+          "info": "One per line, as Label | Value",
+          "default": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$675"
+        },
+        {
+          "type": "text",
+          "id": "price_suffix",
+          "label": "Price suffix",
+          "default": "/arch"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Plan cards"
+    }
+  ]
+}
+{% endschema %}

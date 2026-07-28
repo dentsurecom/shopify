@@ -1,0 +1,121 @@
+<div class="ds-hero ds-section">
+  <span class="ds-decor ds-decor--ring"></span>
+  <span class="ds-decor ds-decor--disc"></span>
+
+  <div class="ds-container ds-hero__inner">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="ds-eyebrow ds-eyebrow--teal">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h1 class="ds-h1 ds-hero__title">{{ section.settings.heading }}</h1>
+
+      {%- if section.settings.text != blank -%}
+        <p class="ds-hero__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      <div class="ds-btn-row">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="ds-btn ds-btn--primary">
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.button_2_label != blank -%}
+          <a href="{{ section.settings.button_2_link | default: '#' }}" class="ds-btn ds-btn--ghost">
+            {{ section.settings.button_2_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="ds-hero__media">
+      {% render 'media-video',
+        video: section.settings.video,
+        video_url: section.settings.video_url,
+        poster: section.settings.poster,
+        poster_url: section.settings.poster_url,
+        alt: section.settings.heading
+      %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Use <em> to colour a line teal, and <br> for line breaks.",
+      "default": "Sure scans.<br><em>Sure fits.</em><br>DentSure."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "The digital lab with a technician beside you on every case — from first scan to final seat."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Primary button",
+      "default": "Book a demo"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_label",
+      "label": "Secondary button",
+      "default": "Get pricing"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "External MP4 URL",
+      "info": "Used when no video is uploaded."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster image"
+    },
+    {
+      "type": "text",
+      "id": "poster_url",
+      "label": "Poster image URL",
+      "info": "Used when no poster image is uploaded."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
