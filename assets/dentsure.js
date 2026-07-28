@@ -255,6 +255,11 @@
 
       var offsetFor = function (i) { return -(i * self.step()); };
 
+      // The cards are links full of images, both natively draggable: without
+      // this, a mouse drag starts the browser's link-drag ghost and cancels
+      // the pointer stream before the swipe ever begins.
+      viewport.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
       viewport.addEventListener('pointerdown', function (e) {
         if (e.pointerType === 'mouse' && e.button !== 0) return;
         pointerId = e.pointerId;

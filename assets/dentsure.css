@@ -1328,8 +1328,15 @@ button {
 .ds-rail__arrow--next:hover { background: var(--ds-purple-dark); border-color: var(--ds-purple-dark); color: var(--ds-white); }
 
 /* pan-y hands vertical gestures to the page scroll while the script keeps
-   horizontal ones for swiping the rail. */
-.ds-rail__viewport { overflow: visible; touch-action: pan-y; }
+   horizontal ones for swiping the rail; the user-drag/select resets stop a
+   swipe from turning into a native link drag or a text selection. */
+.ds-rail__viewport {
+  overflow: visible;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ds-rail__viewport img { -webkit-user-drag: none; }
 .ds-rail__track {
   display: flex;
   gap: 24px;
