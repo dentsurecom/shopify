@@ -551,11 +551,11 @@ button {
   flex: 1;
   border-radius: var(--ds-radius-sm);
   padding: 10px;
-  /* Column + end alignment keeps a card with no photo baseline-aligned with
-     its neighbours instead of floating at the top. */
+  /* Top-aligned column keeps photos and titles on a shared line no matter how
+     long each description runs; the price picks up margin-top: auto below so
+     every card still ends on the same baseline. */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   color: var(--ds-ink);
   transition: background 0.25s;
 }
@@ -582,7 +582,8 @@ button {
   font-size: 13px;
   font-weight: 600;
   color: var(--ds-purple);
-  margin-top: 8px;
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .ds-header__cta { flex: none; }
