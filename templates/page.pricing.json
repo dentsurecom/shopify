@@ -36,7 +36,7 @@
       "settings": {
         "heading": "Crowns & Bridges",
         "link_label": "Explore crowns",
-        "link": "/pages/crowns-and-bridges",
+        "link": "/pages/crowns-bridges",
         "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · lifetime warranty · free shipping both ways",
         "padding_bottom": false
       }
@@ -101,7 +101,7 @@
       "settings": {
         "heading": "Night Guards & Splints",
         "link_label": "Explore guards",
-        "link": "/pages/night-guards",
+        "link": "/pages/night-guards-splints",
         "note": "",
         "padding_bottom": true
       }
