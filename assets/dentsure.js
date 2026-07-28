@@ -476,7 +476,7 @@
      -------------------------------------------------------------------- */
 
   function initSnapCarousels(scope) {
-    var lists = (scope || document).querySelectorAll('.ds-services, .ds-timeline, .ds-plans');
+    var lists = (scope || document).querySelectorAll('.ds-services, .ds-timeline, .ds-plans, .ds-cols, .ds-matlist');
     Array.prototype.forEach.call(lists, function (list) {
       if (list._snapIO || !('IntersectionObserver' in window)) return;
       var cards = list.children;

@@ -1681,6 +1681,37 @@ button {
   .ds-material { flex-wrap: wrap; padding: 20px 12px; }
   .ds-material__spec { width: 100%; }
 }
+@media (max-width: 749px) {
+  /* On phones the rows become an edge-bleeding swipe row of snap cards. */
+  .ds-matlist {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding: 10px var(--ds-pad);
+    margin-block: -10px;
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-matlist::-webkit-scrollbar { display: none; }
+  .ds-material {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    scroll-snap-align: start;
+    background: var(--ds-white);
+    border: 1px solid var(--ds-line);
+    border-radius: 16px;
+    padding: 18px;
+  }
+  .ds-material__spec { width: 100%; }
+  /* Chips sit on white cards here, so the white-on-soft variant flips back. */
+  .ds-bg-soft .ds-material__spec { background: var(--ds-purple-soft); }
+  .ds-material.is-active { transform: scale(1.02); box-shadow: var(--ds-glow); }
+}
 
 /* --------------------------------------------------------------------------
    23. Feature steps (auto-cycling)
@@ -1873,8 +1904,33 @@ button {
 @media (max-width: 989px) {
   .ds-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
-@media (max-width: 599px) {
-  .ds-cols { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 749px) {
+  /* On phones the columns become an edge-bleeding swipe row of snap cards. */
+  .ds-cols {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding: 10px var(--ds-pad);
+    margin-block: -10px;
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-cols::-webkit-scrollbar { display: none; }
+  .ds-cols > div {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+    background: var(--ds-white);
+    border: 1px solid var(--ds-line);
+    border-radius: 16px;
+    padding: 16px;
+    transition: transform 0.35s var(--ds-ease), box-shadow 0.35s;
+  }
+  .ds-cols > div.is-active { transform: scale(1.02); box-shadow: var(--ds-glow); }
+  .ds-col__media { height: 200px; }
 }
 
 /* --------------------------------------------------------------------------
