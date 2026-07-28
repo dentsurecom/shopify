@@ -164,6 +164,7 @@
         "c1": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/M9405101.webp",
             "fallback_asset": "",
             "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/04/Accordian-Image-1_Clear-aligners-made-for-the-general-dentists@2x-1.png",
             "label": "Mentorship program",
@@ -174,6 +175,7 @@
         "c2": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/M9400913.jpg",
             "fallback_asset": "",
             "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/04/Accordian-Image-2_Everything-your-patient-needs@2x-1.png",
             "label": "Patient kit",
@@ -184,6 +186,7 @@
         "c3": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/step_2_desk.webp",
             "fallback_asset": "",
             "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/01/Accordian-Image-3_Design-preview@2x-1.png",
             "label": "Fewer revisions",
