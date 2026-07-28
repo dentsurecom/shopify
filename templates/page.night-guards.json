@@ -59,6 +59,7 @@
         "c3": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/print.png",
             "fallback_asset": "",
             "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-9231.jpeg",
             "label": "Profitability",
