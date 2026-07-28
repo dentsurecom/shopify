@@ -470,16 +470,16 @@
   }
 
   /* --------------------------------------------------------------------
-     Service snap carousel — the phone layout turns the list into a
-     scroll-snap row; mark the card snapped into view so CSS can enlarge
-     it (the touch counterpart of the desktop hover).
+     Snap carousels — the phone layout turns these lists into scroll-snap
+     rows; mark the card snapped into view so CSS can enlarge it (the
+     touch counterpart of the desktop hover).
      -------------------------------------------------------------------- */
 
-  function initServiceSnap(scope) {
-    var lists = (scope || document).querySelectorAll('.ds-services');
+  function initSnapCarousels(scope) {
+    var lists = (scope || document).querySelectorAll('.ds-services, .ds-timeline');
     Array.prototype.forEach.call(lists, function (list) {
       if (list._snapIO || !('IntersectionObserver' in window)) return;
-      var cards = list.querySelectorAll('.ds-service');
+      var cards = list.children;
       if (!cards.length) return;
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -521,7 +521,7 @@
   function boot(scope) {
     initReveal(scope);
     initVideos(scope);
-    initServiceSnap(scope);
+    initSnapCarousels(scope);
   }
 
   if (document.readyState === 'loading') {

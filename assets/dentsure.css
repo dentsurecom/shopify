@@ -1801,8 +1801,35 @@ button {
 @media (max-width: 989px) {
   .ds-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
-@media (max-width: 479px) {
-  .ds-timeline { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 749px) {
+  /* On phones the steps become an edge-bleeding swipe row of snap cards. */
+  .ds-timeline {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding: 10px var(--ds-pad);
+    margin-block: -10px;
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-timeline::-webkit-scrollbar { display: none; }
+  .ds-timeline__step {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+    background: var(--ds-white);
+    border-radius: 16px;
+    /* Sides and bottom get a hairline so the card holds up on white
+       sections; the top keeps its teal/purple accent bar. */
+    border-inline: 1px solid var(--ds-line);
+    border-bottom: 1px solid var(--ds-line);
+    padding: 18px;
+    transition: transform 0.35s var(--ds-ease), box-shadow 0.35s;
+  }
+  .ds-timeline__step.is-active { transform: scale(1.02); box-shadow: var(--ds-glow); }
 }
 
 /* --------------------------------------------------------------------------
@@ -2082,7 +2109,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono, .ds-pricelist__thumb { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono, .ds-pricelist__thumb, .ds-timeline__step { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
