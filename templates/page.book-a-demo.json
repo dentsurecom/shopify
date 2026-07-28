@@ -27,7 +27,7 @@
         "b3": {
           "type": "item",
           "settings": {
-            "text": "How the Scan Kit Program works — $0 upfront"
+            "text": "How the Scan Kit Program works — free from €1,500/mo in lab work"
           }
         },
         "b4": {
@@ -37,7 +37,12 @@
           }
         }
       },
-      "block_order": ["b1", "b2", "b3", "b4"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "eyebrow": "Book a demo",
         "heading": "See DentSure in action.",
@@ -57,5 +62,8 @@
       }
     }
   },
-  "order": ["demo", "quote"]
+  "order": [
+    "demo",
+    "quote"
+  ]
 }

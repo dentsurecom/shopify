@@ -15,7 +15,7 @@
         "eyebrow": "Technology · Intraoral scanning",
         "heading": "Helios 700.<br>The scanner is on us.",
         "heading_size": "wide",
-        "text": "A fully wireless intraoral scanner that captures a full arch in under 30 seconds — installed, trained, and supported by DentSure at no upfront cost.",
+        "text": "A fully wireless intraoral scanner that captures a full arch in under 30 seconds — installed, trained, and supported by DentSure, free with a €1,500 monthly lab spend.",
         "button_label": "Get the Scan Kit",
         "button_link": "/pages/book-a-demo",
         "button_2_label": "Book a demo",
@@ -23,7 +23,7 @@
         "media_style": "cutout",
         "image_alt": "Helios 700 intraoral scanner",
         "chip_title": "Helios 700",
-        "chip_text": "Wireless · 16µm accuracy · $0 upfront"
+        "chip_text": "Wireless · 16µm accuracy · Free from €1,500/mo"
       }
     },
     "stats": {
@@ -140,7 +140,7 @@
         "b1": {
           "type": "item",
           "settings": {
-            "text": "$0 upfront — free with your first case"
+            "text": "€0 upfront — free with €1,500/mo in lab work"
           }
         },
         "b2": {
@@ -210,9 +210,17 @@
             "question": "How long does the battery last?",
             "answer": "<p>Around 100 minutes of continuous scanning — roughly 60 typical cases — and it recharges on the wireless dock.</p>"
           }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What does the scanner cost?",
+            "answer": "<p>Nothing upfront — the Helios 700 Scan Kit is included for practices with a minimum lab spend of €1,500 per month. We install it, train your team, and support every scan.</p>"
+          }
         }
       },
       "block_order": [
+        "q5",
         "q1",
         "q2",
         "q3",

@@ -47,7 +47,7 @@
         "t4": {
           "type": "item",
           "settings": {
-            "text": "Free Helios 700 scanner"
+            "text": "Free Helios 700 scanner from €1,500/mo"
           }
         },
         "t5": {
@@ -137,7 +137,7 @@
         "layout": "split",
         "eyebrow": "Helios 700 · Scan Kit Program",
         "heading": "The scanner is on us.",
-        "text": "Fully wireless intraoral scanning, installed and trained by our team — at no upfront cost. Every detail, considered:",
+        "text": "Fully wireless intraoral scanning, installed and trained by our team — free with a €1,500 monthly lab spend. Every detail, considered:",
         "link_label": "Meet the Helios 700",
         "link": "/pages/scanner",
         "image_alt": "Helios 700 intraoral scanner",
@@ -205,7 +205,7 @@
           "type": "service",
           "settings": {
             "title": "Helios 700 Scan Kit",
-            "text": "Scanner, cart, and software — installed and trained by us.",
+            "text": "Scanner, cart, and software — free with €1,500/mo in lab work.",
             "fallback_asset": "helios-scanner.png",
             "image_fit": "contain",
             "price": "Free",
@@ -416,7 +416,7 @@
           "type": "question",
           "settings": {
             "question": "What is DentSure?",
-            "answer": "<p>DentSure is a digital dental lab. We make crowns, veneers, inlays/onlays &amp; bridges, clear aligners, and night guards — designed with you, milled in-house, and checked twice before shipping. Our Scan Kit Program puts a fully wireless intraoral scanner in your practice at no upfront cost.</p>"
+            "answer": "<p>DentSure is a digital dental lab. We make crowns, veneers, inlays/onlays &amp; bridges, clear aligners, and night guards — designed with you, milled in-house, and checked twice before shipping. Our Scan Kit Program puts a fully wireless intraoral scanner in your practice at no upfront cost, with a €1,500 monthly lab spend.</p>"
           }
         },
         "q2": {
@@ -430,7 +430,7 @@
           "type": "question",
           "settings": {
             "question": "Does the scanner really cost nothing upfront?",
-            "answer": "<p>Yes — the Helios 700 is installed and your whole team trained by us, at no upfront cost. And it exports open STL files, so it fits your existing lab workflow as well as DentSure.</p>"
+            "answer": "<p>Yes — with a minimum lab spend of €1,500 per month, the Helios 700 is installed and your whole team trained by us at no upfront cost. It exports open STL files, so it fits your existing lab workflow as well as DentSure.</p>"
           }
         },
         "q4": {
