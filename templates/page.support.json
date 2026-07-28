@@ -1,0 +1,119 @@
+{
+  "sections": {
+    "contact": {
+      "type": "demo-form",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "text": "Chairside scan review, live — while the patient is in the chair"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "text": "Video & chat with your dedicated technician"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "text": "Design approvals and case tracking in the portal"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3"],
+      "settings": {
+        "eyebrow": "Support",
+        "heading": "A person, not a ticket.",
+        "text": "One dedicated technician per practice — on chat, on video, on every case. Send us a message and we'll get back to you.",
+        "submit_label": "Send message",
+        "success_heading": "Message received!",
+        "success_text": "Thanks — our team will get back to you within one business day.",
+        "background": "white"
+      }
+    },
+    "difference": {
+      "type": "split-feature",
+      "blocks": {
+        "s1": {
+          "type": "item",
+          "settings": {
+            "text": "Chairside scan review, live"
+          }
+        },
+        "s2": {
+          "type": "item",
+          "settings": {
+            "text": "Video & chat — a person, not a ticket"
+          }
+        },
+        "s3": {
+          "type": "item",
+          "settings": {
+            "text": "Design approvals in the portal"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"],
+      "settings": {
+        "eyebrow": "The DentSure difference",
+        "heading": "Never scan alone.",
+        "text": "One dedicated technician per practice — on chat, on video, reviewing scans while the patient is still in the chair.",
+        "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/meet-dandy-homepage-Video-Section-image-3@2x.webp",
+        "image_alt": "A technician reviewing a scan with a dentist chairside",
+        "reveal": true
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What if a restoration doesn't fit?",
+            "answer": "<p>Every DentSure fixed restoration is backed by a lifetime warranty, no questions asked — and shipping is free both ways.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Can you help while the patient is still in the chair?",
+            "answer": "<p>Yes — your technician reviews scans live, chairside, over chat or video, so issues are caught before the patient leaves.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "How fast is the turnaround?",
+            "answer": "<p>Crowns and bridges are back in your office in 5 days. Aligners take about 12 days from submission to arriving in office.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Who trains my team on the scanner?",
+            "answer": "<p>We do — the Helios 700 is installed and your whole team trained by us, with onboarding and chairside support included.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "button_link": "/pages/book-a-demo",
+        "background": "soft"
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "center",
+        "heading": "Prefer to see it live?",
+        "text": "Book a walkthrough and meet the team behind your cases.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo"
+      }
+    }
+  },
+  "order": ["contact", "difference", "faq", "cta"]
+}
