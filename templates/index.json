@@ -167,6 +167,7 @@
           "settings": {
             "title": "Crowns & Bridges",
             "text": "Crowns, veneers, inlays/onlays & bridges — back in 5 days.",
+            "image": "shopify://shop_images/crown-model-printed.png",
             "fallback_asset": "crowns-bridges.jpg",
             "image_fit": "cover",
             "price": "From $89",
@@ -179,6 +180,7 @@
           "settings": {
             "title": "Clear Aligners",
             "text": "Treatment plans reviewed with you — in partnership with OrthoClear.",
+            "image": "shopify://shop_images/aligners.png",
             "fallback_asset": "clear-aligners.jpg",
             "image_fit": "cover",
             "price": "From $675/arch",
@@ -191,6 +193,7 @@
           "settings": {
             "title": "Night Guards",
             "text": "A clear, retainer-style guard, thermoformed to spec.",
+            "image": "shopify://shop_images/trays.png",
             "fallback_asset": "night-guards.jpg",
             "image_fit": "cover",
             "price": "$45",
