@@ -974,6 +974,8 @@ button {
 .ds-scanner__stage {
   position: relative;
   height: 560px;
+  /* The stage is rotated from JS on scroll — keep it on its own layer. */
+  will-change: transform;
 }
 .ds-scanner__disc {
   position: absolute;

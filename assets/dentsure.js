@@ -130,9 +130,52 @@
 
       this.select(0);
       if (this.auto) this.start();
+      this.setupTurn();
     }
 
-    disconnectedCallback() { this.stop(); }
+    disconnectedCallback() {
+      this.stop();
+      if (this._stopTurn) this._stopTurn();
+    }
+
+    /* Scroll-linked turn — the stage (image, disc, and hotspots as one plane)
+       swings around the y-axis as the section crosses the viewport, so the
+       scanner appears to slowly turn while you scroll. Progress is measured
+       on the untransformed element to keep the mapping stable. */
+    setupTurn() {
+      if (reduceMotion) return;
+      var stage = this.querySelector('.ds-scanner__stage');
+      if (!stage) return;
+
+      var self = this;
+      var ticking = false;
+
+      var paint = function () {
+        ticking = false;
+        var rect = self.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.bottom < 0 || rect.top > vh) return;
+        var p = (vh - rect.top) / (vh + rect.height);
+        p = Math.max(0, Math.min(1, p));
+        var swing = p - 0.5; // -0.5 entering the viewport, 0 centred, 0.5 leaving
+        stage.style.transform =
+          'perspective(1100px) rotateY(' + swing * 28 + 'deg) rotate(' + swing * 8 + 'deg)';
+      };
+
+      var onScroll = function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(paint);
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      this._stopTurn = function () {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+      };
+      paint();
+    }
 
     select(i) {
       this.index = i;
