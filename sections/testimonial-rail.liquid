@@ -28,12 +28,28 @@
             {% if tag == 'a' %}href="{{ block.settings.link }}"{% endif %}
             {{ block.shopify_attributes }}
           >
-            {% render 'media-image',
-              image: block.settings.image,
-              fallback_url: block.settings.image_url,
-              alt: block.settings.name,
-              sizes: '400px'
-            %}
+            {%- if block.settings.image != blank or block.settings.image_url != blank -%}
+              {% render 'media-image',
+                image: block.settings.image,
+                fallback_url: block.settings.image_url,
+                alt: block.settings.name,
+                sizes: '400px'
+              %}
+            {%- else -%}
+              {%- liquid
+                # Placeholder until a real portrait is uploaded: monogram the
+                # name, skipping the honorific.
+                assign clean_name = block.settings.name | remove: 'Dr. ' | strip
+                assign name_parts = clean_name | split: ' '
+                assign initial_one = name_parts[0] | slice: 0, 1
+                assign initial_two = ''
+                if name_parts.size > 1
+                  assign initial_two = name_parts[1] | slice: 0, 1
+                endif
+                assign initials = initial_one | append: initial_two | upcase
+              -%}
+              <span class="ds-card__ph" aria-hidden="true"><span>{{ initials }}</span></span>
+            {%- endif -%}
 
             {%- if block.settings.show_play -%}
               <span class="ds-card__play" aria-hidden="true">&#9654;</span>

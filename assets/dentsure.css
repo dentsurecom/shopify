@@ -1437,6 +1437,31 @@ button {
   height: 100%;
   object-fit: cover;
 }
+/* Portrait placeholder — brand gradient, a quiet teal ring, and the
+   person's initials, until a real photo is uploaded. */
+.ds-card__ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(165deg, var(--ds-purple-deep), var(--ds-ink) 75%);
+}
+.ds-card__ph::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 1px solid rgba(69, 214, 188, 0.35);
+}
+.ds-card__ph span {
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  letter-spacing: 0.02em;
+  color: rgba(228, 200, 242, 0.45);
+}
 .ds-card__play {
   position: absolute;
   top: 50%;
