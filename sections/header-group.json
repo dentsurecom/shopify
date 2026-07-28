@@ -27,6 +27,7 @@
         "aligners": {
           "type": "service",
           "settings": {
+            "image": "shopify://shop_images/aligners.png",
             "fallback_asset": "clear-aligners.jpg",
             "title": "Clear Aligners",
             "description": "Plans reviewed with you before fabrication.",
@@ -45,7 +46,11 @@
           }
         }
       },
-      "block_order": ["crowns", "aligners", "guards"],
+      "block_order": [
+        "crowns",
+        "aligners",
+        "guards"
+      ],
       "settings": {
         "menu": "main-menu",
         "mega_menu_title": "Lab Services",
@@ -55,5 +60,7 @@
       }
     }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }
