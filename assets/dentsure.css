@@ -1108,6 +1108,7 @@ button {
 .ds-services__title { margin-bottom: 48px; }
 
 .ds-service {
+  position: relative;
   display: grid;
   grid-template-columns: 80px minmax(0, 1fr) 380px 200px;
   gap: 32px;
@@ -1115,20 +1116,31 @@ button {
   padding: 28px 0;
   border-top: 1px solid var(--ds-line-soft);
   color: var(--ds-ink);
-  transition: background 0.3s, transform 0.35s var(--ds-ease), box-shadow 0.35s;
+  transition: transform 0.35s var(--ds-ease);
 }
 .ds-service:last-child { border-bottom: 1px solid var(--ds-line-soft); }
-/* The hovered row lifts into a rounded panel: its own divider goes transparent
-   so the tint isn't underlined, and z-index keeps it above its neighbours. */
+/* The hover panel is its own layer so it can round its corners and breathe
+   28px past the content on both sides without moving the row's columns or
+   widening the divider lines. */
+.ds-service::before {
+  content: "";
+  position: absolute;
+  inset: 0 -28px;
+  border-radius: 16px;
+  z-index: -1;
+  transition: background 0.3s, box-shadow 0.35s;
+}
+/* The hovered row lifts: its own divider goes transparent so the panel isn't
+   underlined, and z-index keeps it above its neighbours. */
 .ds-service:hover {
-  background: var(--ds-purple-tint);
   color: var(--ds-ink);
   transform: scale(1.02);
-  border-radius: var(--ds-radius-panel);
   border-color: transparent;
-  box-shadow: 0 18px 40px rgba(23, 18, 35, 0.12);
-  position: relative;
   z-index: 2;
+}
+.ds-service:hover::before {
+  background: var(--ds-purple-tint);
+  box-shadow: 0 18px 40px rgba(23, 18, 35, 0.12);
 }
 
 .ds-service__num {
@@ -1174,9 +1186,12 @@ button {
 @media (max-width: 1100px) {
   .ds-service { grid-template-columns: 56px minmax(0, 1fr) 220px 140px; gap: 20px; }
 }
-/* Touch screens have no hover to speak of — same cutoff as the rail cards. */
+/* Touch screens have no hover to speak of — same cutoff as the rail cards.
+   The panel also stops overhanging so it can't poke past the page gutter. */
 @media (max-width: 989px) {
-  .ds-service:hover { transform: none; box-shadow: none; border-radius: 0; }
+  .ds-service:hover { transform: none; }
+  .ds-service::before { inset: 0; border-radius: 0; }
+  .ds-service:hover::before { box-shadow: none; }
 }
 @media (max-width: 749px) {
   .ds-service {
@@ -1884,7 +1899,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
