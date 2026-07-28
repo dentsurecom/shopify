@@ -1775,8 +1775,8 @@ button {
   gap: 48px;
 }
 .ds-col__media {
-  height: 220px;
-  border-radius: var(--ds-radius-panel);
+  height: clamp(240px, 24vw, 320px);
+  border-radius: 14px;
   overflow: hidden;
   background: #f6f5f8;
   margin-bottom: 22px;
