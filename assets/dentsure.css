@@ -1862,7 +1862,7 @@ button {
 }
 .ds-plan {
   border: 1px solid var(--ds-line);
-  border-radius: var(--ds-radius-panel);
+  border-radius: 16px;
   padding: 36px;
   position: relative;
   transition: transform 0.35s var(--ds-ease), box-shadow 0.35s;
