@@ -38,27 +38,35 @@
             {%- else -%}
               {%- liquid
                 # Placeholder until a real portrait is uploaded: monogram the
-                # name, skipping the honorific.
+                # name, skipping the honorific. No name yet leaves just the
+                # gradient and ring.
+                assign initials = ''
                 assign clean_name = block.settings.name | remove: 'Dr. ' | strip
-                assign name_parts = clean_name | split: ' '
-                assign initial_one = name_parts[0] | slice: 0, 1
-                assign initial_two = ''
-                if name_parts.size > 1
-                  assign initial_two = name_parts[1] | slice: 0, 1
+                if clean_name != blank
+                  assign name_parts = clean_name | split: ' '
+                  assign initial_one = name_parts[0] | slice: 0, 1
+                  assign initial_two = ''
+                  if name_parts.size > 1
+                    assign initial_two = name_parts[1] | slice: 0, 1
+                  endif
+                  assign initials = initial_one | append: initial_two | upcase
                 endif
-                assign initials = initial_one | append: initial_two | upcase
               -%}
-              <span class="ds-card__ph" aria-hidden="true"><span>{{ initials }}</span></span>
+              <span class="ds-card__ph" aria-hidden="true">
+                {%- if initials != blank -%}<span>{{ initials }}</span>{%- endif -%}
+              </span>
             {%- endif -%}
 
             {%- if block.settings.show_play -%}
               <span class="ds-card__play" aria-hidden="true">&#9654;</span>
             {%- endif -%}
 
-            <span class="ds-card__plate">
-              <span class="ds-card__name">{{ block.settings.name }}</span>
-              <span class="ds-card__org">{{ block.settings.org }}</span>
-            </span>
+            {%- if block.settings.name != blank or block.settings.org != blank -%}
+              <span class="ds-card__plate">
+                <span class="ds-card__name">{{ block.settings.name }}</span>
+                <span class="ds-card__org">{{ block.settings.org }}</span>
+              </span>
+            {%- endif -%}
           </{{ tag }}>
         {%- endfor -%}
       </div>
