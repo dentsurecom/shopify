@@ -1293,7 +1293,11 @@ button {
   grid-template-columns: 360px minmax(0, 1fr);
   gap: 40px;
   align-items: center;
+  /* Hide off-screen carousel cards on the x-axis only: the rail is exactly as
+     tall as a card, so clipping the y-axis would slice off the top and bottom
+     of a hovered card as it scales up. */
   overflow: hidden;
+  overflow: clip visible;
   padding-left: var(--ds-pad);
 }
 .ds-rail__intro h2 { margin-bottom: 32px; }
