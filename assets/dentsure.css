@@ -2095,6 +2095,30 @@ button {
   /* Touch screens have no hover to speak of — same cutoff as the other cards. */
   .ds-plan:hover { transform: none; box-shadow: none; }
 }
+@media (max-width: 749px) {
+  /* On phones the plans become an edge-bleeding swipe row of snap cards.
+     The extra block padding leaves room for the enlarged card and the
+     "Most popular" badge poking above its card. */
+  .ds-plans {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding: 22px var(--ds-pad) 12px;
+    margin-block: -22px -12px;
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-plans::-webkit-scrollbar { display: none; }
+  .ds-plan {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+  }
+  .ds-plan.is-active { transform: scale(1.02); box-shadow: var(--ds-glow); }
+}
 
 /* --------------------------------------------------------------------------
    29. Scroll reveal
