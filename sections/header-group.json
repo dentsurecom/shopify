@@ -17,6 +17,7 @@
         "crowns": {
           "type": "service",
           "settings": {
+            "image": "shopify://shop_images/crown-model-printed.png",
             "fallback_asset": "crowns-bridges.jpg",
             "title": "Crowns & Bridges",
             "description": "Plus veneers and inlays/onlays — in 5 days.",
@@ -38,6 +39,7 @@
         "guards": {
           "type": "service",
           "settings": {
+            "image": "shopify://shop_images/trays.png",
             "fallback_asset": "night-guards.jpg",
             "title": "Night Guards",
             "description": "A clear, retainer-style guard, thermoformed to spec.",
