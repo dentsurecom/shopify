@@ -342,22 +342,25 @@ button {
 }
 .ds-link-arrow:hover { color: var(--ds-purple-dark); }
 
+/* Flows as plain inline text — flex here would turn the label's text runs
+   into separate columns that wrap badly on narrow screens. */
 .ds-partner-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline;
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.6;
   color: var(--ds-green);
 }
 .ds-partner-link b { font-family: var(--ds-font-heading), Poppins, sans-serif; }
 .ds-partner-link::before {
   content: "";
+  display: inline-block;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--ds-teal);
-  flex: none;
+  margin-right: 8px;
+  vertical-align: 1px;
 }
 .ds-on-dark .ds-partner-link { color: var(--ds-teal); font-size: 15px; }
 
