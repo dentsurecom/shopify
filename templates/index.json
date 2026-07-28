@@ -28,6 +28,7 @@
       "blocks": {
         "t1": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "text": "Trusted by 2,400+ practices"
           }
@@ -47,19 +48,13 @@
         "t4": {
           "type": "item",
           "settings": {
-            "text": "Free Helios 700 scanner from €1,500/mo"
+            "text": "Free Helios 700 scanner"
           }
         },
         "t5": {
           "type": "item",
           "settings": {
             "text": "One dedicated technician per practice"
-          }
-        },
-        "t6": {
-          "type": "item",
-          "settings": {
-            "text": "No lab minimums"
           }
         }
       },
@@ -68,8 +63,7 @@
         "t2",
         "t3",
         "t4",
-        "t5",
-        "t6"
+        "t5"
       ],
       "settings": {
         "color_scheme": "green",
