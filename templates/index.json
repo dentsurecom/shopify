@@ -381,6 +381,59 @@
         "reveal": true
       }
     },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is DentSure?",
+            "answer": "<p>DentSure is a digital dental lab. We make crowns, veneers, inlays/onlays &amp; bridges, clear aligners, and night guards — designed with you, milled in-house, and checked twice before shipping. Our Scan Kit Program puts a fully wireless intraoral scanner in your practice at no upfront cost.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How fast is the turnaround?",
+            "answer": "<p>Crowns and bridges are back in your office in 5 days. Aligners take about 12 days from submission to arriving in office, with the treatment plan reviewed with you before anything is fabricated.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Does the scanner really cost nothing upfront?",
+            "answer": "<p>Yes — the Helios 700 is installed and your whole team trained by us, at no upfront cost. And it exports open STL files, so it fits your existing lab workflow as well as DentSure.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "What does lab work cost?",
+            "answer": "<p>Crowns start at $89 per unit, clear aligners at $675 per arch, and night guards at $45 — with free shipping both ways. See the pricing page for the full list by material and plan.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What support is included?",
+            "answer": "<p>One dedicated technician per practice — on chat and video, reviewing scans while the patient is still in the chair. Design approvals happen right in the portal.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "What if a restoration doesn't fit?",
+            "answer": "<p>Every DentSure restoration is backed by a lifetime warranty, and shipping is free both ways.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "button_link": "/pages/book-a-demo",
+        "background": "white"
+      }
+    },
     "cta": {
       "type": "cta-band",
       "settings": {
@@ -402,6 +455,7 @@
     "stats",
     "support",
     "testimonials",
+    "faq",
     "cta"
   ]
 }
