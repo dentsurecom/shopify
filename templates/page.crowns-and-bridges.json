@@ -39,9 +39,9 @@
           "settings": {
             "value": "52%",
             "label": "reduction in remakes",
-            "count_to": "",
+            "count_to": "52",
             "prefix": "",
-            "suffix": "-day",
+            "suffix": "%",
             "decimals": 0,
             "direction": "up"
           }
@@ -51,10 +51,10 @@
           "settings": {
             "value": "3.2 min",
             "label": "average adjustment time",
-            "count_to": "",
+            "count_to": "3.2",
             "prefix": "",
-            "suffix": "-day",
-            "decimals": 0,
+            "suffix": " min",
+            "decimals": 1,
             "direction": "up"
           }
         },
@@ -63,9 +63,9 @@
           "settings": {
             "value": "$89",
             "label": "per unit, free shipping",
-            "count_to": "",
-            "prefix": "",
-            "suffix": "-day",
+            "count_to": "89",
+            "prefix": "$",
+            "suffix": "",
             "decimals": 0,
             "direction": "up"
           }
@@ -92,7 +92,7 @@
       "settings": {
         "style": "row",
         "border": "top",
-        "animate": false,
+        "animate": true,
         "padding_top": false,
         "padding_bottom": false,
         "reveal": false
