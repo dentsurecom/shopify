@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The logo badge at favicon scale: teal tile, two purple dots, bold D. -->
+  <rect width="64" height="64" rx="18" fill="#45d6bc"/>
+  <circle cx="19" cy="26" r="3.5" fill="#7a1e9e"/>
+  <circle cx="19" cy="38" r="3.5" fill="#7a1e9e"/>
+  <text x="27" y="43.5" font-family="Poppins, Arial, Helvetica, sans-serif" font-weight="700" font-size="32" fill="#7a1e9e">D</text>
+</svg>
