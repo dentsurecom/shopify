@@ -53,7 +53,7 @@
             "label": "average adjustment time",
             "count_to": "3.2",
             "prefix": "",
-            "suffix": " min",
+            "suffix": "min",
             "decimals": 1,
             "direction": "up"
           }
@@ -197,6 +197,8 @@
         "st1": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/AI-crown.png",
+            "image_url": "",
             "label": "AI scan review",
             "title": "Stop remakes before they happen",
             "text": "Spot critical margin issues, verify occlusal clearance, and get visual guidance on what to fix — while the patient is still in the chair."
@@ -205,6 +207,8 @@
         "st2": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/M9405101.webp",
+            "image_url": "",
             "label": "Design preview",
             "title": "See, spin, and approve in 3D",
             "text": "Review interproximal contacts, occlusion, and margin lines on a rotatable 3D preview before we mill anything."
@@ -213,6 +217,8 @@
         "st3": {
           "type": "step",
           "settings": {
+            "image": "shopify://shop_images/M9402945.webp",
+            "image_url": "",
             "label": "Computer-vision QC",
             "title": "No surprises at the chair",
             "text": "Every crown passes computer-vision quality control and a final technician check before it ships to your practice."
