@@ -1302,7 +1302,9 @@ button {
 }
 .ds-rail__intro h2 { margin-bottom: 32px; }
 
-.ds-rail__arrows { display: flex; gap: 12px; }
+/* Cards sliding left pass over the intro column, so the arrows need their own
+   layer to stay clickable underneath a passing card. */
+.ds-rail__arrows { display: flex; gap: 12px; position: relative; z-index: 3; }
 .ds-rail__arrow {
   width: 64px;
   height: 44px;
@@ -1325,7 +1327,9 @@ button {
 }
 .ds-rail__arrow--next:hover { background: var(--ds-purple-dark); border-color: var(--ds-purple-dark); color: var(--ds-white); }
 
-.ds-rail__viewport { overflow: visible; }
+/* pan-y hands vertical gestures to the page scroll while the script keeps
+   horizontal ones for swiping the rail. */
+.ds-rail__viewport { overflow: visible; touch-action: pan-y; }
 .ds-rail__track {
   display: flex;
   gap: 24px;

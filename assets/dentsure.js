@@ -212,7 +212,7 @@
   }
 
   /* --------------------------------------------------------------------
-     Testimonial rail — arrows plus a slow auto-advance.
+     Testimonial rail — arrows, swipe/drag, plus a slow auto-advance.
      -------------------------------------------------------------------- */
 
   class DsRail extends HTMLElement {
@@ -230,11 +230,80 @@
       if (prev) prev.addEventListener('click', function () { self.go(self.index - 1, true); });
       if (next) next.addEventListener('click', function () { self.go(self.index + 1, true); });
 
+      this.setupDrag();
+
       this.resize = this.resize.bind(this);
       window.addEventListener('resize', this.resize);
       this.resize();
 
       if (!reduceMotion) this.start(this.interval);
+    }
+
+    /* Pointer dragging — the rail can be swiped on touch screens and pulled
+       with the mouse. The threshold separates drags from taps, and a real
+       drag swallows the card link's click so letting go doesn't navigate. */
+    setupDrag() {
+      var viewport = this.querySelector('[data-rail-viewport]');
+      if (!viewport || !window.PointerEvent) return;
+
+      var self = this;
+      var pointerId = null;
+      var startX = 0;
+      var startOffset = 0;
+      var offset = 0;
+      var moved = false;
+
+      var offsetFor = function (i) { return -(i * self.step()); };
+
+      viewport.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        pointerId = e.pointerId;
+        startX = e.clientX;
+        startOffset = offsetFor(self.index);
+        moved = false;
+        self.stop();
+      });
+
+      viewport.addEventListener('pointermove', function (e) {
+        if (e.pointerId !== pointerId) return;
+        var dx = e.clientX - startX;
+        if (!moved) {
+          if (Math.abs(dx) < 6) return;
+          moved = true;
+          viewport.setPointerCapture(pointerId);
+          self.track.style.transition = 'none';
+        }
+        offset = startOffset + dx;
+        var min = offsetFor(self.maxIndex());
+        // Pulling past either end drags at a third speed instead of stopping.
+        if (offset > 0) offset = offset / 3;
+        else if (offset < min) offset = min + (offset - min) / 3;
+        self.track.style.transform = 'translateX(' + offset + 'px)';
+      });
+
+      var release = function (e) {
+        if (e.pointerId !== pointerId) return;
+        pointerId = null;
+        if (!moved) {
+          if (!reduceMotion) self.start(self.interval);
+          return;
+        }
+        self.track.style.transition = '';
+        var nearest = Math.round(-offset / self.step());
+        // A short flick that doesn't reach the halfway point still advances.
+        var dx = e.clientX - startX;
+        if (nearest === self.index && Math.abs(dx) > 40) nearest += dx < 0 ? 1 : -1;
+        self.go(Math.max(0, Math.min(self.maxIndex(), nearest)), true);
+      };
+      viewport.addEventListener('pointerup', release);
+      viewport.addEventListener('pointercancel', release);
+
+      viewport.addEventListener('click', function (e) {
+        if (!moved) return;
+        e.preventDefault();
+        e.stopPropagation();
+        moved = false;
+      }, true);
     }
 
     disconnectedCallback() {
