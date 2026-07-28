@@ -23,6 +23,7 @@
         "partner_label": "",
         "partner_link": "",
         "media_style": "image",
+        "image": "shopify://shop_images/crown-model-printed.png",
         "fallback_asset": "crowns-bridges.jpg",
         "image_url": "",
         "image_alt": "Zirconia crown on model",
