@@ -1206,18 +1206,39 @@ button {
   .ds-service:hover::before { box-shadow: none; }
 }
 @media (max-width: 749px) {
+  /* On phones the list becomes an edge-bleeding swipe row of snap cards. */
+  .ds-services {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding-inline: var(--ds-pad);
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-services::-webkit-scrollbar { display: none; }
   .ds-service {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    scroll-snap-align: start;
     grid-template-columns: 44px minmax(0, 1fr);
     grid-template-areas:
       "num  title"
       "media media"
       "price price";
     gap: 12px 16px;
-    padding: 24px 0;
+    padding: 20px;
+    border: 0;
+    border-radius: 16px;
+    background: var(--ds-purple-tint);
   }
+  .ds-service:last-child { border-bottom: 0; }
+  .ds-service::before { border-radius: 16px; }
   .ds-service__num { grid-area: num; }
   .ds-service__body { grid-area: title; }
-  .ds-service__media { grid-area: media; height: 180px; }
+  .ds-service__media { grid-area: media; height: 200px; }
   .ds-service__price { grid-area: price; text-align: left; }
 }
 
