@@ -23,6 +23,14 @@
   if link
     assign card_url = link.url
     assign card_title = link.title
+    comment
+      Menus are often built with "#" placeholders just to make the item a
+      dropdown parent — fall back to the matched block's link so the card
+      still goes somewhere real.
+    endcomment
+    if card_url == blank or card_url == '#'
+      assign card_url = card.settings.link | default: '#'
+    endif
   else
     assign card_url = card.settings.link | default: '#'
     assign card_title = card.settings.title
