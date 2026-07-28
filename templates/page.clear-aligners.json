@@ -130,7 +130,7 @@
             "text": "Review the step-by-step 3D simulation and request revisions before anything is made.",
             "image": "shopify://shop_images/aligners.png",
             "image_url": "",
-            "show_play": true
+            "show_play": false
           }
         },
         "t4": {
