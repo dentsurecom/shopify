@@ -255,7 +255,7 @@
   }
 
   /* --------------------------------------------------------------------
-     Testimonial rail — arrows, swipe/drag, plus a slow auto-advance.
+     Testimonial rail — arrows and swipe/drag; it only moves when asked.
      -------------------------------------------------------------------- */
 
   class DsRail extends HTMLElement {
@@ -265,21 +265,18 @@
       if (!this.track || !this.cards.length) return;
 
       this.index = 0;
-      this.interval = parseInt(this.getAttribute('data-interval'), 10) || 6000;
 
       var self = this;
       var prev = this.querySelector('[data-rail-prev]');
       var next = this.querySelector('[data-rail-next]');
-      if (prev) prev.addEventListener('click', function () { self.go(self.index - 1, true); });
-      if (next) next.addEventListener('click', function () { self.go(self.index + 1, true); });
+      if (prev) prev.addEventListener('click', function () { self.go(self.index - 1); });
+      if (next) next.addEventListener('click', function () { self.go(self.index + 1); });
 
       this.setupDrag();
 
       this.resize = this.resize.bind(this);
       window.addEventListener('resize', this.resize);
       this.resize();
-
-      if (!reduceMotion) this.start(this.interval);
     }
 
     /* Pointer dragging — the rail can be swiped on touch screens and pulled
@@ -309,7 +306,6 @@
         startX = e.clientX;
         startOffset = offsetFor(self.index);
         moved = false;
-        self.stop();
       });
 
       viewport.addEventListener('pointermove', function (e) {
@@ -332,16 +328,13 @@
       var release = function (e) {
         if (e.pointerId !== pointerId) return;
         pointerId = null;
-        if (!moved) {
-          if (!reduceMotion) self.start(self.interval);
-          return;
-        }
+        if (!moved) return;
         self.track.style.transition = '';
         var nearest = Math.round(-offset / self.step());
         // A short flick that doesn't reach the halfway point still advances.
         var dx = e.clientX - startX;
         if (nearest === self.index && Math.abs(dx) > 40) nearest += dx < 0 ? 1 : -1;
-        self.go(Math.max(0, Math.min(self.maxIndex(), nearest)), true);
+        self.go(Math.max(0, Math.min(self.maxIndex(), nearest)));
       };
       viewport.addEventListener('pointerup', release);
       viewport.addEventListener('pointercancel', release);
@@ -356,7 +349,6 @@
 
     disconnectedCallback() {
       window.removeEventListener('resize', this.resize);
-      this.stop();
     }
 
     /* The rail peeks off the right edge, so the last position is the one that
@@ -374,9 +366,9 @@
       return card.offsetWidth + gap;
     }
 
-    resize() { this.go(Math.min(this.index, this.maxIndex()), false); }
+    resize() { this.go(Math.min(this.index, this.maxIndex())); }
 
-    go(i, manual) {
+    go(i) {
       var max = this.maxIndex();
       if (i > max) i = 0;
       if (i < 0) i = max;
@@ -387,16 +379,7 @@
       this.cards.forEach(function (card, n) {
         card.classList.toggle('is-active', n === i);
       });
-      if (manual) this.start(this.interval * 2);
     }
-
-    start(ms) {
-      var self = this;
-      this.stop();
-      this._timer = setInterval(function () { self.go(self.index + 1, false); }, ms);
-    }
-
-    stop() { if (this._timer) clearInterval(this._timer); }
   }
 
   /* --------------------------------------------------------------------
