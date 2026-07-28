@@ -1966,6 +1966,95 @@ button {
 .ds-quote__attr { font-size: 16px; color: var(--ds-lilac); }
 
 /* --------------------------------------------------------------------------
+   26b. Demo form
+   -------------------------------------------------------------------------- */
+
+.ds-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 40px 72px;
+  align-items: start;
+}
+.ds-demo__title { margin-bottom: 18px; }
+.ds-demo__text { max-width: 440px; }
+
+.ds-demo__list {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.ds-demo__list li { padding-left: 20px; position: relative; font-size: 16px; }
+.ds-demo__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ds-teal);
+}
+
+.ds-demo__card {
+  background: var(--ds-white);
+  border: 1px solid var(--ds-line);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(23, 18, 35, 0.08);
+}
+
+.ds-form { display: grid; gap: 18px; }
+.ds-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.ds-form label {
+  display: block;
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.ds-form__optional { font-weight: 400; color: var(--ds-muted-soft); }
+.ds-form input,
+.ds-form textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--ds-radius);
+  border: 1px solid var(--ds-line);
+  background: var(--ds-white);
+  color: var(--ds-ink);
+  font: inherit;
+  font-size: 16px;
+}
+.ds-form input:focus,
+.ds-form textarea:focus {
+  outline: 2px solid var(--ds-teal);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+.ds-form textarea { resize: vertical; }
+.ds-form__submit { justify-self: start; }
+.ds-form__error { margin: 0; font-size: 15px; color: #c22f4d; }
+.ds-form__success strong {
+  display: block;
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+.ds-form__success p { margin: 0; color: var(--ds-muted); }
+
+@media (max-width: 899px) {
+  .ds-demo { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .ds-demo__card { padding: 24px; }
+  .ds-form__row { grid-template-columns: minmax(0, 1fr); }
+  .ds-form__submit { justify-self: stretch; }
+}
+
+/* --------------------------------------------------------------------------
    27. FAQ
    -------------------------------------------------------------------------- */
 

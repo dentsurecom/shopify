@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "demo": {
+      "type": "demo-form",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "text": "A live walkthrough of the Helios 700 scanner and the case portal"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "text": "Pricing for your practice's case mix"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "text": "How the Scan Kit Program works — $0 upfront"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "text": "No commitment, no minimums"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "eyebrow": "Book a demo",
+        "heading": "See DentSure in action.",
+        "text": "Tell us a little about your practice and we'll set up a walkthrough that fits your schedule.",
+        "submit_label": "Request a demo",
+        "success_heading": "Request received!",
+        "success_text": "Thanks — our team will reach out within one business day to schedule your demo.",
+        "background": "white"
+      }
+    },
+    "quote": {
+      "type": "quote-band",
+      "settings": {
+        "quote": "“98 crowns — <span class=\"ds-accent-teal\">zero remakes, zero adjustments</span>.”",
+        "attribution": "Dr. Barry Bartusiak · Washington, PA",
+        "reveal": true
+      }
+    }
+  },
+  "order": ["demo", "quote"]
+}

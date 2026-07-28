@@ -1,0 +1,151 @@
+{%- comment -%}
+  Demo registration — intro on the left, form card on the right.
+  Uses the native Shopify contact form, so submissions arrive at the
+  store's sender email address with no app involved.
+{%- endcomment -%}
+
+<div class="ds-section ds-pt-lg ds-pb-xl{% if section.settings.background == 'soft' %} ds-bg-soft{% endif %}">
+  <div class="ds-container">
+    <div class="ds-demo">
+      <div class="ds-demo__intro">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ds-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        <h1 class="ds-h2 ds-h2--lg ds-demo__title">{{ section.settings.heading }}</h1>
+
+        {%- if section.settings.text != blank -%}
+          <p class="ds-body ds-demo__text">{{ section.settings.text }}</p>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="ds-demo__list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="ds-demo__card">
+        {%- form 'contact', class: 'ds-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="ds-form__success">
+              <strong>{{ section.settings.success_heading }}</strong>
+              <p>{{ section.settings.success_text }}</p>
+            </div>
+          {%- else -%}
+            {%- if form.errors -%}
+              <p class="ds-form__error">{{ form.errors | default_errors }}</p>
+            {%- endif -%}
+
+            <div class="ds-form__row">
+              <div>
+                <label for="demo-name">Name</label>
+                <input type="text" id="demo-name" name="contact[Name]" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="demo-practice">Practice</label>
+                <input type="text" id="demo-practice" name="contact[Practice]" autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="ds-form__row">
+              <div>
+                <label for="demo-email">Work email</label>
+                <input type="email" id="demo-email" name="contact[email]" autocomplete="email" required>
+              </div>
+              <div>
+                <label for="demo-phone">Phone <span class="ds-form__optional">(optional)</span></label>
+                <input type="tel" id="demo-phone" name="contact[Phone]" autocomplete="tel">
+              </div>
+            </div>
+
+            <div>
+              <label for="demo-message">Anything specific you'd like to see? <span class="ds-form__optional">(optional)</span></label>
+              <textarea id="demo-message" name="contact[body]" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="ds-btn ds-btn--purple ds-form__submit">
+              {{ section.settings.submit_label }}
+            </button>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Demo form",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Book a demo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See DentSure in action."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Tell us a little about your practice and we'll set up a walkthrough that fits your schedule."
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit button label",
+      "default": "Request a demo"
+    },
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "Success heading",
+      "default": "Request received!"
+    },
+    {
+      "type": "textarea",
+      "id": "success_text",
+      "label": "Success text",
+      "default": "Thanks — our team will reach out within one business day to schedule your demo."
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "soft", "label": "Soft lilac" }
+      ],
+      "default": "white"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "A live walkthrough of the scanner and portal"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Demo form"
+    }
+  ]
+}
+{% endschema %}
