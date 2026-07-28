@@ -391,6 +391,13 @@
       this.steps = Array.prototype.slice.call(this.querySelectorAll('[data-step]'));
       if (!this.steps.length) return;
 
+      // Media frames live in the sibling panel; steps without their own
+      // frame fall back to the base image.
+      var panel = this.closest('.ds-mediatext');
+      this.frames = panel
+        ? Array.prototype.slice.call(panel.querySelectorAll('[data-step-media]'))
+        : [];
+
       this.index = 0;
       this.interval = parseInt(this.getAttribute('data-interval'), 10) || 3000;
       this.auto = this.getAttribute('data-autoplay') !== 'false' && !reduceMotion;
@@ -415,6 +422,21 @@
     select(i) {
       this.index = i;
       this.steps.forEach(function (el, n) { el.classList.toggle('is-active', n === i); });
+
+      if (this.frames.length > 1) {
+        var key = String(i);
+        var matched = false;
+        this.frames.forEach(function (frame) {
+          var match = frame.getAttribute('data-step-media') === key;
+          if (match) matched = true;
+          frame.classList.toggle('is-active', match);
+        });
+        if (!matched) {
+          this.frames.forEach(function (frame) {
+            if (frame.getAttribute('data-step-media') === 'base') frame.classList.add('is-active');
+          });
+        }
+      }
     }
 
     start(ms) {

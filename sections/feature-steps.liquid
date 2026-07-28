@@ -5,13 +5,32 @@
     {%- endif -%}
 
     <div class="ds-mediatext ds-mediatext--wide-media">
-      <div class="ds-mediatext__media ds-mediatext__media--tall">
-        {% render 'media-image',
-          image: section.settings.image,
-          fallback_url: section.settings.image_url,
-          alt: section.settings.image_alt,
-          sizes: '(min-width: 990px) 55vw, 100vw'
-        %}
+      {%- comment -%}
+        The media panel is a stack of frames: the section image is the base,
+        and any step with its own image gets a frame that fades in while that
+        step is active.
+      {%- endcomment -%}
+      <div class="ds-mediatext__media ds-mediatext__media--tall ds-steps__media">
+        <div class="ds-steps__frame is-active" data-step-media="base">
+          {% render 'media-image',
+            image: section.settings.image,
+            fallback_url: section.settings.image_url,
+            alt: section.settings.image_alt,
+            sizes: '(min-width: 990px) 55vw, 100vw'
+          %}
+        </div>
+        {%- for block in section.blocks -%}
+          {%- if block.settings.image != blank or block.settings.image_url != blank -%}
+            <div class="ds-steps__frame" data-step-media="{{ forloop.index0 }}">
+              {% render 'media-image',
+                image: block.settings.image,
+                fallback_url: block.settings.image_url,
+                alt: block.settings.title,
+                sizes: '(min-width: 990px) 55vw, 100vw'
+              %}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
 
       <ds-steps
@@ -87,6 +106,17 @@
       "type": "step",
       "name": "Step",
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step image",
+          "info": "Shown while this step is active. Falls back to the section image."
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Step image URL"
+        },
         {
           "type": "text",
           "id": "label",
