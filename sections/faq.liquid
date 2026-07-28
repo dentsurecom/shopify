@@ -1,18 +1,32 @@
 <div class="ds-section ds-pt-lg ds-pb-lg{% if section.settings.background == 'soft' %} ds-bg-soft{% endif %}{% if section.settings.reveal %} ds-reveal{% endif %}">
   <div class="ds-container">
     <div class="ds-faq">
-      <h2 class="ds-h2 ds-h2--sm">{{ section.settings.heading }}</h2>
+      <div class="ds-faq__intro">
+        <h2 class="ds-h2 ds-h2--sm">{{ section.settings.heading }}</h2>
 
-      {%- for block in section.blocks -%}
-        <details class="ds-faq__item" {{ block.shopify_attributes }}>
-          <summary class="ds-faq__q">
-            <span>{{ block.settings.question }}</span>
-            <span class="ds-faq__sign ds-faq__sign--plus" aria-hidden="true">+</span>
-            <span class="ds-faq__sign ds-faq__sign--minus" aria-hidden="true">&ndash;</span>
-          </summary>
-          <div class="ds-faq__a">{{ block.settings.answer }}</div>
-        </details>
-      {%- endfor -%}
+        {%- if section.settings.note != blank -%}
+          <p class="ds-faq__note">{{ section.settings.note }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+          <a href="{{ section.settings.button_link }}" class="ds-btn ds-btn--purple">
+            {{- section.settings.button_label -}}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="ds-faq__list">
+        {%- for block in section.blocks -%}
+          <details class="ds-faq__item" {{ block.shopify_attributes }}>
+            <summary class="ds-faq__q">
+              <span>{{ block.settings.question }}</span>
+              <span class="ds-faq__sign ds-faq__sign--plus" aria-hidden="true">+</span>
+              <span class="ds-faq__sign ds-faq__sign--minus" aria-hidden="true">&ndash;</span>
+            </summary>
+            <div class="ds-faq__a">{{ block.settings.answer }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
     </div>
   </div>
 </div>
@@ -27,6 +41,23 @@
       "id": "heading",
       "label": "Heading",
       "default": "Frequently asked questions"
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Sidebar note",
+      "default": "Have more questions? Get in touch with our team directly."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get in touch"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
     },
     {
       "type": "select",

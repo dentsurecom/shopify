@@ -1755,8 +1755,33 @@ button {
    27. FAQ
    -------------------------------------------------------------------------- */
 
-.ds-faq { max-width: 900px; }
-.ds-faq h2 { margin-bottom: 40px; }
+/* Two-column split: heading, note, and contact button on the left, the
+   accordion on the right. The intro stays put while the questions scroll. */
+.ds-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 40px 72px;
+  align-items: start;
+}
+.ds-faq__intro { position: sticky; top: calc(var(--ds-header-h, 80px) + 24px); }
+.ds-faq h2 { margin-bottom: 0; }
+
+.ds-faq__note {
+  max-width: 340px;
+  margin: 32px 0 28px;
+  padding-top: 32px;
+  border-top: 1px solid var(--ds-line);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ds-muted);
+}
+.ds-bg-soft .ds-faq__note { border-color: var(--ds-lilac-line); }
+
+@media (max-width: 899px) {
+  .ds-faq { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .ds-faq__intro { position: static; }
+  .ds-faq__note { margin: 24px 0 20px; padding-top: 24px; }
+}
 
 .ds-faq__item {
   border-top: 1px solid var(--ds-line);

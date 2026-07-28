@@ -241,6 +241,7 @@
       ],
       "settings": {
         "heading": "Frequently asked questions",
+        "button_link": "/pages/book-a-demo",
         "background": "white"
       }
     },
