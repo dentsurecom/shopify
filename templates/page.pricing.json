@@ -19,9 +19,16 @@
         "button_label": "Get a full price list",
         "button_link": "/pages/book-a-demo",
         "button_2_label": "",
+        "button_2_link": "",
+        "partner_label": "",
+        "partner_link": "",
         "media_style": "image",
         "image": "shopify://shop_images/DS-Pack-1.png",
-        "image_alt": "DentSure case packaging"
+        "fallback_asset": "crowns-bridges.jpg",
+        "image_url": "",
+        "image_alt": "DentSure case packaging",
+        "chip_title": "Helios 700",
+        "chip_text": "Wireless · 16µm accuracy · $0 upfront"
       }
     },
     "crowns": {
@@ -30,49 +37,49 @@
         "r1": {
           "type": "row",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg",
             "label": "Monolithic Zirconia (3Y)",
-            "price": "$89",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg"
+            "price": "$89"
           }
         },
         "r2": {
           "type": "row",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg",
             "label": "Aesthetic Zirconia",
-            "price": "$109",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg"
+            "price": "$109"
           }
         },
         "r3": {
           "type": "row",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png",
             "label": "eMax",
-            "price": "$119",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png"
+            "price": "$119"
           }
         },
         "r4": {
           "type": "row",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png",
             "label": "PFM",
-            "price": "$129",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png"
+            "price": "$129"
           }
         },
         "r5": {
           "type": "row",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png",
             "label": "PFZ",
-            "price": "$149",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png"
+            "price": "$149"
           }
         },
         "r6": {
           "type": "row",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png",
             "label": "Full Metal (high-noble)",
-            "price": "$159 + alloy",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png"
+            "price": "$159 + alloy"
           }
         }
       },
@@ -89,7 +96,8 @@
         "link_label": "Explore crowns",
         "link": "/pages/crowns-bridges",
         "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · lifetime warranty · free shipping both ways",
-        "padding_bottom": false
+        "padding_bottom": false,
+        "reveal": true
       }
     },
     "aligners": {
@@ -101,6 +109,8 @@
             "title": "On Demand",
             "text": "Any number of steps",
             "featured": false,
+            "badge": "Most popular",
+            "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
             "price": "$675",
             "price_suffix": "/arch"
           }
@@ -112,6 +122,7 @@
             "text": "Up to 20 steps · 1 refinement · retainers",
             "featured": true,
             "badge": "Most popular",
+            "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
             "price": "$1,150",
             "price_suffix": ""
           }
@@ -122,6 +133,8 @@
             "title": "DentSure Max",
             "text": "Unlimited steps & refinements · 2 retainer sets",
             "featured": false,
+            "badge": "Most popular",
+            "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
             "price": "$1,650",
             "price_suffix": ""
           }
@@ -139,7 +152,8 @@
         "link": "/pages/clear-aligners",
         "note": "Treatment plans are free — you're invoiced only on approval for manufacturing",
         "padding_top": true,
-        "padding_bottom": false
+        "padding_bottom": false,
+        "reveal": true
       }
     },
     "guards": {
@@ -148,6 +162,7 @@
         "r1": {
           "type": "row",
           "settings": {
+            "image_url": "",
             "label": "Clear Night Guard (Retainer)",
             "price": "$45"
           }
@@ -161,7 +176,8 @@
         "link_label": "Explore night guards",
         "link": "/pages/night-guards-splints",
         "note": "Per guard · case and models included · free shipping both ways",
-        "padding_bottom": true
+        "padding_bottom": true,
+        "reveal": true
       }
     },
     "included": {
@@ -170,33 +186,44 @@
         "c1": {
           "type": "column",
           "settings": {
+            "fallback_asset": "",
+            "image_url": "https://www.ortho-clear.com/cdn/shop/files/M9405105-Edit.jpg?v=1782979578&width=1200",
+            "label": "",
             "title": "Helios 700 scanner",
-            "text": "$0 upfront with your first case — installed and trained by us.",
-            "image_url": "https://www.ortho-clear.com/cdn/shop/files/M9405105-Edit.jpg?v=1782979578&width=1200"
+            "text": "$0 upfront with your first case — installed and trained by us."
           }
         },
         "c2": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/trays.png",
+            "fallback_asset": "",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg",
+            "label": "",
             "title": "Dedicated technician",
-            "text": "Chat, video, and chairside scan review on every case.",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg"
+            "text": "Chat, video, and chairside scan review on every case."
           }
         },
         "c3": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/DS-Pack-1.png",
+            "fallback_asset": "",
+            "image_url": "",
+            "label": "",
             "title": "Free shipping",
-            "text": "Both ways, on every case — no volume requirements.",
-            "image": "shopify://shop_images/DS-Pack-1.png"
+            "text": "Both ways, on every case — no volume requirements."
           }
         },
         "c4": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/model-bridge.png",
+            "fallback_asset": "",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg",
+            "label": "",
             "title": "Lifetime warranty",
-            "text": "On all fixed restorations. No questions asked.",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg"
+            "text": "On all fixed restorations. No questions asked."
           }
         }
       },
@@ -211,7 +238,9 @@
         "heading_align": "center",
         "columns": 4,
         "show_images": true,
-        "background": "soft"
+        "border_top": false,
+        "background": "soft",
+        "reveal": true
       }
     },
     "cta": {
@@ -221,7 +250,8 @@
         "heading": "Get your full price list.",
         "text": "Every product, material, and turnaround time — in one PDF.",
         "button_label": "Get pricing",
-        "button_link": "/pages/book-a-demo"
+        "button_link": "/pages/book-a-demo",
+        "reveal": true
       }
     }
   },
