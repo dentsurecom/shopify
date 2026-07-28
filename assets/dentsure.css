@@ -1513,6 +1513,9 @@ button {
 
 @media (max-width: 989px) {
   .ds-cta__inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+  /* The centred variant stays centred — the flex-start above is for the
+     split layout only. */
+  .ds-cta--center .ds-cta__inner { align-items: center; }
 }
 @media (max-width: 749px) {
   .ds-cta,
