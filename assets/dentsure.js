@@ -382,6 +382,11 @@
       if (i < 0) i = max;
       this.index = i;
       this.track.style.transform = 'translateX(' + -(i * this.step()) + 'px)';
+      // Touch layouts have no hover, so the CSS enlarges the current card via
+      // this class instead.
+      this.cards.forEach(function (card, n) {
+        card.classList.toggle('is-active', n === i);
+      });
       if (manual) this.start(this.interval * 2);
     }
 

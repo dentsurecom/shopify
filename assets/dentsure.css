@@ -1467,7 +1467,9 @@ button {
 @media (max-width: 989px) {
   .ds-rail { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .ds-card { width: 300px; height: 420px; }
-  .ds-card:hover { transform: none; }
+  .ds-card:hover { transform: none; box-shadow: none; }
+  /* No hover on touch — the card you've swiped to enlarges instead. */
+  .ds-card.is-active { transform: scale(1.04); box-shadow: var(--ds-glow); z-index: 2; }
 }
 @media (max-width: 479px) {
   .ds-card { width: min(280px, 78vw); height: 400px; }
