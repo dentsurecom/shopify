@@ -1,5 +1,9 @@
 <div class="ds-quote{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <span class="ds-decor ds-decor--ring ds-quote__ring" aria-hidden="true"></span>
+  <span class="ds-decor ds-quote__glow" aria-hidden="true"></span>
+
   <div class="ds-container">
+    <span class="ds-quote__mark" aria-hidden="true">&ldquo;</span>
     <blockquote class="ds-quote__text">{{ section.settings.quote }}</blockquote>
     {%- if section.settings.attribution != blank -%}
       <div class="ds-quote__attr">{{ section.settings.attribution }}</div>

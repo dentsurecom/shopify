@@ -1742,10 +1742,38 @@ button {
    -------------------------------------------------------------------------- */
 
 .ds-quote {
+  position: relative;
+  overflow: hidden;
   background: var(--ds-ink);
   color: var(--ds-white);
   text-align: center;
   padding-block: clamp(64px, 7.5vw, 110px);
+}
+/* Echo the hero's decor so the band belongs to the same world: a thin teal
+   ring drifting off the bottom-right and a soft purple glow top-left. */
+.ds-quote__ring { top: auto; right: -160px; bottom: -340px; }
+.ds-quote__glow {
+  left: -140px;
+  top: -200px;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(122, 30, 158, 0.45), transparent 70%);
+}
+.ds-quote .ds-container { position: relative; }
+/* An oversized watermark quote mark behind the text — texture, not punctuation,
+   so it stays faint enough not to double the quote's own marks. */
+.ds-quote__mark {
+  position: absolute;
+  top: -0.18em;
+  left: 50%;
+  transform: translateX(-540px);
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: clamp(160px, 22vw, 300px);
+  line-height: 1;
+  color: rgba(69, 214, 188, 0.14);
+  pointer-events: none;
+  user-select: none;
 }
 .ds-quote__text {
   font-family: var(--ds-font-heading), Poppins, sans-serif;
@@ -1757,6 +1785,11 @@ button {
   margin: 0 auto 20px;
 }
 .ds-quote__attr { font-size: 16px; color: var(--ds-lilac); }
+
+@media (max-width: 989px) {
+  .ds-quote__mark { transform: translateX(-46vw); }
+  .ds-quote__glow { width: 380px; height: 380px; left: -120px; top: -140px; }
+}
 
 /* --------------------------------------------------------------------------
    27. FAQ
