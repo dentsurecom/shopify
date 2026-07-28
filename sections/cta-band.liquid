@@ -7,7 +7,32 @@
       {%- endif -%}
     </div>
 
-    {%- if section.settings.button_label != blank -%}
+    {%- if section.settings.show_form -%}
+      {%- form 'customer', class: 'ds-cta__form' -%}
+        <input type="hidden" name="contact[tags]" value="prospect,cta-signup">
+        {%- if form.posted_successfully? -%}
+          <p class="ds-cta__form-msg ds-cta__form-msg--ok">{{ section.settings.form_success }}</p>
+        {%- else -%}
+          {%- if form.errors -%}
+            <p class="ds-cta__form-msg ds-cta__form-msg--err">{{ form.errors | default_errors }}</p>
+          {%- endif -%}
+          <div class="ds-cta__form-row">
+            <input
+              type="email"
+              name="contact[email]"
+              class="ds-cta__input"
+              placeholder="{{ section.settings.form_placeholder | escape }}"
+              aria-label="{{ section.settings.form_placeholder | escape }}"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="ds-btn ds-btn--primary ds-btn--lg">
+              {{ section.settings.form_button }}
+            </button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    {%- elsif section.settings.button_label != blank -%}
       <a href="{{ section.settings.button_link | default: '#' }}" class="ds-btn ds-btn--primary ds-btn--lg">
         {{ section.settings.button_label }}
       </a>
@@ -51,6 +76,35 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Signup form",
+      "info": "Replaces the button. Submissions appear in Shopify admin under Customers, tagged cta-signup."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_form",
+      "label": "Show email signup form",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "form_placeholder",
+      "label": "Email placeholder",
+      "default": "Work email"
+    },
+    {
+      "type": "text",
+      "id": "form_button",
+      "label": "Form button label",
+      "default": "Get started"
+    },
+    {
+      "type": "text",
+      "id": "form_success",
+      "label": "Success message",
+      "default": "Thanks — we'll be in touch shortly."
     },
     {
       "type": "checkbox",

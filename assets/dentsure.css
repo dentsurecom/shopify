@@ -1477,6 +1477,36 @@ button {
 .ds-cta--center h2 { margin-bottom: 16px; font-size: clamp(32px, 3.6vw, 52px); }
 .ds-cta--center p { margin-bottom: 36px; }
 
+/* Signup form — translucent input on the purple band, teal submit beside it */
+.ds-cta__form { width: 100%; max-width: 560px; }
+.ds-cta--center .ds-cta__form { margin-inline: auto; }
+.ds-cta__form-row { display: flex; gap: 12px; }
+.ds-cta__input {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 22px;
+  border-radius: var(--ds-radius);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--ds-white);
+  font: inherit;
+  font-size: 16px;
+}
+.ds-cta__input::placeholder { color: rgba(255, 255, 255, 0.65); }
+.ds-cta__input:focus {
+  outline: 2px solid var(--ds-teal);
+  outline-offset: 1px;
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.18);
+}
+.ds-cta .ds-cta__form-msg { margin: 0 0 14px; font-size: 16px; color: var(--ds-lilac); }
+.ds-cta .ds-cta__form-msg--ok { color: var(--ds-teal); font-weight: 600; margin-bottom: 0; }
+.ds-cta .ds-cta__form-msg--err { color: #ffc2cf; }
+
+@media (max-width: 479px) {
+  .ds-cta__form-row { flex-direction: column; }
+}
+
 @media (max-width: 989px) {
   .ds-cta__inner { flex-direction: column; align-items: flex-start; gap: 28px; }
 }
