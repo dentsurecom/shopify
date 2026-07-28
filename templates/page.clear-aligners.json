@@ -35,7 +35,8 @@
           "settings": {
             "value": "12 days",
             "label": "from submission to aligners in office",
-            "count_to": ""
+            "count_to": "12",
+            "suffix": " days"
           }
         },
         "s2": {
@@ -43,7 +44,8 @@
           "settings": {
             "value": "#1",
             "label": "Zendura FLX — the material orthodontists trust",
-            "count_to": ""
+            "count_to": "1",
+            "prefix": "#"
           }
         },
         "s3": {
@@ -59,7 +61,9 @@
           "settings": {
             "value": "+$200K",
             "label": "potential annual revenue",
-            "count_to": ""
+            "count_to": "200",
+            "prefix": "+$",
+            "suffix": "K"
           }
         }
       },
@@ -72,7 +76,7 @@
       "settings": {
         "style": "row",
         "border": "top",
-        "animate": false,
+        "animate": true,
         "padding_top": false,
         "padding_bottom": true
       }
