@@ -331,9 +331,9 @@
         "c1": {
           "type": "testimonial",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-michael-cabral-doctor-02-1.jpg",
-            "name": "Dr. Michael Cabral, DMD",
-            "org": "Northeast Dental Partners",
+            "image_url": "",
+            "name": "",
+            "org": "",
             "link": "",
             "show_play": true
           }
@@ -341,9 +341,9 @@
         "c2": {
           "type": "testimonial",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-raj-doctor-03-1.jpg",
-            "name": "Dr. Raj Patel",
-            "org": "Raj Patel DDS",
+            "image_url": "",
+            "name": "",
+            "org": "",
             "link": "",
             "show_play": true
           }
@@ -351,9 +351,9 @@
         "c3": {
           "type": "testimonial",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-Brooke-Sears-doctor-04-1.jpg",
-            "name": "Brooke Sears, RDA",
-            "org": "Mars Hill Dental",
+            "image_url": "",
+            "name": "",
+            "org": "",
             "link": "",
             "show_play": true
           }
@@ -361,9 +361,9 @@
         "c4": {
           "type": "testimonial",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-daniel-bures-doctor-05-1.jpg",
-            "name": "Dr. Daniel Bures",
-            "org": "Daniel Bures DDS",
+            "image_url": "",
+            "name": "",
+            "org": "",
             "link": "",
             "show_play": true
           }
@@ -371,9 +371,9 @@
         "c5": {
           "type": "testimonial",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-jessica-krausz-doctor-06-1.jpg",
-            "name": "Dr. Jessica Krausz",
-            "org": "Jessica Krausz DDS",
+            "image_url": "",
+            "name": "",
+            "org": "",
             "link": "",
             "show_play": true
           }
@@ -381,9 +381,9 @@
         "c6": {
           "type": "testimonial",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-tiffanie-garrison-doctor-07-1.jpg",
-            "name": "Dr. Tiffanie Garrison-Jeter",
-            "org": "Definition Dental Studio",
+            "image_url": "",
+            "name": "",
+            "org": "",
             "link": "",
             "show_play": true
           }
