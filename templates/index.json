@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-editorial",
       "settings": {
+        "eyebrow": "",
         "heading": "Sure scans.<br><em>Sure fits.</em><br>DentSure.",
         "text": "The digital lab with a technician beside you on every case — from first scan to final seat.",
         "button_label": "Book a demo",
@@ -71,6 +81,7 @@
       "type": "statement",
       "settings": {
         "heading": "One lab for the whole workflow — <span class=\"ds-accent\">scan</span>, <span class=\"ds-accent\">design</span>, <span class=\"ds-accent\">deliver</span>.",
+        "text": "",
         "alignment": "left",
         "background": "white",
         "reveal": true
@@ -124,15 +135,17 @@
       ],
       "settings": {
         "layout": "split",
+        "eyebrow": "Helios 700 · Scan Kit Program",
         "heading": "The scanner is on us.",
+        "text": "Fully wireless intraoral scanning, installed and trained by our team — at no upfront cost. Every detail, considered:",
         "link_label": "Meet the Helios 700",
         "link": "/pages/scanner",
         "image_alt": "Helios 700 intraoral scanner",
         "autoplay": true,
         "interval": 3.5,
-        "reveal": true,
         "padding_top": false,
-        "padding_bottom": true
+        "padding_bottom": true,
+        "reveal": true
       }
     },
     "video_band": {
@@ -218,6 +231,7 @@
             "value": "5-day",
             "label": "standard crown turnaround",
             "count_to": "5",
+            "prefix": "",
             "suffix": "-day",
             "decimals": 0,
             "direction": "up"
@@ -229,6 +243,7 @@
             "value": "98.4%",
             "label": "first-fit acceptance rate",
             "count_to": "98.4",
+            "prefix": "",
             "suffix": "%",
             "decimals": 1,
             "direction": "up"
@@ -241,7 +256,7 @@
             "label": "to reach your technician",
             "count_to": "2",
             "prefix": "<",
-            "suffix": " min",
+            "suffix": "min",
             "decimals": 0,
             "direction": "up"
           }
@@ -267,6 +282,7 @@
       ],
       "settings": {
         "style": "ruled",
+        "border": "top",
         "animate": true,
         "padding_top": false,
         "padding_bottom": true,
@@ -304,6 +320,9 @@
         "eyebrow": "The DentSure difference",
         "heading": "Never scan alone.",
         "text": "One dedicated technician per practice — on chat, on video, reviewing scans while the patient is still in the chair.",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/M9402945.webp",
         "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/meet-dandy-homepage-Video-Section-image-3@2x.webp",
         "image_alt": "A technician reviewing a scan with a dentist chairside",
         "reveal": true
@@ -315,54 +334,60 @@
         "c1": {
           "type": "testimonial",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-michael-cabral-doctor-02-1.jpg",
             "name": "Dr. Michael Cabral, DMD",
             "org": "Northeast Dental Partners",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-michael-cabral-doctor-02-1.jpg",
+            "link": "",
             "show_play": true
           }
         },
         "c2": {
           "type": "testimonial",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-raj-doctor-03-1.jpg",
             "name": "Dr. Raj Patel",
             "org": "Raj Patel DDS",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-raj-doctor-03-1.jpg",
+            "link": "",
             "show_play": true
           }
         },
         "c3": {
           "type": "testimonial",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-Brooke-Sears-doctor-04-1.jpg",
             "name": "Brooke Sears, RDA",
             "org": "Mars Hill Dental",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-Brooke-Sears-doctor-04-1.jpg",
+            "link": "",
             "show_play": true
           }
         },
         "c4": {
           "type": "testimonial",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-daniel-bures-doctor-05-1.jpg",
             "name": "Dr. Daniel Bures",
             "org": "Daniel Bures DDS",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonial-doctor-daniel-bures-doctor-05-1.jpg",
+            "link": "",
             "show_play": true
           }
         },
         "c5": {
           "type": "testimonial",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-jessica-krausz-doctor-06-1.jpg",
             "name": "Dr. Jessica Krausz",
             "org": "Jessica Krausz DDS",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-jessica-krausz-doctor-06-1.jpg",
+            "link": "",
             "show_play": true
           }
         },
         "c6": {
           "type": "testimonial",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-tiffanie-garrison-doctor-07-1.jpg",
             "name": "Dr. Tiffanie Garrison-Jeter",
             "org": "Definition Dental Studio",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2026/05/testimonials-doctor-tiffanie-garrison-doctor-07-1.jpg",
+            "link": "",
             "show_play": true
           }
         }
@@ -427,11 +452,21 @@
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6"
+      ],
       "settings": {
         "heading": "Frequently asked questions",
+        "note": "Have more questions? Get in touch with our team directly.",
+        "button_label": "Get in touch",
         "button_link": "/pages/book-a-demo",
-        "background": "white"
+        "background": "white",
+        "reveal": true
       }
     },
     "cta": {
@@ -439,6 +474,7 @@
       "settings": {
         "layout": "split",
         "heading": "Make DentSure your last lab switch.",
+        "text": "",
         "button_label": "Book a demo",
         "button_link": "/pages/book-a-demo",
         "reveal": true
