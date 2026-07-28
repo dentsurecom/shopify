@@ -79,7 +79,7 @@
           "settings": {
             "title": "Hard/Soft 3D-Printed Night Guard",
             "text": "Strength against bruxism with thermodynamic flexibility for cloud-like comfort. Adjustable in hot water.",
-            "spec": "",
+            "spec": "Adjustable fit",
             "image_url": ""
           }
         },
@@ -88,7 +88,7 @@
           "settings": {
             "title": "Hard Night Guard",
             "text": "Thermoformed, fully hard material — maximum protection for severe clenching and bruxism.",
-            "spec": "",
+            "spec": "Severe bruxism",
             "image_url": ""
           }
         },
@@ -97,7 +97,7 @@
           "settings": {
             "title": "Soft Night Guard",
             "text": "Comfortable and effective against jaw pain, soreness, and headaches — best for mild cases.",
-            "spec": "",
+            "spec": "Mild cases",
             "image_url": ""
           }
         },
@@ -106,7 +106,7 @@
           "settings": {
             "title": "Hard/Soft Dual-Laminate",
             "text": "Hard outer layer fused to a soft lining — durability with everyday comfort.",
-            "spec": "",
+            "spec": "Everyday comfort",
             "image_url": ""
           }
         },
@@ -115,7 +115,7 @@
           "settings": {
             "title": "Astron CLEARsplint",
             "text": "Hard-guard strength that can be heat-adjusted for a more comfortable fit. Casted or milled.",
-            "spec": "",
+            "spec": "Heat-adjustable",
             "image_url": ""
           }
         },
@@ -124,7 +124,7 @@
           "settings": {
             "title": "NTI Splint",
             "text": "Small anterior device (teeth #6–9) that inhibits bruxism and relieves TMJ and temporal headaches.",
-            "spec": "",
+            "spec": "TMJ relief",
             "image_url": ""
           }
         },
@@ -133,7 +133,7 @@
           "settings": {
             "title": "Anterior Deprogrammer",
             "text": "Full-arch coverage with an anterior ramp that retrains jaw muscles and prevents bruxism.",
-            "spec": "",
+            "spec": "Full-arch",
             "image_url": ""
           }
         },
@@ -142,7 +142,7 @@
           "settings": {
             "title": "Dawson B-Splint & Gelb Appliance",
             "text": "Specialty appliances for jaw repositioning, stress relief, and controlled vertical opening.",
-            "spec": "",
+            "spec": "Specialty",
             "image_url": ""
           }
         }

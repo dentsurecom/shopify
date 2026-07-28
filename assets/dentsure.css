@@ -1591,6 +1591,26 @@ button {
   flex: none;
   background: var(--ds-purple-soft);
 }
+/* Rows without a photo get a numbered tile instead, so the list keeps its
+   left-edge rhythm without stock filler. Alternate rows flip the gradient. */
+.ds-material__mono {
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--ds-purple-soft), var(--ds-teal-soft));
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ds-purple);
+}
+.ds-material:nth-child(even) .ds-material__mono {
+  background: linear-gradient(135deg, var(--ds-teal-soft), var(--ds-purple-soft));
+  color: var(--ds-green);
+}
 .ds-material__body { flex: 1; }
 .ds-material__title {
   font-family: var(--ds-font-heading), Poppins, sans-serif;
@@ -1602,10 +1622,16 @@ button {
 .ds-material__spec {
   font-family: var(--ds-font-heading), Poppins, sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--ds-purple);
   flex: none;
+  background: var(--ds-purple-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
 }
+/* On the soft lilac background the chip needs white to stand out. */
+.ds-bg-soft .ds-material__spec { background: var(--ds-white); }
+.ds-bg-soft .ds-material:hover .ds-material__spec { background: var(--ds-purple-soft); }
 
 @media (max-width: 989px) {
   .ds-matlist { grid-template-columns: minmax(0, 1fr); gap: 0; }

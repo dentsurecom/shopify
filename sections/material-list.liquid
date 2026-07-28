@@ -23,6 +23,10 @@
               class: 'ds-material__thumb',
               sizes: '76px'
             %}
+          {%- else -%}
+            <span class="ds-material__mono" aria-hidden="true">
+              {{- forloop.index | prepend: '0' | slice: -2, 2 -}}
+            </span>
           {%- endif -%}
 
           <div class="ds-material__body">
