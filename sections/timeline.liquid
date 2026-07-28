@@ -10,7 +10,28 @@
 
     <div class="ds-timeline">
       {%- for block in section.blocks -%}
+        {%- liquid
+          assign has_media = false
+          if block.settings.image != blank or block.settings.image_url != blank
+            assign has_media = true
+          endif
+        -%}
         <div class="ds-timeline__step" {{ block.shopify_attributes }}>
+          <div class="ds-timeline__media">
+            {%- if has_media -%}
+              {% render 'media-image',
+                image: block.settings.image,
+                fallback_url: block.settings.image_url,
+                alt: block.settings.title,
+                sizes: '(min-width: 990px) 25vw, (min-width: 480px) 50vw, 100vw'
+              %}
+            {%- else -%}
+              <span class="ds-timeline__ghost" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            {%- endif -%}
+            {%- if block.settings.show_play -%}
+              <span class="ds-timeline__play" aria-hidden="true">&#9654;</span>
+            {%- endif -%}
+          </div>
           <div class="ds-timeline__label">{{ block.settings.label }}</div>
           <div class="ds-timeline__title">{{ block.settings.title }}</div>
           <p class="ds-timeline__text">{{ block.settings.text }}</p>
@@ -75,6 +96,28 @@
           "id": "text",
           "label": "Text",
           "default": "Capture a full arch with the Helios 700 and submit the case in the portal."
+        },
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Image URL",
+          "info": "Used when no image is uploaded. Leave both empty for a numbered placeholder."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_play",
+          "label": "Show play button",
+          "info": "Makes the frame read as a video placeholder.",
+          "default": false
         }
       ]
     }

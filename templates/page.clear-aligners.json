@@ -89,7 +89,8 @@
           "settings": {
             "label": "Step 1",
             "title": "Scan and order",
-            "text": "Capture a full arch with the Helios 700 and submit the case in the portal."
+            "text": "Capture a full arch with the Helios 700 and submit the case in the portal.",
+            "image_url": "https://www.ortho-clear.com/cdn/shop/files/M9405105-Edit.jpg?v=1782979578&width=1200"
           }
         },
         "t2": {
@@ -97,7 +98,8 @@
           "settings": {
             "label": "Step 2",
             "title": "Ortho team designs",
-            "text": "Experienced ortho designers build the treatment plan, with orthodontist review."
+            "text": "Experienced ortho designers build the treatment plan, with orthodontist review.",
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-0446.jpg"
           }
         },
         "t3": {
@@ -105,7 +107,8 @@
           "settings": {
             "label": "Step 3",
             "title": "You approve in 3D",
-            "text": "Review the step-by-step 3D simulation and request revisions before anything is made."
+            "text": "Review the step-by-step 3D simulation and request revisions before anything is made.",
+            "show_play": true
           }
         },
         "t4": {
@@ -113,7 +116,8 @@
           "settings": {
             "label": "Step 4",
             "title": "Manufactured & delivered",
-            "text": "Aligners arrive in premium patient packaging, ready to hand over."
+            "text": "Aligners arrive in premium patient packaging, ready to hand over.",
+            "image": "shopify://shop_images/DS-Pack-1.png"
           }
         }
       },

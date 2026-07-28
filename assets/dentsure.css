@@ -1670,6 +1670,53 @@ button {
 }
 .ds-timeline__step { border-top: 3px solid var(--ds-teal); padding-top: 20px; }
 .ds-timeline__step:nth-child(even) { border-top-color: var(--ds-purple); }
+
+.ds-timeline__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, var(--ds-purple-soft), var(--ds-teal-soft));
+}
+.ds-timeline__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s var(--ds-ease);
+}
+.ds-timeline__step:hover .ds-timeline__media img { transform: scale(1.05); }
+/* Empty frames read as a slot waiting for art: gradient tint plus a big
+   faint step number. */
+.ds-timeline__ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  color: rgba(122, 30, 158, 0.16);
+}
+.ds-timeline__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ds-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding-left: 4px;
+  box-shadow: 0 10px 26px rgba(23, 18, 35, 0.22);
+}
 .ds-timeline__label {
   font-family: var(--ds-font-heading), Poppins, sans-serif;
   font-weight: 600;
@@ -1975,7 +2022,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
