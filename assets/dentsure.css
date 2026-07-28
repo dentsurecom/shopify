@@ -1063,6 +1063,8 @@ button {
   .ds-feature { opacity: 1; }
   .ds-scanner__head { flex-direction: column; align-items: flex-start; }
   .ds-scanner__specs { gap: 32px; }
+  /* Fingers need more than 32px — grow the hotspots to a tappable size. */
+  .ds-hotspot { width: 42px; height: 42px; font-size: 15px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1071,7 +1073,7 @@ button {
 
 .ds-videoband {
   position: relative;
-  height: 640px;
+  height: var(--ds-band-h, 640px);
   background: var(--ds-ink-deep);
   overflow: hidden;
 }
@@ -1107,7 +1109,7 @@ button {
 }
 
 @media (max-width: 749px) {
-  .ds-videoband { height: 460px; }
+  .ds-videoband { height: min(var(--ds-band-h, 640px), 440px); }
   .ds-videoband__content { left: var(--ds-pad); text-align: left; bottom: 40px; }
 }
 
@@ -1480,6 +1482,10 @@ button {
 
 @media (max-width: 989px) {
   .ds-cta__inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+}
+@media (max-width: 749px) {
+  .ds-cta,
+  .ds-cta--center { padding-block: 64px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1939,7 +1945,7 @@ button {
   gap: 20px;
   font-size: 17px;
 }
-.ds-pricelist__row b { font-family: var(--ds-font-heading), Poppins, sans-serif; }
+.ds-pricelist__row b { font-family: var(--ds-font-heading), Poppins, sans-serif; white-space: nowrap; }
 .ds-pricelist__label { flex: 1; }
 .ds-pricelist__thumb {
   width: 48px;

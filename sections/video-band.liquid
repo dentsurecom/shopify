@@ -1,4 +1,8 @@
-<div class="ds-videoband" style="height: {{ section.settings.height }}px">
+{%- comment -%}
+  Height rides a custom property rather than an inline height so the
+  mobile stylesheet can still shrink the band.
+{%- endcomment -%}
+<div class="ds-videoband" style="--ds-band-h: {{ section.settings.height }}px">
   {% render 'media-video',
     video: section.settings.video,
     video_url: section.settings.video_url,
