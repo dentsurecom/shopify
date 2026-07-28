@@ -1865,6 +1865,12 @@ button {
   border-radius: var(--ds-radius-panel);
   padding: 36px;
   position: relative;
+  transition: transform 0.35s var(--ds-ease), box-shadow 0.35s;
+}
+.ds-plan:hover {
+  transform: scale(1.03);
+  box-shadow: 0 18px 40px rgba(23, 18, 35, 0.12);
+  z-index: 2;
 }
 .ds-plan--featured { border: 2px solid var(--ds-purple); }
 .ds-plan__badge {
@@ -1911,6 +1917,8 @@ button {
   .ds-pricelist { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .ds-plans { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .ds-pricehead { flex-direction: column; align-items: flex-start; gap: 12px; }
+  /* Touch screens have no hover to speak of — same cutoff as the other cards. */
+  .ds-plan:hover { transform: none; box-shadow: none; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1926,7 +1934,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
