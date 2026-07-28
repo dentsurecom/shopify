@@ -1590,7 +1590,11 @@ button {
   object-fit: cover;
   flex: none;
   background: var(--ds-purple-soft);
+  transition: transform 0.35s var(--ds-ease);
 }
+/* The thumb pops a touch more than the row it sits in. */
+.ds-material:hover .ds-material__thumb,
+.ds-material:hover .ds-material__mono { transform: scale(1.1); }
 /* Rows without a photo get a numbered tile instead, so the list keeps its
    left-edge rhythm without stock filler. Alternate rows flip the gradient. */
 .ds-material__mono {
@@ -1606,6 +1610,7 @@ button {
   font-weight: 600;
   font-size: 18px;
   color: var(--ds-purple);
+  transition: transform 0.35s var(--ds-ease);
 }
 .ds-material:nth-child(even) .ds-material__mono {
   background: linear-gradient(135deg, var(--ds-teal-soft), var(--ds-purple-soft));
@@ -2048,7 +2053,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
