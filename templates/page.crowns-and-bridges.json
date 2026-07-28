@@ -20,9 +20,14 @@
         "button_link": "/pages/book-a-demo",
         "button_2_label": "Get pricing",
         "button_2_link": "/pages/pricing",
+        "partner_label": "",
+        "partner_link": "",
         "media_style": "image",
         "fallback_asset": "crowns-bridges.jpg",
-        "image_alt": "Zirconia crown on model"
+        "image_url": "",
+        "image_alt": "Zirconia crown on model",
+        "chip_title": "Helios 700",
+        "chip_text": "Wireless · 16µm accuracy · $0 upfront"
       }
     },
     "stats": {
@@ -33,7 +38,11 @@
           "settings": {
             "value": "52%",
             "label": "reduction in remakes",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         },
         "s2": {
@@ -41,7 +50,11 @@
           "settings": {
             "value": "3.2 min",
             "label": "average adjustment time",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         },
         "s3": {
@@ -49,7 +62,11 @@
           "settings": {
             "value": "$89",
             "label": "per unit, free shipping",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         },
         "s4": {
@@ -57,7 +74,11 @@
           "settings": {
             "value": "Lifetime",
             "label": "warranty, no questions asked",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         }
       },
@@ -72,7 +93,8 @@
         "border": "top",
         "animate": false,
         "padding_top": false,
-        "padding_bottom": false
+        "padding_bottom": false,
+        "reveal": false
       }
     },
     "turnaround": {
@@ -81,12 +103,17 @@
         "eyebrow": "Turnaround",
         "heading": "Back in your office in 5 days",
         "text": "Traditional labs slow you down. Every DentSure crown is designed, milled, and quality-checked in-house — then shipped free, in packaging your front desk will actually enjoy opening.",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/DS-pack.png",
+        "fallback_asset": "",
         "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-packaging.gif",
         "image_alt": "Crown packaging",
         "media_position": "left",
         "media_width": "half",
         "media_height": "default",
-        "background": "white"
+        "background": "white",
+        "reveal": true
       }
     },
     "materials": {
@@ -95,55 +122,55 @@
         "m1": {
           "type": "material",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg",
             "title": "Monolithic Zirconia (3Y)",
             "text": "Bulletproof strength for bruxers, posteriors, and bridges.",
-            "spec": "~1350 MPa",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg"
+            "spec": "~1350 MPa"
           }
         },
         "m2": {
           "type": "material",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg",
             "title": "Aesthetic Zirconia",
             "text": "Full-contour anterior and posterior with natural translucency.",
-            "spec": "900 MPa",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg"
+            "spec": "900 MPa"
           }
         },
         "m3": {
           "type": "material",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png",
             "title": "PFZ",
             "text": "Hand-layered porcelain on a zirconia core for aesthetic anteriors.",
-            "spec": "1350 MPa core",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png"
+            "spec": "1350 MPa core"
           }
         },
         "m4": {
           "type": "material",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png",
             "title": "PFM",
             "text": "Minimal prep or retraction — the go-to for limited occlusal space.",
-            "spec": "Classic",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png"
+            "spec": "Classic"
           }
         },
         "m5": {
           "type": "material",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png",
             "title": "Full Metal",
             "text": "Monolithic high-noble alloys for maximum durability.",
-            "spec": "1100 MPa",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png"
+            "spec": "1100 MPa"
           }
         },
         "m6": {
           "type": "material",
           "settings": {
+            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png",
             "title": "eMax",
             "text": "Lithium disilicate — great for veneers and anterior crowns.",
-            "spec": "360–400 MPa",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png"
+            "spec": "360–400 MPa"
           }
         }
       },
@@ -159,7 +186,8 @@
         "eyebrow": "Materials",
         "heading": "A material for every case",
         "text": "Strength, fit, and aesthetics you can count on — from bruxers to anterior aesthetics.",
-        "background": "soft"
+        "background": "soft",
+        "reveal": true
       }
     },
     "software": {
@@ -200,14 +228,16 @@
         "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/12/ai-scan-review-1.jpg",
         "image_alt": "AI scan review",
         "autoplay": true,
-        "interval": 3
+        "interval": 3,
+        "reveal": true
       }
     },
     "quote": {
       "type": "quote-band",
       "settings": {
         "quote": "“98 crowns — <span class=\"ds-accent-teal\">zero remakes, zero adjustments</span>.”",
-        "attribution": "Dr. Barry Bartusiak · Washington, PA"
+        "attribution": "Dr. Barry Bartusiak · Washington, PA",
+        "reveal": true
       }
     },
     "faq": {
@@ -250,8 +280,11 @@
       ],
       "settings": {
         "heading": "Frequently asked questions",
+        "note": "Have more questions? Get in touch with our team directly.",
+        "button_label": "Get in touch",
         "button_link": "/pages/book-a-demo",
-        "background": "white"
+        "background": "white",
+        "reveal": true
       }
     },
     "cta": {
@@ -261,7 +294,8 @@
         "heading": "Send your first crown case.",
         "text": "Get a personalized walkthrough of how DentSure reduces remakes and gets crowns back in 5 days.",
         "button_label": "Book a demo",
-        "button_link": "/pages/book-a-demo"
+        "button_link": "/pages/book-a-demo",
+        "reveal": true
       }
     }
   },
