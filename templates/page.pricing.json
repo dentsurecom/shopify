@@ -198,7 +198,7 @@
           "settings": {
             "image": "shopify://shop_images/trays.png",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg",
+            "image_url": "",
             "label": "",
             "title": "Dedicated technician",
             "text": "Chat, video, and chairside scan review on every case."
@@ -220,7 +220,7 @@
           "settings": {
             "image": "shopify://shop_images/model-bridge.png",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg",
+            "image_url": "",
             "label": "",
             "title": "Lifetime warranty",
             "text": "On all fixed restorations. No questions asked."
