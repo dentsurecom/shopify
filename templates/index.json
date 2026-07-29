@@ -177,7 +177,7 @@
             "image": "shopify://shop_images/aligners.png",
             "fallback_asset": "clear-aligners.jpg",
             "image_fit": "cover",
-            "price": "From €675/arch",
+            "price": "From €595",
             "price_style": "purple",
             "link": "/pages/clear-aligners"
           }
