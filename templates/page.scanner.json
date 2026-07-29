@@ -253,7 +253,8 @@
         "link": "/pages/book-a-demo",
         "note": "Includes onboarding, training, and chairside support. Free shipping.",
         "background": "soft",
-        "reveal": true
+        "reveal": true,
+        "show_add_to_cart": false
       }
     },
     "faq": {

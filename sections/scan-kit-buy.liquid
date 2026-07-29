@@ -87,27 +87,36 @@
 
               <input type="hidden" name="id" value="{{ variant.id }}" data-variant-id>
 
-              <div class="ds-buybox__actions">
-                <button
-                  type="submit"
-                  name="add"
-                  class="ds-btn ds-btn--purple ds-btn--lg ds-buybox__add"
-                  data-add
-                  data-sold-out-label="{{ 'products.product.sold_out' | t | escape }}"
-                  {% unless variant.available %}disabled{% endunless %}
-                >
-                  <span data-add-label data-label="{{ section.settings.button_label | escape }}">
-                    {%- if variant.available -%}
-                      {{ section.settings.button_label }}
-                    {%- else -%}
-                      {{ 'products.product.sold_out' | t }}
-                    {%- endif -%}
-                  </span>
-                </button>
+              {%- comment -%}
+                At least one button must render: if express checkout is turned
+                off in Shopify, payment_button outputs nothing, so add-to-cart
+                comes back automatically as the fallback.
+              {%- endcomment -%}
+              {%- capture express -%}
+                {%- if section.settings.show_payment_button -%}{{ form | payment_button }}{%- endif -%}
+              {%- endcapture -%}
 
-                {%- if section.settings.show_payment_button -%}
-                  {{ form | payment_button }}
+              <div class="ds-buybox__actions">
+                {%- if section.settings.show_add_to_cart or express == blank -%}
+                  <button
+                    type="submit"
+                    name="add"
+                    class="ds-btn ds-btn--purple ds-btn--lg ds-buybox__add"
+                    data-add
+                    data-sold-out-label="{{ 'products.product.sold_out' | t | escape }}"
+                    {% unless variant.available %}disabled{% endunless %}
+                  >
+                    <span data-add-label data-label="{{ section.settings.button_label | escape }}">
+                      {%- if variant.available -%}
+                        {{ section.settings.button_label }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </span>
+                  </button>
                 {%- endif -%}
+
+                {{ express }}
               </div>
             {%- endform -%}
           </ds-buybox>
@@ -169,17 +178,24 @@
       "default": "Scanner, cart, and software — shipped, installed, and trained by our team. Yours outright, with no monthly lab commitment."
     },
     {
-      "type": "text",
-      "id": "button_label",
-      "label": "Add to cart label",
-      "default": "Add to cart"
-    },
-    {
       "type": "checkbox",
       "id": "show_payment_button",
       "label": "Show express checkout button",
       "default": true,
       "info": "Shop Pay and other accelerated checkouts, when enabled in Shopify."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart",
+      "label": "Show add to cart button",
+      "default": true,
+      "info": "Turn off to sell through express checkout alone. It reappears automatically if express checkout is unavailable."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Add to cart label",
+      "default": "Add to cart"
     },
     {
       "type": "text",
