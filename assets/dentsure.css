@@ -1007,10 +1007,10 @@ button {
 .ds-scanner__img {
   position: absolute;
   inset: 0;
-  margin: auto;
+  width: 100%;
   height: 100%;
-  width: auto;
-  max-width: 100%;
+  /* Fill the stage on both axes and let contain do the scaling — it can
+     never crop, unlike the height/width:auto combo this replaces. */
   object-fit: contain;
   filter: drop-shadow(0 40px 60px rgba(23, 18, 35, 0.25));
 }
@@ -1065,7 +1065,7 @@ button {
   .ds-scanner__col { gap: 28px; }
   .ds-scanner__col--left { text-align: left; order: 2; }
   .ds-scanner__col--right { order: 3; }
-  .ds-scanner__stage { order: 1; height: 380px; }
+  .ds-scanner__stage { order: 1; height: 440px; }
   .ds-scanner__col--left .ds-feature__head { justify-content: flex-start; }
   /* On small screens every callout reads at full strength — the hotspots stay
      tappable but the dimming would just hurt legibility. */
