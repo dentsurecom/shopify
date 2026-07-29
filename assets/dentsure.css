@@ -265,6 +265,54 @@ button {
   margin-top: 14px;
 }
 
+/* A prose note runs the full container otherwise, which is far too wide to
+   read comfortably. */
+.ds-note--measure {
+  max-width: 62ch;
+  line-height: 1.55;
+}
+
+/* Terms that would otherwise sit on one long grey line, as chips that wrap. */
+.ds-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-facts__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 12px;
+  border: 1px solid var(--ds-line);
+  border-radius: 999px;
+  background: var(--ds-white);
+  font-size: 13.5px;
+  line-height: 1.35;
+  color: var(--ds-muted);
+}
+
+.ds-facts__item::before {
+  content: "";
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ds-teal);
+}
+
+@media (max-width: 749px) {
+  .ds-facts { gap: 6px; }
+
+  .ds-facts__item {
+    padding: 6px 12px 6px 10px;
+    font-size: 13px;
+  }
+}
+
 .ds-accent { color: var(--ds-purple); }
 .ds-accent-teal { color: var(--ds-teal); }
 

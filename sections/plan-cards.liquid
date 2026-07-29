@@ -49,7 +49,7 @@
     </div>
 
     {%- if section.settings.note != blank -%}
-      <div class="ds-note">{{ section.settings.note }}</div>
+      {% render 'section-note', text: section.settings.note %}
     {%- endif -%}
   </div>
 </div>

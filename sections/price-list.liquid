@@ -32,7 +32,7 @@
     </div>
 
     {%- if section.settings.note != blank -%}
-      <div class="ds-note">{{ section.settings.note }}</div>
+      {% render 'section-note', text: section.settings.note %}
     {%- endif -%}
   </div>
 </div>
@@ -63,7 +63,7 @@
       "type": "text",
       "id": "note",
       "label": "Note",
-      "default": "Per unit · 5-day turnaround · free remakes · shipping fee applies"
+      "default": "Per unit · 5-day turnaround · Free remakes · Shipping fee applies"
     },
     {
       "type": "checkbox",

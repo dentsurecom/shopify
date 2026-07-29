@@ -101,7 +101,7 @@
         "heading": "Crowns & Bridges",
         "link_label": "Explore crowns",
         "link": "/pages/crowns-bridges",
-        "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · free remakes · models included on most cases",
+        "note": "Crowns, veneers, inlays/onlays & bridges · Per unit · 5-day turnaround · Free remakes · Models included on most cases",
         "padding_bottom": false,
         "reveal": true
       }
@@ -137,7 +137,7 @@
           "type": "plan",
           "settings": {
             "title": "PRO",
-            "text": "Up to 40 steps· 2 refinements · 2 retainer sets",
+            "text": "Up to 40 steps · 2 refinements · 2 retainer sets",
             "featured": false,
             "badge": "Most popular",
             "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
@@ -156,7 +156,7 @@
         "heading": "Clear Aligners",
         "link_label": "Explore aligners",
         "link": "/pages/clear-aligners",
-        "note": "Treatment plans are free — you're invoiced only on approval for manufacturing. A €100 fee applies only if a case isn't started within 30 days",
+        "note": "Treatment plans are free · Invoiced only on approval for manufacturing · €100 fee if a case isn't started within 30 days",
         "padding_top": true,
         "padding_bottom": false,
         "reveal": true
@@ -181,7 +181,7 @@
         "heading": "Night Guards",
         "link_label": "Explore night guards",
         "link": "/pages/night-guards-splints",
-        "note": "Per set · case included · shipping fee applies",
+        "note": "Per set · Case included · Shipping fee applies",
         "padding_bottom": true,
         "reveal": true
       }

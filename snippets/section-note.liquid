@@ -1,0 +1,23 @@
+{%- comment -%}
+  Section note. A run of "·"-separated terms reads as one long grey line, so
+  split it into chips that wrap — each fact stays a scannable unit. A note
+  with no separators is prose, and stays prose, capped to a readable measure.
+
+  Accepts:
+    text  — the note, facts separated by "·"
+{%- endcomment -%}
+
+{%- assign facts = text | split: '·' -%}
+
+{%- if facts.size > 1 -%}
+  <ul class="ds-facts">
+    {%- for fact in facts -%}
+      {%- assign entry = fact | strip -%}
+      {%- if entry != blank -%}
+        <li class="ds-facts__item">{{ entry }}</li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- elsif text != blank -%}
+  <p class="ds-note ds-note--measure">{{ text }}</p>
+{%- endif -%}
