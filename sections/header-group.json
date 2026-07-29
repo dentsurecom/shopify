@@ -21,7 +21,7 @@
             "fallback_asset": "crowns-bridges.jpg",
             "title": "Crowns & Bridges",
             "description": "Plus veneers and inlays/onlays — in 5 days.",
-            "price": "from $89",
+            "price": "from €89",
             "link": "/pages/crowns-bridges"
           }
         },
@@ -32,7 +32,7 @@
             "fallback_asset": "clear-aligners.jpg",
             "title": "Clear Aligners",
             "description": "Plans reviewed with you before fabrication.",
-            "price": "from $675/arch",
+            "price": "from €675/arch",
             "link": "/pages/clear-aligners"
           }
         },
@@ -43,7 +43,7 @@
             "fallback_asset": "night-guards.jpg",
             "title": "Night Guards",
             "description": "A clear, retainer-style guard, thermoformed to spec.",
-            "price": "$45",
+            "price": "€45",
             "link": "/pages/night-guards-splints"
           }
         }
@@ -55,6 +55,8 @@
       ],
       "settings": {
         "menu": "main-menu",
+        "show_lang": true,
+        "languages": "EN, FR",
         "mega_menu_title": "Lab Services",
         "sticky": false,
         "cta_label": "Book a demo",
