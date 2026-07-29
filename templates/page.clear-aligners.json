@@ -295,7 +295,7 @@
           "type": "question",
           "settings": {
             "question": "Do treatment plans cost anything?",
-            "answer": "<p>No — case submission is free on all plans. You're invoiced only when you approve a plan for manufacturing.</p>"
+            "answer": "<p>Case submission is free and you're invoiced only when you approve a plan for manufacturing. If a case isn't started within 30 days of the plan being ready, a €100 planning fee applies.</p>"
           }
         },
         "q3": {
