@@ -1223,7 +1223,6 @@ button {
     /* The block padding gives the enlarged active card room to grow without
        the scroll container clipping it. */
     padding: 10px var(--ds-pad);
-    margin-block: -10px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1734,7 +1733,6 @@ button {
     scroll-snap-type: x mandatory;
     margin-inline: calc(-1 * var(--ds-pad));
     padding: 10px var(--ds-pad);
-    margin-block: -10px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1809,7 +1807,6 @@ button {
     scroll-snap-type: x mandatory;
     margin-inline: calc(-1 * var(--ds-pad));
     padding: 10px var(--ds-pad);
-    margin-block: -10px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1912,7 +1909,6 @@ button {
     scroll-snap-type: x mandatory;
     margin-inline: calc(-1 * var(--ds-pad));
     padding: 10px var(--ds-pad);
-    margin-block: -10px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -1984,7 +1980,6 @@ button {
     scroll-snap-type: x mandatory;
     margin-inline: calc(-1 * var(--ds-pad));
     padding: 10px var(--ds-pad);
-    margin-block: -10px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -2001,6 +1996,9 @@ button {
     transition: transform 0.35s var(--ds-ease), box-shadow 0.35s;
   }
   .ds-cols > div.is-active { transform: scale(1.02); box-shadow: var(--ds-glow); }
+  /* The ruled variant keeps clear air between its top rule and the cards —
+     the strip padding above would otherwise override its 64px. */
+  .ds-cols--ruled { padding-top: 28px; }
   .ds-col__media { height: 200px; }
 }
 
@@ -2322,7 +2320,6 @@ button {
     scroll-snap-type: x mandatory;
     margin-inline: calc(-1 * var(--ds-pad));
     padding: 22px var(--ds-pad) 12px;
-    margin-block: -22px -12px;
     scroll-padding-inline: var(--ds-pad);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
