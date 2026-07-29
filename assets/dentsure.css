@@ -1322,8 +1322,25 @@ button {
 @media (max-width: 989px) {
   .ds-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 }
-@media (max-width: 479px) {
-  .ds-stats { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 749px) {
+  /* On phones the stats swipe as one centred snap row instead of stacking. */
+  .ds-stats {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding-inline: var(--ds-pad);
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-stats::-webkit-scrollbar { display: none; }
+  .ds-stat {
+    flex: 0 0 60vw;
+    max-width: 260px;
+    scroll-snap-align: center;
+  }
 }
 
 /* --------------------------------------------------------------------------
