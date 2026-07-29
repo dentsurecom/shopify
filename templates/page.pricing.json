@@ -112,36 +112,36 @@
         "p1": {
           "type": "plan",
           "settings": {
-            "title": "On Demand",
-            "text": "Any number of steps",
+            "title": "GO",
+            "text": "Up to 7 steps",
             "featured": false,
             "badge": "Most popular",
             "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
-            "price": "€675",
-            "price_suffix": "/arch"
+            "price": "€595",
+            "price_suffix": ""
           }
         },
         "p2": {
           "type": "plan",
           "settings": {
-            "title": "DentSure 20",
+            "title": "FLEX",
             "text": "Up to 20 steps · 1 refinement · retainers",
             "featured": true,
             "badge": "Most popular",
             "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
-            "price": "€1150",
+            "price": "€995",
             "price_suffix": ""
           }
         },
         "p3": {
           "type": "plan",
           "settings": {
-            "title": "DentSure Max",
-            "text": "Unlimited steps & refinements · 2 retainer sets",
+            "title": "PRO",
+            "text": "Up to 40 steps· 2 refinements · 2 retainer sets",
             "featured": false,
             "badge": "Most popular",
             "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
-            "price": "€1650",
+            "price": "€1295",
             "price_suffix": ""
           }
         }
