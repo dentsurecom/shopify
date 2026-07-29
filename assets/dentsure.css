@@ -601,6 +601,10 @@ button {
 
 .ds-header__cta { flex: none; }
 
+/* Auto margins keep the nav centred while the language switcher and CTA
+   group together on the right. */
+.ds-header__nav { margin-inline: auto; }
+
 /* Language switcher — visual now; Weglot drives the switching once installed. */
 .ds-lang { position: relative; flex: none; }
 .ds-lang__btn {
