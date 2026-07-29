@@ -962,6 +962,10 @@ button {
 }
 .ds-feature.is-active { opacity: 1; }
 
+/* Phone-only swipe strip of the callouts — hidden on desktop, where the
+   two-column layout renders them instead. */
+.ds-scanner__strip { display: none; }
+
 .ds-feature__head {
   display: flex;
   align-items: baseline;
@@ -1062,11 +1066,34 @@ button {
 }
 @media (max-width: 900px) {
   .ds-scanner__grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .ds-scanner__col { gap: 28px; }
-  .ds-scanner__col--left { text-align: left; order: 2; }
-  .ds-scanner__col--right { order: 3; }
+  .ds-scanner__col { display: none; }
   .ds-scanner__stage { order: 1; height: 440px; }
-  .ds-scanner__col--left .ds-feature__head { justify-content: flex-start; }
+  /* The callouts swipe as one snap strip under the stage; the snapped card
+     drives the active hotspot. */
+  .ds-scanner__strip {
+    display: flex;
+    order: 2;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(-1 * var(--ds-pad));
+    padding: 10px var(--ds-pad);
+    scroll-padding-inline: var(--ds-pad);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ds-scanner__strip::-webkit-scrollbar { display: none; }
+  .ds-scanner__strip .ds-feature {
+    flex: 0 0 80vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+    background: var(--ds-white);
+    border: 1px solid var(--ds-line);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: left;
+  }
+  .ds-scanner__strip .ds-feature.is-active { box-shadow: var(--ds-glow); }
   /* On small screens inactive callouts dim only slightly — enough to show
      which step is live without hurting legibility. */
   .ds-feature { opacity: 0.55; }

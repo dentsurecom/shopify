@@ -112,13 +112,23 @@
       if (!this.features.length) return;
 
       this.index = 0;
+      // Callouts render twice (columns + phone strip), so the number of tour
+      // stops comes from the hotspots, which exist once per feature.
+      this.count = this.hotspots.length || this.features.length;
       this.auto = this.getAttribute('data-autoplay') !== 'false' && !reduceMotion;
       this.interval = parseInt(this.getAttribute('data-interval'), 10) || 3500;
 
       var self = this;
+      var strip = this.querySelector('[data-feature-strip]');
+
       var pick = function (i) {
         self.select(i);
         self.stop();
+        // Bring the matching strip card along when a hotspot is tapped.
+        if (strip) {
+          var card = strip.querySelector('[data-index="' + i + '"]');
+          if (card) card.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
       };
 
       this.features.concat(this.hotspots).forEach(function (el) {
@@ -126,6 +136,22 @@
           pick(parseInt(el.getAttribute('data-index'), 10) || 0);
         });
       });
+
+      // On phones the strip's snapped card drives the tour; the timer would
+      // highlight an off-screen card, so it stays off.
+      if (strip && window.matchMedia('(max-width: 900px)').matches) {
+        this.auto = false;
+        if ('IntersectionObserver' in window) {
+          this._io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var idx = parseInt(entry.target.getAttribute('data-index'), 10);
+              if (!isNaN(idx)) self.select(idx);
+            });
+          }, { root: strip, threshold: 0.65 });
+          Array.prototype.forEach.call(strip.children, function (el) { self._io.observe(el); });
+        }
+      }
 
       this.select(0);
       if (this.auto) this.start();
@@ -135,6 +161,7 @@
     disconnectedCallback() {
       this.stop();
       if (this._stopTurn) this._stopTurn();
+      if (this._io) this._io.disconnect();
     }
 
     /* Scroll-linked turn — the stage (image, disc, and hotspots as one plane)
@@ -178,12 +205,15 @@
 
     select(i) {
       this.index = i;
-      this.features.forEach(function (el, n) {
-        el.classList.toggle('is-active', n === i);
+      // Match by data-index — callouts exist twice (columns + phone strip).
+      this.features.forEach(function (el) {
+        var idx = parseInt(el.getAttribute('data-index'), 10);
+        el.classList.toggle('is-active', idx === i);
       });
-      this.hotspots.forEach(function (el, n) {
-        el.classList.toggle('is-active', n === i);
-        el.setAttribute('aria-pressed', n === i ? 'true' : 'false');
+      this.hotspots.forEach(function (el) {
+        var idx = parseInt(el.getAttribute('data-index'), 10);
+        el.classList.toggle('is-active', idx === i);
+        el.setAttribute('aria-pressed', idx === i ? 'true' : 'false');
       });
     }
 
@@ -191,7 +221,7 @@
       var self = this;
       this.stop();
       this._timer = setInterval(function () {
-        self.select((self.index + 1) % self.features.length);
+        self.select((self.index + 1) % self.count);
       }, this.interval);
     }
 

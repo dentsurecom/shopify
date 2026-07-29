@@ -85,6 +85,16 @@
           {%- endif -%}
         {%- endfor -%}
       </div>
+
+      {%- comment -%}
+        Phone layout: the two columns hide and all callouts render again as a
+        single swipe strip; the snapped card drives the active hotspot.
+      {%- endcomment -%}
+      <div class="ds-scanner__strip" data-feature-strip>
+        {%- for block in features -%}
+          {% render 'scanner-feature', block: block, index: forloop.index0, align: 'left', skip_attrs: true %}
+        {%- endfor -%}
+      </div>
     </ds-scanner>
 
     {%- if specs.size > 0 -%}
