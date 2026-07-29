@@ -20,7 +20,11 @@
         "button_link": "/pages/book-a-demo",
         "button_2_label": "Book a demo",
         "button_2_link": "/pages/book-a-demo",
+        "partner_label": "",
+        "partner_link": "",
         "media_style": "cutout",
+        "fallback_asset": "crowns-bridges.jpg",
+        "image_url": "",
         "image_alt": "Helios 700 intraoral scanner",
         "chip_title": "Helios 700",
         "chip_text": "Wireless · 16µm accuracy · Free from €1,500/mo"
@@ -34,7 +38,11 @@
           "settings": {
             "value": "<30 s",
             "label": "full-arch scan at 30 fps",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         },
         "s2": {
@@ -42,7 +50,11 @@
           "settings": {
             "value": "16 µm",
             "label": "full-arch accuracy",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         },
         "s3": {
@@ -50,7 +62,11 @@
           "settings": {
             "value": "225 g",
             "label": "lightweight, cord-free",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         },
         "s4": {
@@ -58,7 +74,11 @@
           "settings": {
             "value": "~100 min",
             "label": "battery per charge",
-            "count_to": ""
+            "count_to": "",
+            "prefix": "",
+            "suffix": "-day",
+            "decimals": 0,
+            "direction": "up"
           }
         }
       },
@@ -73,7 +93,8 @@
         "border": "bottom",
         "animate": false,
         "padding_top": false,
-        "padding_bottom": false
+        "padding_bottom": false,
+        "reveal": false
       }
     },
     "detail": {
@@ -127,11 +148,14 @@
         "eyebrow": "A closer look",
         "heading": "Every detail, considered.",
         "text": "",
+        "link_label": "Meet the Helios 700",
+        "link": "",
         "image_alt": "Helios 700 detail",
         "autoplay": true,
         "interval": 3.5,
         "padding_top": true,
-        "padding_bottom": true
+        "padding_bottom": true,
+        "reveal": true
       }
     },
     "scan_kit": {
@@ -172,74 +196,16 @@
         "eyebrow": "The Scan Kit Program",
         "heading": "Yours, on partner terms.",
         "text": "No big upfront investment. We install the scanner and cart, train your whole team, and support every scan chairside.",
+        "button_label": "",
+        "button_link": "",
+        "fallback_asset": "",
         "image_url": "https://www.ortho-clear.com/cdn/shop/files/M9405105-Edit.jpg?v=1782979578&width=1200",
         "image_alt": "Helios 700 scanner in use",
         "media_position": "left",
         "media_width": "half",
         "media_height": "short",
-        "background": "soft"
-      }
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "q1": {
-          "type": "question",
-          "settings": {
-            "question": "Is it really fully wireless?",
-            "answer": "<p>Yes — it scans over high-speed, zero-latency WiFi with no cord. A USB 3.0 cable is included as a fallback if you prefer a wired connection.</p>"
-          }
-        },
-        "q2": {
-          "type": "question",
-          "settings": {
-            "question": "How accurate is it?",
-            "answer": "<p>16 µm full-arch accuracy and 8 µm on a single tooth, with 24-bit true-colour capture and a 20 mm depth of field.</p>"
-          }
-        },
-        "q3": {
-          "type": "question",
-          "settings": {
-            "question": "Will it lock me into DentSure?",
-            "answer": "<p>No. The Helios 700 exports open STL files, so it fits your existing lab workflow as well as DentSure.</p>"
-          }
-        },
-        "q4": {
-          "type": "question",
-          "settings": {
-            "question": "How long does the battery last?",
-            "answer": "<p>Around 100 minutes of continuous scanning — roughly 60 typical cases — and it recharges on the wireless dock.</p>"
-          }
-        },
-        "q5": {
-          "type": "question",
-          "settings": {
-            "question": "What does the scanner cost?",
-            "answer": "<p>Two ways to get one. Buy the Scan Kit outright and it's yours with no monthly commitment — or take it at no upfront cost with a minimum lab spend of €1,500 per month. Either way we install it, train your team, and support every scan.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q5",
-        "q1",
-        "q2",
-        "q3",
-        "q4"
-      ],
-      "settings": {
-        "heading": "Frequently asked questions",
-        "button_link": "/pages/book-a-demo",
-        "background": "white"
-      }
-    },
-    "cta": {
-      "type": "cta-band",
-      "settings": {
-        "layout": "center",
-        "heading": "Start scanning this month.",
-        "text": "We install the Helios 700, train your team, and stay on the line for every case.",
-        "button_label": "Book a demo",
-        "button_link": "/pages/book-a-demo"
+        "background": "soft",
+        "reveal": true
       }
     },
     "buy": {
@@ -277,6 +243,7 @@
         "b4"
       ],
       "settings": {
+        "product": "helios-700-scan-kit",
         "eyebrow": "The Scan Kit",
         "heading": "Own the Helios 700.",
         "text": "Scanner, cart, and software — shipped, installed, and trained by our team. Yours outright, with no monthly lab commitment.",
@@ -286,6 +253,72 @@
         "link": "/pages/book-a-demo",
         "note": "Includes onboarding, training, and chairside support. Free shipping.",
         "background": "soft",
+        "reveal": true
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What does the scanner cost?",
+            "answer": "<p>Two ways to get one. Buy the Scan Kit outright and it's yours with no monthly commitment — or take it at no upfront cost with a minimum lab spend of €1,500 per month. Either way we install it, train your team, and support every scan.</p>"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Is it really fully wireless?",
+            "answer": "<p>Yes — it scans over high-speed, zero-latency WiFi with no cord. A USB 3.0 cable is included as a fallback if you prefer a wired connection.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How accurate is it?",
+            "answer": "<p>16 µm full-arch accuracy and 8 µm on a single tooth, with 24-bit true-colour capture and a 20 mm depth of field.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Will it lock me into DentSure?",
+            "answer": "<p>No. The Helios 700 exports open STL files, so it fits your existing lab workflow as well as DentSure.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does the battery last?",
+            "answer": "<p>Around 100 minutes of continuous scanning — roughly 60 typical cases — and it recharges on the wireless dock.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q5",
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "heading": "Frequently asked questions",
+        "note": "Have more questions? Get in touch with our team directly.",
+        "button_label": "Get in touch",
+        "button_link": "/pages/book-a-demo",
+        "background": "white",
+        "reveal": true
+      }
+    },
+    "cta": {
+      "type": "cta-band",
+      "settings": {
+        "layout": "center",
+        "heading": "Start scanning this month.",
+        "text": "We install the Helios 700, train your team, and stay on the line for every case.",
+        "button_label": "Book a demo",
+        "button_link": "/pages/book-a-demo",
         "reveal": true
       }
     }
