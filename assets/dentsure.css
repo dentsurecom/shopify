@@ -2422,12 +2422,25 @@ button {
 }
 .ds-pricelist__row {
   border-top: 1px solid var(--ds-line);
-  padding: 14px 0;
+  /* Inline padding cancelled by an equal negative margin: the hovered row can
+     tint past its text without the columns shifting. */
+  padding: 14px 16px;
+  margin-inline: -16px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   font-size: 17px;
+  transition: transform 0.35s var(--ds-ease), background 0.35s, box-shadow 0.35s;
+}
+.ds-pricelist__row:hover {
+  transform: scale(1.02);
+  background: var(--ds-purple-tint);
+  box-shadow: var(--ds-glow);
+  border-color: transparent;
+  position: relative;
+  z-index: 2;
 }
 .ds-pricelist__row b { font-family: var(--ds-font-heading), Poppins, sans-serif; white-space: nowrap; }
 .ds-pricelist__label { flex: 1; }
@@ -2456,6 +2469,8 @@ button {
 @media (max-width: 989px) {
   .ds-pricelist__row:nth-last-child(-n + 2) { border-bottom: 0; }
   .ds-pricelist__row:last-child { border-bottom: 1px solid var(--ds-line); }
+  /* Touch screens have no hover — same cutoff as the other rows. */
+  .ds-pricelist__row:hover { transform: none; box-shadow: none; background: none; }
 }
 
 .ds-plans {
@@ -2561,7 +2576,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .ds-reveal { opacity: 1; transform: none; transition: none; }
-  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono, .ds-pricelist__thumb, .ds-timeline__step, .ds-steps__frame { transition: none; }
+  .ds-card, .ds-material, .ds-step, .ds-rail__track, .ds-service, .ds-service::before, .ds-plan, .ds-timeline__media img, .ds-material__thumb, .ds-material__mono, .ds-pricelist__thumb, .ds-timeline__step, .ds-steps__frame, .ds-pricelist__row { transition: none; }
 }
 
 /* --------------------------------------------------------------------------
