@@ -42,6 +42,7 @@
             "count_to": "52",
             "prefix": "",
             "suffix": "%",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
@@ -54,9 +55,9 @@
             "count_to": "3.2",
             "prefix": "",
             "suffix": "min",
+            "space_suffix": true,
             "decimals": 1,
-            "direction": "up",
-            "space_suffix": true
+            "direction": "up"
           }
         },
         "s3": {
@@ -65,8 +66,9 @@
             "value": "$89",
             "label": "per unit, free shipping",
             "count_to": "89",
-            "prefix": "$",
+            "prefix": "€",
             "suffix": "",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
@@ -79,6 +81,7 @@
             "count_to": "",
             "prefix": "",
             "suffix": "-day",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
