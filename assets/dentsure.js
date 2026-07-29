@@ -22,6 +22,7 @@
 
       this.setupMega();
       this.setupDrawer();
+      this.setupLang();
     }
 
     disconnectedCallback() {
@@ -69,6 +70,44 @@
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close(0);
+      });
+    }
+
+    /* Language switcher — visual until Weglot is installed; once its script
+       is on the page, clicks call Weglot.switchTo() with the language code. */
+    setupLang() {
+      var wrap = this.querySelector('[data-lang-switcher]');
+      if (!wrap) return;
+      var btn = wrap.querySelector('[data-lang-toggle]');
+      var current = wrap.querySelector('[data-lang-current]');
+
+      var setOpen = function (open) {
+        wrap.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(!wrap.classList.contains('is-open'));
+      });
+
+      Array.prototype.forEach.call(wrap.querySelectorAll('[data-lang]'), function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var code = el.getAttribute('data-lang');
+          if (window.Weglot && typeof window.Weglot.switchTo === 'function') {
+            window.Weglot.switchTo(code);
+          }
+          if (current) current.textContent = el.textContent.trim();
+          setOpen(false);
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!wrap.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
       });
     }
 

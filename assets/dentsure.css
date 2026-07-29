@@ -601,6 +601,47 @@ button {
 
 .ds-header__cta { flex: none; }
 
+/* Language switcher — visual now; Weglot drives the switching once installed. */
+.ds-lang { position: relative; flex: none; }
+.ds-lang__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ds-lilac);
+  padding: 8px 10px;
+  transition: color 0.25s;
+}
+.ds-lang__btn:hover { color: var(--ds-white); }
+.ds-lang__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 88px;
+  background: var(--ds-white);
+  border-radius: var(--ds-radius);
+  box-shadow: 0 20px 50px rgba(12, 10, 18, 0.35);
+  padding: 6px;
+  display: none;
+  z-index: 70;
+}
+.ds-lang.is-open .ds-lang__menu { display: block; }
+.ds-lang__opt {
+  display: block;
+  padding: 9px 14px;
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-ink);
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+.ds-lang__opt:hover { background: var(--ds-teal-soft); color: var(--ds-ink); }
+
 .ds-header__toggle {
   display: none;
   width: 44px;
@@ -691,6 +732,8 @@ button {
   .ds-header__cta--desktop { display: none; }
   .ds-header__toggle { display: inline-flex; }
   .ds-header__inner { padding-block: 16px; }
+  /* Keep the switcher tucked next to the hamburger. */
+  .ds-lang { margin-left: auto; }
 }
 
 /* --------------------------------------------------------------------------
