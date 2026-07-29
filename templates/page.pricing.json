@@ -55,7 +55,7 @@
         "r3": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/crown-emax-white.png",
+            "image": "shopify://shop_images/crown-emax-black.png",
             "image_url": "",
             "label": "eMax",
             "price": "$119"
