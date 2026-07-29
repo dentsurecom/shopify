@@ -42,9 +42,9 @@
             "count_to": "12",
             "prefix": "",
             "suffix": "days",
+            "space_suffix": true,
             "decimals": 0,
-            "direction": "up",
-            "space_suffix": true
+            "direction": "up"
           }
         },
         "s2": {
@@ -55,6 +55,7 @@
             "count_to": "1",
             "prefix": "#",
             "suffix": "",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
@@ -62,11 +63,12 @@
         "s3": {
           "type": "stat",
           "settings": {
-            "value": "$0",
+            "value": "€0",
             "label": "to submit a case — pay only on approval",
             "count_to": "",
             "prefix": "",
             "suffix": "-day",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
@@ -74,11 +76,12 @@
         "s4": {
           "type": "stat",
           "settings": {
-            "value": "+$200K",
+            "value": "+€200K",
             "label": "potential annual revenue",
             "count_to": "200",
-            "prefix": "+$",
-            "suffix": "K",
+            "prefix": "€",
+            "suffix": "K+",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
