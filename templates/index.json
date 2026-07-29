@@ -164,7 +164,7 @@
             "image": "shopify://shop_images/crown-model-printed.png",
             "fallback_asset": "crowns-bridges.jpg",
             "image_fit": "cover",
-            "price": "From $89",
+            "price": "From €89",
             "price_style": "purple",
             "link": "/pages/crowns-bridges"
           }
@@ -177,7 +177,7 @@
             "image": "shopify://shop_images/aligners.png",
             "fallback_asset": "clear-aligners.jpg",
             "image_fit": "cover",
-            "price": "From $675/arch",
+            "price": "From €675/arch",
             "price_style": "purple",
             "link": "/pages/clear-aligners"
           }
@@ -190,7 +190,7 @@
             "image": "shopify://shop_images/trays.png",
             "fallback_asset": "night-guards.jpg",
             "image_fit": "cover",
-            "price": "$45",
+            "price": "€45",
             "price_style": "purple",
             "link": "/pages/night-guards-splints"
           }
@@ -230,6 +230,7 @@
             "count_to": "5",
             "prefix": "",
             "suffix": "-day",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "up"
           }
@@ -242,6 +243,7 @@
             "count_to": "98.4",
             "prefix": "",
             "suffix": "%",
+            "space_suffix": false,
             "decimals": 1,
             "direction": "up"
           }
@@ -254,19 +256,20 @@
             "count_to": "2",
             "prefix": "<",
             "suffix": "min",
+            "space_suffix": true,
             "decimals": 0,
-            "direction": "up",
-            "space_suffix": true
+            "direction": "up"
           }
         },
         "st4": {
           "type": "stat",
           "settings": {
-            "value": "$0",
+            "value": "0",
             "label": "upfront hardware cost",
             "count_to": "120",
-            "prefix": "$",
+            "prefix": "€",
             "suffix": "",
+            "space_suffix": false,
             "decimals": 0,
             "direction": "down"
           }
