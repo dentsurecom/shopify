@@ -1629,7 +1629,9 @@ button {
 
 .ds-cta--center { padding-block: 100px; text-align: center; }
 .ds-cta--center .ds-cta__inner { flex-direction: column; gap: 0; }
-.ds-cta--center h2 { margin-bottom: 16px; font-size: clamp(32px, 3.6vw, 52px); }
+/* The h2 carries a max-width, so its box needs centring too — text-align
+   alone leaves the box hugging the left edge. */
+.ds-cta--center h2 { margin-inline: auto; margin-bottom: 16px; font-size: clamp(32px, 3.6vw, 52px); }
 .ds-cta--center p { margin-bottom: 36px; }
 
 @media (max-width: 989px) {
