@@ -15,7 +15,7 @@
         "eyebrow": "Pricing",
         "heading": "Simple pricing.<br>No minimums.",
         "heading_size": "wide",
-        "text": "Flat per-unit pricing with free shipping, no monthly commitments, and no hidden fees. Pay only for what you send.",
+        "text": "Flat per-unit pricing, no monthly commitments, and no hidden fees. Pay only for what you send.",
         "button_label": "Get a full price list",
         "button_link": "/pages/book-a-demo",
         "button_2_label": "",
@@ -101,7 +101,7 @@
         "heading": "Crowns & Bridges",
         "link_label": "Explore crowns",
         "link": "/pages/crowns-bridges",
-        "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · lifetime warranty · free shipping both ways",
+        "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · lifetime warranty · models included on most cases",
         "padding_bottom": false,
         "reveal": true
       }
@@ -217,8 +217,8 @@
             "fallback_asset": "",
             "image_url": "",
             "label": "",
-            "title": "Free shipping",
-            "text": "Both ways, on every case — no volume requirements."
+            "title": "Premium packaging",
+            "text": "Every case arrives in packaging your front desk will actually enjoy opening."
           }
         },
         "c4": {

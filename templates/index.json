@@ -435,7 +435,7 @@
           "type": "question",
           "settings": {
             "question": "What does lab work cost?",
-            "answer": "<p>Crowns start at $89 per unit, clear aligners at $675 per arch, and night guards at $45 — with free shipping both ways. See the pricing page for the full list by material and plan.</p>"
+            "answer": "<p>Crowns start at €89 per unit, clear aligners at €595, and night guards at €45. Shipping is charged separately. See the pricing page for the full list by material and plan.</p>"
           }
         },
         "q5": {
@@ -449,7 +449,7 @@
           "type": "question",
           "settings": {
             "question": "What if a restoration doesn't fit?",
-            "answer": "<p>Every DentSure restoration is backed by a lifetime warranty, and shipping is free both ways.</p>"
+            "answer": "<p>Every DentSure restoration is backed by a lifetime warranty, no questions asked.</p>"
           }
         }
       },

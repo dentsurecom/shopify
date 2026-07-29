@@ -64,7 +64,7 @@
           "type": "stat",
           "settings": {
             "value": "$89",
-            "label": "per unit, free shipping",
+            "label": "per unit, no minimums",
             "count_to": "89",
             "prefix": "€",
             "suffix": "",
@@ -107,7 +107,7 @@
       "settings": {
         "eyebrow": "Turnaround",
         "heading": "Back in your office in 5 days",
-        "text": "Traditional labs slow you down. Every DentSure crown is designed, milled, and quality-checked in-house — then shipped free, in packaging your front desk will actually enjoy opening.",
+        "text": "Traditional labs slow you down. Every DentSure crown is designed, milled, and quality-checked in-house — then shipped in packaging your front desk will actually enjoy opening.",
         "button_label": "",
         "button_link": "",
         "image": "shopify://shop_images/DS-Pack-1.png",

@@ -101,7 +101,7 @@
         "b3": {
           "type": "item",
           "settings": {
-            "text": "Case and models included with every guard"
+            "text": "Case included with every guard"
           }
         },
         "b4": {
@@ -152,7 +152,7 @@
           "type": "question",
           "settings": {
             "question": "Do guards come with a case?",
-            "answer": "<p>Yes — a case and models are included with every DentSure night guard.</p>"
+            "answer": "<p>Yes — a storage case is included with every DentSure night guard. Models aren't included for guards.</p>"
           }
         },
         "q2": {
