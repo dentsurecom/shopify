@@ -84,10 +84,9 @@
         if (overlay) overlay.classList.toggle('is-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         document.body.style.overflow = open ? 'hidden' : '';
-        if (open) {
-          var first = drawer.querySelector('a, button');
-          if (first) first.focus();
-        }
+        // Focus the panel itself, not its first link — focusing the logo made
+        // browsers (sometimes) draw the focus ring and slide out the wordmark.
+        if (open) drawer.focus();
       };
 
       toggle.addEventListener('click', function () {

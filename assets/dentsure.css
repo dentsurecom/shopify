@@ -426,6 +426,8 @@ button {
 .ds-logo__text em { font-style: normal; color: var(--ds-teal); }
 .ds-logo:hover .ds-logo__text,
 .ds-logo:focus-visible .ds-logo__text { max-width: 180px; opacity: 1; }
+/* The drawer receives programmatic focus when it opens — no ring needed. */
+.ds-drawer:focus { outline: none; }
 
 .ds-logo--sm { gap: 8px; }
 .ds-logo--sm .ds-logo__badge { width: 29px; height: 29px; border-radius: var(--ds-radius-panel); gap: 2px; }
