@@ -39,7 +39,7 @@
           "settings": {
             "image": "shopify://shop_images/guard.png",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-0446.jpg",
+            "image_url": "",
             "label": "Comfort",
             "title": "Durability patients love",
             "text": "Our clear, thermoformed guard fits like a retainer — comfort that means higher case acceptance and nightly wear."
@@ -50,7 +50,7 @@
           "settings": {
             "image": "shopify://shop_images/trays.png",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/20220925_CT_DANDY_03_DR_MOEEN_SHEIKH_0049_web-1.jpeg",
+            "image_url": "",
             "label": "One click",
             "title": "Add to any restorative case",
             "text": "Protect that new crown or implant by adding a guard to the same scan. We save scans, so reordering takes seconds."
@@ -61,7 +61,7 @@
           "settings": {
             "image": "shopify://shop_images/print.png",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-9231.jpeg",
+            "image_url": "",
             "label": "Profitability",
             "title": "An easy add, no extra visits",
             "text": "Bruxism and TMJ cases are rising. Offer guards without adding work or appointments — insurance on the dentistry you just delivered."
@@ -142,7 +142,7 @@
         "height": 560,
         "overlay_opacity": 22,
         "video_url": "https://www.ortho-clear.com/cdn/shop/videos/c/vp/5307b2493fca4d0c948f704187d38c9d/5307b2493fca4d0c948f704187d38c9d.HD-1080p-7.2Mbps-26212345.mp4?v=0",
-        "poster_url": "https://www.meetdandy.com/wp-content/uploads/2026/06/meet-Dandy-website-Header-Image-scaled@2x.webp"
+        "poster_url": ""
       }
     },
     "faq": {
