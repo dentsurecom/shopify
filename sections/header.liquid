@@ -66,6 +66,20 @@
       {%- endfor -%}
     </nav>
 
+    {%- comment -%}
+      The cart link only appears once something is in the cart — the site is a
+      lead-gen storefront, so an always-empty cart icon would just be noise.
+    {%- endcomment -%}
+    {%- if cart.item_count > 0 -%}
+      <a href="{{ routes.cart_url }}" class="ds-header__cart" aria-label="{{ 'sections.header.cart' | t | default: 'Cart' }}">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M6 7h12l-1 12H7L6 7z"/>
+          <path d="M9 7a3 3 0 0 1 6 0"/>
+        </svg>
+        <span class="ds-header__cart-count">{{ cart.item_count }}</span>
+      </a>
+    {%- endif -%}
+
     {%- if section.settings.show_lang -%}
       {%- assign langs = section.settings.languages | default: 'EN, FR' | split: ',' -%}
       <div class="ds-lang" data-lang-switcher>

@@ -539,6 +539,61 @@
   }
 
   /* --------------------------------------------------------------------
+     Buy box — keeps price, availability, and the submitted variant id in
+     sync with the option selects. Prices arrive pre-formatted from Liquid.
+     -------------------------------------------------------------------- */
+
+  class DsBuybox extends HTMLElement {
+    connectedCallback() {
+      try {
+        this.variants = JSON.parse(this.getAttribute('data-variants') || '[]');
+      } catch (e) {
+        this.variants = [];
+      }
+      this.selects = Array.prototype.slice.call(this.querySelectorAll('[data-option-index]'));
+      this.idField = this.querySelector('[data-variant-id]');
+      this.priceEl = this.querySelector('[data-price]');
+      this.compareEl = this.querySelector('[data-compare]');
+      this.addBtn = this.querySelector('[data-add]');
+      this.addLabel = this.querySelector('[data-add-label]');
+      if (!this.variants.length || !this.selects.length) return;
+
+      this.soldOut = this.addBtn ? this.addBtn.getAttribute('data-sold-out-label') : '';
+      var self = this;
+      this.selects.forEach(function (select) {
+        select.addEventListener('change', function () { self.sync(); });
+      });
+    }
+
+    sync() {
+      var chosen = this.selects.map(function (s) { return s.value; });
+      var match = null;
+      for (var i = 0; i < this.variants.length; i++) {
+        var v = this.variants[i];
+        var same = true;
+        for (var n = 0; n < chosen.length; n++) {
+          if (v.options[n] !== chosen[n]) { same = false; break; }
+        }
+        if (same) { match = v; break; }
+      }
+      if (!match) return;
+
+      if (this.idField) this.idField.value = match.id;
+      if (this.priceEl) this.priceEl.textContent = match.price;
+      if (this.compareEl) {
+        this.compareEl.textContent = match.compare || '';
+        this.compareEl.hidden = !match.compare;
+      }
+      if (this.addBtn) {
+        this.addBtn.disabled = !match.available;
+        if (this.addLabel && this.soldOut) {
+          this.addLabel.textContent = match.available ? this.addLabel.getAttribute('data-label') || this.addLabel.textContent : this.soldOut;
+        }
+      }
+    }
+  }
+
+  /* --------------------------------------------------------------------
      Scroll reveal
      -------------------------------------------------------------------- */
 
@@ -610,6 +665,7 @@
   define('ds-counter', DsCounter);
   define('ds-rail', DsRail);
   define('ds-steps', DsSteps);
+  define('ds-buybox', DsBuybox);
 
   function boot(scope) {
     initReveal(scope);

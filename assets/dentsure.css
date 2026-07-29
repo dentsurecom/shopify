@@ -605,6 +605,34 @@ button {
    group together on the right. */
 .ds-header__nav { margin-inline: auto; }
 
+/* Cart link — only rendered when the cart has items. */
+.ds-header__cart {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ds-lilac);
+  padding: 8px;
+  transition: color 0.25s;
+}
+.ds-header__cart:hover { color: var(--ds-white); }
+.ds-header__cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--ds-teal);
+  color: var(--ds-ink);
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+}
+
 /* Language switcher — visual now; Weglot drives the switching once installed. */
 .ds-lang { position: relative; flex: none; }
 .ds-lang__btn {
@@ -2122,6 +2150,97 @@ button {
   margin: 0 auto 20px;
 }
 .ds-quote__attr { font-size: 16px; color: var(--ds-lilac); }
+
+/* --------------------------------------------------------------------------
+   26a. Scan Kit buy box
+   -------------------------------------------------------------------------- */
+
+.ds-buybox {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 40px 72px;
+  align-items: center;
+}
+.ds-buybox__media {
+  border-radius: var(--ds-radius-frame);
+  overflow: hidden;
+  background: var(--ds-white);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+.ds-buybox__media img { width: 100%; height: auto; object-fit: contain; }
+.ds-bg-soft .ds-buybox__media { background: var(--ds-white); }
+
+.ds-buybox__title { margin-bottom: 14px; }
+.ds-buybox__text { max-width: 460px; margin-bottom: 26px; }
+
+.ds-buybox__price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  letter-spacing: -0.026em;
+  margin-bottom: 22px;
+}
+.ds-buybox__price s { font-size: 20px; font-weight: 500; color: var(--ds-muted); }
+
+.ds-buybox__form { max-width: 420px; }
+.ds-buybox__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.ds-buybox__add { flex: none; }
+/* Shopify's dynamic checkout buttons sit beside the add-to-cart button. */
+.ds-buybox__actions .shopify-payment-button { flex: 1 1 200px; min-width: 200px; }
+.ds-buybox__actions .shopify-payment-button__button {
+  border-radius: var(--ds-radius);
+  font-family: var(--ds-font-heading), Poppins, sans-serif;
+  font-weight: 600;
+}
+
+.ds-buybox__setup {
+  border: 1px dashed var(--ds-purple-line);
+  border-radius: var(--ds-radius);
+  padding: 16px 20px;
+  font-size: 15px;
+  color: var(--ds-muted);
+  background: var(--ds-white);
+}
+
+.ds-buybox__list {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.ds-buybox__list li { padding-left: 20px; position: relative; font-size: 16px; }
+.ds-buybox__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ds-teal);
+}
+
+.ds-buybox__alt { display: inline-block; margin-top: 24px; font-size: 15px; }
+.ds-buybox__note { margin-top: 14px; }
+
+@media (max-width: 899px) {
+  .ds-buybox { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .ds-buybox__media { min-height: 260px; padding: 16px; }
+  .ds-buybox__actions .shopify-payment-button { flex: 1 1 100%; }
+}
 
 /* --------------------------------------------------------------------------
    26b. Demo form

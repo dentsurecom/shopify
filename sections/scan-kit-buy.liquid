@@ -1,0 +1,248 @@
+{%- comment -%}
+  Scan Kit buy box — product media on one side, price and purchase controls on
+  the other. The merchant picks the product in the theme editor; with none
+  picked the block falls back to its secondary link so the page still works.
+{%- endcomment -%}
+
+{%- liquid
+  assign kit = section.settings.product
+  assign variant = kit.selected_or_first_available_variant
+-%}
+
+<div class="ds-section ds-pt-lg ds-pb-lg{% if section.settings.background == 'soft' %} ds-bg-soft{% endif %}{% if section.settings.reveal %} ds-reveal{% endif %}">
+  <div class="ds-container">
+    <div class="ds-buybox">
+      <div class="ds-buybox__media">
+        {%- if section.settings.image != blank or kit.featured_image != blank -%}
+          {% render 'media-image',
+            image: section.settings.image,
+            fallback_asset: 'helios-scanner.png',
+            alt: section.settings.heading,
+            sizes: '(min-width: 990px) 45vw, 100vw'
+          %}
+        {%- else -%}
+          {% render 'media-image',
+            fallback_asset: 'helios-scanner.png',
+            alt: section.settings.heading,
+            sizes: '(min-width: 990px) 45vw, 100vw'
+          %}
+        {%- endif -%}
+      </div>
+
+      <div class="ds-buybox__panel">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="ds-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        <h2 class="ds-h2 ds-h2--sm ds-buybox__title">{{ section.settings.heading }}</h2>
+
+        {%- if section.settings.text != blank -%}
+          <p class="ds-body ds-buybox__text">{{ section.settings.text }}</p>
+        {%- endif -%}
+
+        {%- if kit != blank -%}
+          {%- comment -%}
+            Money formatting belongs to Liquid, so the map carries prices
+            already formatted rather than raw cents.
+          {%- endcomment -%}
+          {%- capture variant_map -%}
+            [
+            {%- for v in kit.variants -%}
+              {
+                "id": {{ v.id }},
+                "available": {{ v.available }},
+                "options": {{ v.options | json }},
+                "price": {{ v.price | money | json }},
+                "compare": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | money | json }}{% else %}""{% endif %}
+              }{% unless forloop.last %},{% endunless %}
+            {%- endfor -%}
+            ]
+          {%- endcapture -%}
+
+          <ds-buybox data-variants="{{ variant_map | strip | escape }}">
+            <div class="ds-buybox__price">
+              <span data-price>{{ variant.price | money }}</span>
+              {%- if variant.compare_at_price > variant.price -%}
+                <s data-compare>{{ variant.compare_at_price | money }}</s>
+              {%- else -%}
+                <s data-compare hidden></s>
+              {%- endif -%}
+            </div>
+
+            {%- form 'product', kit, id: 'scan-kit-form', class: 'ds-buybox__form' -%}
+              {%- unless kit.has_only_default_variant -%}
+                {%- for option in kit.options_with_values -%}
+                  <label class="ds-field">
+                    <span class="ds-field__label">{{ option.name }}</span>
+                    <select class="ds-select" name="options[{{ option.name | escape }}]" data-option-index="{{ forloop.index0 }}">
+                      {%- for value in option.values -%}
+                        <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                          {{ value }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                  </label>
+                {%- endfor -%}
+              {%- endunless -%}
+
+              <input type="hidden" name="id" value="{{ variant.id }}" data-variant-id>
+
+              <div class="ds-buybox__actions">
+                <button
+                  type="submit"
+                  name="add"
+                  class="ds-btn ds-btn--purple ds-btn--lg ds-buybox__add"
+                  data-add
+                  data-sold-out-label="{{ 'products.product.sold_out' | t | escape }}"
+                  {% unless variant.available %}disabled{% endunless %}
+                >
+                  <span data-add-label data-label="{{ section.settings.button_label | escape }}">
+                    {%- if variant.available -%}
+                      {{ section.settings.button_label }}
+                    {%- else -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- endif -%}
+                  </span>
+                </button>
+
+                {%- if section.settings.show_payment_button -%}
+                  {{ form | payment_button }}
+                {%- endif -%}
+              </div>
+            {%- endform -%}
+          </ds-buybox>
+        {%- else -%}
+          <p class="ds-buybox__setup">
+            Pick the Scan Kit product in this section's settings to turn on checkout.
+          </p>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="ds-buybox__list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.link_label != blank -%}
+          <a href="{{ section.settings.link | default: '#' }}" class="ds-link-arrow ds-buybox__alt">
+            {{ section.settings.link_label }} &rarr;
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.note != blank -%}
+          <p class="ds-note ds-buybox__note">{{ section.settings.note }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Scan Kit buy box",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "The Scan Kit product. Create it in Products first — checkout stays off until one is picked."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Scan Kit"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Own the Helios 700."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Scanner, cart, and software — shipped, installed, and trained by our team. Yours outright, with no monthly lab commitment."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Add to cart label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show express checkout button",
+      "default": true,
+      "info": "Shop Pay and other accelerated checkouts, when enabled in Shopify."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Secondary link label",
+      "default": "Or get it free from €1,500/mo in lab work"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Secondary link"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "Includes onboarding, training, and chairside support. Free shipping."
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Falls back to the bundled scanner artwork."
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "soft", "label": "Soft lilac" }
+      ],
+      "default": "soft"
+    },
+    {
+      "type": "checkbox",
+      "id": "reveal",
+      "label": "Reveal on scroll",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Installed and trained by our team"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scan Kit buy box"
+    }
+  ]
+}
+{% endschema %}

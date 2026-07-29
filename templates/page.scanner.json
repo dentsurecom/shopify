@@ -215,7 +215,7 @@
           "type": "question",
           "settings": {
             "question": "What does the scanner cost?",
-            "answer": "<p>Nothing upfront — the Helios 700 Scan Kit is included for practices with a minimum lab spend of €1,500 per month. We install it, train your team, and support every scan.</p>"
+            "answer": "<p>Two ways to get one. Buy the Scan Kit outright and it's yours with no monthly commitment — or take it at no upfront cost with a minimum lab spend of €1,500 per month. Either way we install it, train your team, and support every scan.</p>"
           }
         }
       },
@@ -241,6 +241,53 @@
         "button_label": "Book a demo",
         "button_link": "/pages/book-a-demo"
       }
+    },
+    "buy": {
+      "type": "scan-kit-buy",
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "text": "Scanner, cart, and software — everything to start scanning"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "text": "Installed on site and your whole team trained by us"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "text": "Open STL export — no lock-in, fits any lab workflow"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "text": "Chairside scan support included from day one"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "settings": {
+        "eyebrow": "The Scan Kit",
+        "heading": "Own the Helios 700.",
+        "text": "Scanner, cart, and software — shipped, installed, and trained by our team. Yours outright, with no monthly lab commitment.",
+        "button_label": "Add to cart",
+        "show_payment_button": true,
+        "link_label": "Or get it free from €1,500/mo in lab work",
+        "link": "/pages/book-a-demo",
+        "note": "Includes onboarding, training, and chairside support. Free shipping.",
+        "background": "soft",
+        "reveal": true
+      }
     }
   },
   "order": [
@@ -248,6 +295,7 @@
     "stats",
     "detail",
     "scan_kit",
+    "buy",
     "faq",
     "cta"
   ]
