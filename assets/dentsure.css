@@ -1067,9 +1067,9 @@ button {
   .ds-scanner__col--right { order: 3; }
   .ds-scanner__stage { order: 1; height: 440px; }
   .ds-scanner__col--left .ds-feature__head { justify-content: flex-start; }
-  /* On small screens every callout reads at full strength — the hotspots stay
-     tappable but the dimming would just hurt legibility. */
-  .ds-feature { opacity: 1; }
+  /* On small screens inactive callouts dim only slightly — enough to show
+     which step is live without hurting legibility. */
+  .ds-feature { opacity: 0.55; }
   .ds-scanner__head { flex-direction: column; align-items: flex-start; }
   .ds-scanner__specs { gap: 32px; }
   /* Fingers need more than 32px — grow the hotspots to a tappable size. */
