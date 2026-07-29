@@ -255,7 +255,8 @@
             "prefix": "<",
             "suffix": "min",
             "decimals": 0,
-            "direction": "up"
+            "direction": "up",
+            "space_suffix": true
           }
         },
         "st4": {

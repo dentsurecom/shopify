@@ -314,6 +314,11 @@
         var decimals = parseInt(el.getAttribute('data-count-decimals'), 10) || 0;
         var prefix = el.getAttribute('data-count-prefix') || '';
         var suffix = el.getAttribute('data-count-suffix') || '';
+        // Shopify trims whitespace from text settings, so the gap before a
+        // word suffix comes from this flag — non-breaking so it never wraps.
+        if (suffix && el.getAttribute('data-count-space') === 'true') {
+          suffix = ' ' + suffix;
+        }
         var down = el.getAttribute('data-count-direction') === 'down';
         var value = down ? to * (1 - progress) : to * progress;
         var text = decimals ? value.toFixed(decimals) : String(Math.round(value));

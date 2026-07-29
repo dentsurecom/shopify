@@ -29,6 +29,7 @@
                 data-count-decimals="{{ block.settings.decimals }}"
                 data-count-prefix="{{ block.settings.prefix }}"
                 data-count-suffix="{{ block.settings.suffix }}"
+                data-count-space="{{ block.settings.space_suffix }}"
                 data-count-direction="{{ block.settings.direction }}"
               {%- endif -%}
             >
@@ -133,6 +134,13 @@
           "label": "Suffix",
           "info": "Example: % or -day",
           "default": "-day"
+        },
+        {
+          "type": "checkbox",
+          "id": "space_suffix",
+          "label": "Space before suffix",
+          "info": "For word suffixes like days or min. Leave off for % and K.",
+          "default": false
         },
         {
           "type": "range",

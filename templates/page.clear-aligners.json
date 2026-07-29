@@ -43,7 +43,8 @@
             "prefix": "",
             "suffix": "days",
             "decimals": 0,
-            "direction": "up"
+            "direction": "up",
+            "space_suffix": true
           }
         },
         "s2": {
@@ -53,7 +54,7 @@
             "label": "Zendura FLX — the material orthodontists trust",
             "count_to": "1",
             "prefix": "#",
-            "suffix": "-day",
+            "suffix": "",
             "decimals": 0,
             "direction": "up"
           }

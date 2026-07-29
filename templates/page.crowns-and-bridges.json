@@ -55,7 +55,8 @@
             "prefix": "",
             "suffix": "min",
             "decimals": 1,
-            "direction": "up"
+            "direction": "up",
+            "space_suffix": true
           }
         },
         "s3": {
