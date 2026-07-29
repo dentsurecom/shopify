@@ -101,7 +101,7 @@
         "heading": "Crowns & Bridges",
         "link_label": "Explore crowns",
         "link": "/pages/crowns-bridges",
-        "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · lifetime warranty · models included on most cases",
+        "note": "Crowns, veneers, inlays/onlays & bridges · per unit · 5-day turnaround · free remakes · models included on most cases",
         "padding_bottom": false,
         "reveal": true
       }
@@ -228,7 +228,7 @@
             "fallback_asset": "",
             "image_url": "",
             "label": "",
-            "title": "Lifetime warranty",
+            "title": "Free remakes",
             "text": "On all fixed restorations. No questions asked."
           }
         }

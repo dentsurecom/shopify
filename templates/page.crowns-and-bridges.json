@@ -15,7 +15,7 @@
         "eyebrow": "Lab Services · Fixed restorations",
         "heading": "Crowns &amp; bridges,<br>delivered in 5 days.",
         "heading_size": "default",
-        "text": "Crowns, veneers, inlays/onlays, and bridges — designed with you, milled in-house, and backed by a lifetime warranty. Reduce remakes and chairside adjustments with high-strength zirconia.",
+        "text": "Crowns, veneers, inlays/onlays, and bridges — designed with you, milled in-house, and remade free if a case doesn't seat. High-strength zirconia means fewer adjustments chairside.",
         "button_label": "Book a demo",
         "button_link": "/pages/book-a-demo",
         "button_2_label": "Get pricing",
@@ -76,11 +76,11 @@
         "s4": {
           "type": "stat",
           "settings": {
-            "value": "Lifetime",
-            "label": "warranty, no questions asked",
+            "value": "Free",
+            "label": "remakes, no questions asked",
             "count_to": "",
             "prefix": "",
-            "suffix": "-day",
+            "suffix": "",
             "space_suffix": false,
             "decimals": 0,
             "direction": "up"
