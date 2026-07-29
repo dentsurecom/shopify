@@ -37,7 +37,8 @@
         "r1": {
           "type": "row",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-monolithic-zirconia.jpg",
+            "image": "shopify://shop_images/model-bridge.png",
+            "image_url": "",
             "label": "Monolithic Zirconia (3Y)",
             "price": "$89"
           }
@@ -45,7 +46,8 @@
         "r2": {
           "type": "row",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-aesthetic-zirconia.jpeg",
+            "image": "shopify://shop_images/crown-model-printed.png",
+            "image_url": "",
             "label": "Aesthetic Zirconia",
             "price": "$109"
           }
@@ -53,7 +55,8 @@
         "r3": {
           "type": "row",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-emax-scaled-1.png",
+            "image": "shopify://shop_images/crown-emax-white.png",
+            "image_url": "",
             "label": "eMax",
             "price": "$119"
           }
@@ -61,7 +64,8 @@
         "r4": {
           "type": "row",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfm-scaled.png",
+            "image": "shopify://shop_images/crown-pfm.png",
+            "image_url": "",
             "label": "PFM",
             "price": "$129"
           }
@@ -69,7 +73,8 @@
         "r5": {
           "type": "row",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-pfz.png",
+            "image": "shopify://shop_images/crown-pfz.png",
+            "image_url": "",
             "label": "PFZ",
             "price": "$149"
           }
@@ -77,7 +82,8 @@
         "r6": {
           "type": "row",
           "settings": {
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2025/09/dandy-crown-gold-metal-scaled.png",
+            "image": "shopify://shop_images/crown-gold.png",
+            "image_url": "",
             "label": "Full Metal (high-noble)",
             "price": "$159 + alloy"
           }
