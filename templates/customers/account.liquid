@@ -19,7 +19,7 @@
             <tr>
               <td><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
               <td>{{ order.created_at | date: format: 'date' }}</td>
-              <td>{{ order.total_price | money }}</td>
+              <td>{{ order.total_price | money_without_trailing_zeros }}</td>
             </tr>
           {%- endfor -%}
         </tbody>

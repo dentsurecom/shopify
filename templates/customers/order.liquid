@@ -18,14 +18,14 @@
           <tr>
             <td>{{ line_item.title }}</td>
             <td>{{ line_item.quantity }}</td>
-            <td>{{ line_item.final_line_price | money }}</td>
+            <td>{{ line_item.final_line_price | money_without_trailing_zeros }}</td>
           </tr>
         {%- endfor -%}
       </tbody>
     </table>
 
     <div class="ds-cart__foot">
-      <span class="ds-cart__total">{{ order.total_price | money }}</span>
+      <span class="ds-cart__total">{{ order.total_price | money_without_trailing_zeros }}</span>
     </div>
   </div>
 </div>

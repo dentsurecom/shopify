@@ -15,9 +15,9 @@
   <div class="ds-pcard__title">{{ card_product.title }}</div>
   <div class="ds-pcard__price">
     {%- if card_product.price_varies -%}
-      {{ 'products.product.from_price' | t: price: card_product.price_min | money }}
+      {{ 'products.product.from_price' | t: price: card_product.price_min | money_without_trailing_zeros }}
     {%- else -%}
-      {{ card_product.price | money }}
+      {{ card_product.price | money_without_trailing_zeros }}
     {%- endif -%}
   </div>
 </a>

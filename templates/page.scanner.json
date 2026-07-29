@@ -252,7 +252,7 @@
         "link_label": "Or get it free from €1,500/mo in lab work",
         "link": "/pages/book-a-demo",
         "note": "Includes onboarding, training, and chairside support. Free shipping.",
-        "background": "soft",
+        "background": "white",
         "reveal": true,
         "show_add_to_cart": false
       }

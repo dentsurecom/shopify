@@ -1,8 +1,8 @@
 <div class="ds-section ds-pt-lg ds-pb-lg">
   <div class="ds-container ds-empty">
-    <h1 class="ds-h2 ds-h2--sm">{{ 'gift_cards.issued.title' | t: value: gift_card.initial_value | money }}</h1>
+    <h1 class="ds-h2 ds-h2--sm">{{ 'gift_cards.issued.title' | t: value: gift_card.initial_value | money_without_trailing_zeros }}</h1>
     <p class="ds-body">{{ 'gift_cards.issued.subtext' | t }}</p>
-    <p class="ds-plan__price" style="margin: 24px 0">{{ gift_card.balance | money }}</p>
+    <p class="ds-plan__price" style="margin: 24px 0">{{ gift_card.balance | money_without_trailing_zeros }}</p>
     {{ gift_card.qr_identifier }}
     <p class="ds-note">{{ gift_card.code | format_code }}</p>
     <a href="{{ shop.url }}" class="ds-btn ds-btn--purple">{{ 'gift_cards.issued.shop_link' | t }}</a>

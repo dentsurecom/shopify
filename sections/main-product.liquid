@@ -1,72 +1,137 @@
 {%- comment -%}
-  The design has no commerce UI, so this is a plain, on-brand product page that
-  keeps the storefront functional.
+  Product detail page — gallery beside a sticky buy panel, sharing the
+  ds-buybox element the Scan Kit section uses so variant switching, pricing,
+  and availability behave identically in both places.
 {%- endcomment -%}
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+-%}
 
 <div class="ds-section ds-pt-lg ds-pb-lg">
   <div class="ds-container">
-    <div class="ds-product">
-      <div class="ds-product__gallery">
+    <nav class="ds-crumbs" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ product.title }}</span>
+    </nav>
+
+    <div class="ds-pdp">
+      <div class="ds-pdp__gallery">
         {%- if product.media.size > 0 -%}
           {%- for media in product.media -%}
-            {{
-              media
-              | image_url: width: 1400
-              | image_tag:
-                loading: 'lazy',
-                sizes: '(min-width: 990px) 55vw, 100vw',
-                widths: '400, 600, 800, 1000, 1200, 1400',
-                alt: media.alt
-            }}
+            <div class="ds-pdp__frame">
+              {{
+                media
+                | image_url: width: 1400
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: '(min-width: 990px) 50vw, 100vw',
+                  widths: '400, 600, 800, 1000, 1200, 1400',
+                  alt: media.alt | default: product.title
+              }}
+            </div>
           {%- endfor -%}
+        {%- else -%}
+          <div class="ds-pdp__frame">
+            {% render 'media-image', fallback_asset: 'helios-scanner.png', alt: product.title, sizes: '50vw' %}
+          </div>
         {%- endif -%}
       </div>
 
-      <div>
-        <h1 class="ds-h2 ds-h2--sm">{{ product.title }}</h1>
+      <div class="ds-pdp__panel">
+        {%- if product.type != blank -%}
+          <p class="ds-eyebrow">{{ product.type }}</p>
+        {%- endif -%}
 
-        <div class="ds-product__price">
-          {{ product.price | money }}
-          {%- if product.compare_at_price > product.price -%}
-            <s style="color: var(--ds-muted); font-size: 20px">{{ product.compare_at_price | money }}</s>
-          {%- endif -%}
-        </div>
+        <h1 class="ds-h2 ds-h2--sm ds-pdp__title">{{ product.title }}</h1>
 
-        {%- form 'product', product, class: 'ds-form' -%}
-          {%- unless product.has_only_default_variant -%}
-            {%- for option in product.options_with_values -%}
-              <label class="ds-field">
-                <span class="ds-field__label">{{ option.name }}</span>
-                <select class="ds-select" name="options[{{ option.name | escape }}]">
-                  {%- for value in option.values -%}
-                    <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
-                      {{ value }}
-                    </option>
-                  {%- endfor -%}
-                </select>
-              </label>
-            {%- endfor -%}
-          {%- endunless -%}
+        {%- capture variant_map -%}
+          [
+          {%- for v in product.variants -%}
+            {
+              "id": {{ v.id }},
+              "available": {{ v.available }},
+              "options": {{ v.options | json }},
+              "price": {{ v.price | money_without_trailing_zeros | json }},
+              "compare": {% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros | json }}{% else %}""{% endif %}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+          ]
+        {%- endcapture -%}
 
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-
-          <button
-            type="submit"
-            name="add"
-            class="ds-btn ds-btn--purple"
-            {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
-          >
-            {%- if product.selected_or_first_available_variant.available -%}
-              {{ 'products.product.add_to_cart' | t }}
+        <ds-buybox data-variants="{{ variant_map | strip | escape }}">
+          <div class="ds-buybox__price">
+            <span data-price>{{ variant.price | money_without_trailing_zeros }}</span>
+            {%- if variant.compare_at_price > variant.price -%}
+              <s data-compare>{{ variant.compare_at_price | money_without_trailing_zeros }}</s>
             {%- else -%}
-              {{ 'products.product.sold_out' | t }}
+              <s data-compare hidden></s>
             {%- endif -%}
-          </button>
-        {%- endform -%}
+          </div>
 
-        <div class="ds-rte" style="margin-top: 40px">
-          {{ product.description }}
-        </div>
+          {%- form 'product', product, id: 'pdp-form', class: 'ds-buybox__form' -%}
+            {%- unless product.has_only_default_variant -%}
+              {%- for option in product.options_with_values -%}
+                <label class="ds-field">
+                  <span class="ds-field__label">{{ option.name }}</span>
+                  <select class="ds-select" name="options[{{ option.name | escape }}]" data-option-index="{{ forloop.index0 }}">
+                    {%- for value in option.values -%}
+                      <option value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+                        {{ value }}
+                      </option>
+                    {%- endfor -%}
+                  </select>
+                </label>
+              {%- endfor -%}
+            {%- endunless -%}
+
+            <input type="hidden" name="id" value="{{ variant.id }}" data-variant-id>
+
+            {%- capture express -%}
+              {%- if section.settings.show_payment_button -%}{{ form | payment_button }}{%- endif -%}
+            {%- endcapture -%}
+
+            <div class="ds-buybox__actions">
+              {%- if section.settings.show_add_to_cart or express == blank -%}
+                <button
+                  type="submit"
+                  name="add"
+                  class="ds-btn ds-btn--purple ds-btn--lg ds-buybox__add"
+                  data-add
+                  data-sold-out-label="{{ 'products.product.sold_out' | t | escape }}"
+                  {% unless variant.available %}disabled{% endunless %}
+                >
+                  <span data-add-label data-label="{{ 'products.product.add_to_cart' | t | escape }}">
+                    {%- if variant.available -%}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- else -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- endif -%}
+                  </span>
+                </button>
+              {%- endif -%}
+
+              {{ express }}
+            </div>
+          {%- endform -%}
+        </ds-buybox>
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="ds-buybox__list ds-pdp__list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if product.description != blank -%}
+          <div class="ds-rte ds-pdp__desc">{{ product.description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.note != blank -%}
+          <p class="ds-note ds-pdp__note">{{ section.settings.note }}</p>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -76,6 +141,40 @@
 {
   "name": "Product",
   "tag": "section",
-  "settings": []
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show express checkout button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart",
+      "label": "Show add to cart button",
+      "default": true,
+      "info": "Reappears automatically if express checkout is unavailable."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "Free shipping. Installed, trained, and supported by our team."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Bullet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Installed on site and your whole team trained by us"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

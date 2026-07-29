@@ -1,3 +1,8 @@
+{%- comment -%}
+  Cart — line items beside a summary card that carries the checkout button.
+  The last stop before Shopify's hosted checkout.
+{%- endcomment -%}
+
 <div class="ds-section ds-pt-lg ds-pb-lg">
   <div class="ds-container">
     {%- if cart.item_count == 0 -%}
@@ -7,63 +12,88 @@
         <a href="{{ routes.root_url }}" class="ds-btn ds-btn--purple">{{ 'general.continue_shopping' | t }}</a>
       </div>
     {%- else -%}
-      <h1 class="ds-h1 ds-h1--page" style="color: var(--ds-ink); margin-bottom: 48px">
-        {{ 'sections.cart.title' | t }}
-      </h1>
+      <h1 class="ds-h2 ds-h2--md ds-cart__title">{{ 'sections.cart.title' | t }}</h1>
 
-      <form action="{{ routes.cart_url }}" method="post" novalidate>
-        <table class="ds-cart__table">
-          <thead>
-            <tr>
-              <th>{{ 'sections.cart.headings.product' | t }}</th>
-              <th>{{ 'sections.cart.headings.quantity' | t }}</th>
-              <th>{{ 'sections.cart.headings.total' | t }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {%- for item in cart.items -%}
-              <tr>
-                <td>
-                  <div class="ds-cart__item">
-                    {%- if item.image -%}
-                      <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" loading="lazy" width="88" height="88">
-                    {%- endif -%}
-                    <div>
-                      <a href="{{ item.url }}" style="color: var(--ds-ink); font-weight: 500">{{ item.product.title }}</a>
-                      {%- unless item.product.has_only_default_variant -%}
-                        <div style="font-size: 14px; color: var(--ds-muted)">{{ item.variant.title }}</div>
-                      {%- endunless -%}
-                      <div style="font-size: 14px; color: var(--ds-muted)">{{ item.final_price | money }}</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <label class="ds-visually-hidden" for="quantity-{{ item.index | plus: 1 }}">
-                    {{ 'sections.cart.headings.quantity' | t }}
-                  </label>
-                  <input
-                    id="quantity-{{ item.index | plus: 1 }}"
-                    class="ds-input"
-                    style="width: 90px"
-                    type="number"
-                    name="updates[]"
-                    value="{{ item.quantity }}"
-                    min="0"
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="ds-cart">
+        <div class="ds-cart__items">
+          {%- for item in cart.items -%}
+            <div class="ds-cart__row">
+              <a href="{{ item.url }}" class="ds-cart__thumb">
+                {%- if item.image -%}
+                  <img
+                    src="{{ item.image | image_url: width: 240 }}"
+                    alt="{{ item.title | escape }}"
+                    loading="lazy"
+                    width="104"
+                    height="104"
                   >
-                </td>
-                <td>{{ item.final_line_price | money }}</td>
-              </tr>
-            {%- endfor -%}
-          </tbody>
-        </table>
+                {%- endif -%}
+              </a>
 
-        <div class="ds-cart__foot">
-          <span class="ds-cart__total">
-            {{ 'sections.cart.subtotal' | t }}: {{ cart.total_price | money }}
-          </span>
-          <button type="submit" name="update" class="ds-btn ds-btn--outline">{{ 'sections.cart.update' | t }}</button>
-          <button type="submit" name="checkout" class="ds-btn ds-btn--purple">{{ 'sections.cart.checkout' | t }}</button>
+              <div class="ds-cart__info">
+                <a href="{{ item.url }}" class="ds-cart__name">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}
+                  <div class="ds-cart__variant">{{ item.variant.title }}</div>
+                {%- endunless -%}
+                <div class="ds-cart__unit">{{ item.final_price | money_without_trailing_zeros }} each</div>
+              </div>
+
+              <div class="ds-cart__qty">
+                <label class="ds-visually-hidden" for="quantity-{{ item.index | plus: 1 }}">
+                  {{ 'sections.cart.headings.quantity' | t }}
+                </label>
+                <input
+                  id="quantity-{{ item.index | plus: 1 }}"
+                  class="ds-input"
+                  type="number"
+                  name="updates[]"
+                  value="{{ item.quantity }}"
+                  min="0"
+                >
+                <a href="{{ item.url_to_remove }}" class="ds-cart__remove">Remove</a>
+              </div>
+
+              <div class="ds-cart__line">{{ item.final_line_price | money_without_trailing_zeros }}</div>
+            </div>
+          {%- endfor -%}
+
+          <div class="ds-cart__actions">
+            <a href="{{ routes.root_url }}" class="ds-link-arrow">&larr; {{ 'general.continue_shopping' | t }}</a>
+            <button type="submit" name="update" class="ds-btn ds-btn--outline ds-btn--sm">
+              {{ 'sections.cart.update' | t }}
+            </button>
+          </div>
         </div>
+
+        <aside class="ds-cart__summary">
+          <h2 class="ds-cart__summary-title">Summary</h2>
+
+          <div class="ds-cart__line-item">
+            <span>{{ 'sections.cart.subtotal' | t }}</span>
+            <strong>{{ cart.total_price | money_without_trailing_zeros }}</strong>
+          </div>
+
+          {%- if cart.total_discount > 0 -%}
+            <div class="ds-cart__line-item ds-cart__line-item--save">
+              <span>Discounts</span>
+              <strong>&minus;{{ cart.total_discount | money_without_trailing_zeros }}</strong>
+            </div>
+          {%- endif -%}
+
+          <p class="ds-cart__tax">Shipping and taxes calculated at checkout.</p>
+
+          <button type="submit" name="checkout" class="ds-btn ds-btn--purple ds-btn--lg ds-cart__checkout">
+            {{ 'sections.cart.checkout' | t }}
+          </button>
+
+          {%- if additional_checkout_buttons -%}
+            <div class="ds-cart__express">{{ content_for_additional_checkout_buttons }}</div>
+          {%- endif -%}
+
+          {%- if section.settings.note != blank -%}
+            <p class="ds-note ds-cart__note">{{ section.settings.note }}</p>
+          {%- endif -%}
+        </aside>
       </form>
     {%- endif -%}
   </div>
@@ -73,6 +103,13 @@
 {
   "name": "Cart",
   "tag": "section",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "Free shipping. Installed, trained, and supported by our team."
+    }
+  ]
 }
 {% endschema %}
