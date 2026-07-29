@@ -118,7 +118,7 @@
             "title": "Ortho team designs",
             "text": "Experienced ortho designers build the treatment plan, with orthodontist review.",
             "image": "shopify://shop_images/guard.png",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2023/01/DandyLab-0446.jpg",
+            "image_url": "",
             "show_play": false
           }
         },
@@ -166,7 +166,7 @@
           "settings": {
             "image": "shopify://shop_images/M9405101.webp",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/04/Accordian-Image-1_Clear-aligners-made-for-the-general-dentists@2x-1.png",
+            "image_url": "",
             "label": "Mentorship program",
             "title": "Ortho support on every case",
             "text": "Case review videos for each submitted plan, progress reviews for troubleshooting, and ongoing education from our ortho experts."
@@ -177,7 +177,7 @@
           "settings": {
             "image": "shopify://shop_images/M9400913.jpg",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/04/Accordian-Image-2_Everything-your-patient-needs@2x-1.png",
+            "image_url": "",
             "label": "Patient kit",
             "title": "Premium unboxing, included",
             "text": "Custom tote, travel pouch, welcome kit, chewies, 3-in-1 aligner cleaner, and a premium case with every treatment."
@@ -188,7 +188,7 @@
           "settings": {
             "image": "shopify://shop_images/step_2_desk.webp",
             "fallback_asset": "",
-            "image_url": "https://www.meetdandy.com/wp-content/uploads/2024/01/Accordian-Image-3_Design-preview@2x-1.png",
+            "image_url": "",
             "label": "Fewer revisions",
             "title": "Plans proposed, not guessed",
             "text": "Orthodontist-reviewed treatment plans mean fewer refinements and higher-quality outcomes from the first proposal."
@@ -274,7 +274,7 @@
         "height": 560,
         "overlay_opacity": 22,
         "video_url": "https://www.ortho-clear.com/cdn/shop/videos/c/vp/5307b2493fca4d0c948f704187d38c9d/5307b2493fca4d0c948f704187d38c9d.HD-1080p-7.2Mbps-26212345.mp4?v=0",
-        "poster_url": "https://www.meetdandy.com/wp-content/uploads/2026/06/meet-Dandy-website-Header-Image-scaled@2x.webp"
+        "poster_url": ""
       }
     },
     "faq": {
