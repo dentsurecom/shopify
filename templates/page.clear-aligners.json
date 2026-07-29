@@ -220,37 +220,37 @@
         "p1": {
           "type": "plan",
           "settings": {
-            "title": "On Demand",
-            "text": "Flexible — fits the exact needs of your patient.",
+            "title": "GO",
+            "text": "For minor corrections and simple cases.",
             "featured": false,
             "badge": "Most popular",
-            "specs": "Steps | Any number\nRefinements | Add-on\nRetainers | Add-on",
-            "price": "$675",
-            "price_suffix": "/arch"
+            "specs": "Steps | Up to 7\nRefinements | Add-on\nRetainers | Add-on\nPrice | €595",
+            "price": "€595",
+            "price_suffix": ""
           }
         },
         "p2": {
           "type": "plan",
           "settings": {
-            "title": "DentSure 20",
+            "title": "FLEX",
             "text": "The perfect option for under-a-year treatment.",
             "featured": true,
             "badge": "Most popular",
-            "specs": "Steps | Up to 20\nRefinements | 1 included\nRetainers | 1 set included",
-            "price": "$675",
-            "price_suffix": "/arch"
+            "specs": "Steps | Up to 20\nRefinements | 1 included\nRetainers | 1 set included\nPrice | €995",
+            "price": "€995",
+            "price_suffix": ""
           }
         },
         "p3": {
           "type": "plan",
           "settings": {
-            "title": "DentSure Max",
+            "title": "PRO",
             "text": "All-inclusive, for every treatment type.",
             "featured": false,
             "badge": "Most popular",
-            "specs": "Steps | Unlimited\nRefinements | Unlimited\nRetainers | 2 sets included",
-            "price": "$675",
-            "price_suffix": "/arch"
+            "specs": "Steps | Up to 40\nRefinements | 2 included\nRetainers | 2 sets included\nPrice | €1295",
+            "price": "€1295",
+            "price_suffix": ""
           }
         }
       },
